@@ -40,7 +40,7 @@ public class WeatherData
 
     public WeatherData(in string rawText) => this.RawText = rawText;
 
-    public static int GUST_THRESHOLD { get; } = 10;
+    public static int GUST_THRESHOLD { get; } = 5;
 
     public override string ToString()
     {

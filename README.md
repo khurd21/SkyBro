@@ -1,12 +1,25 @@
-# AWS Lambda Empty Function Project
+# Sky Bro: Weather Observations
 
-This starter project consists of:
-* Function.cs - class file containing a class with a single function handler method
-* aws-lambda-tools-defaults.json - default argument settings for use with Visual Studio and command line deployment tools for AWS
+<img
+    src="https://img.shields.io/badge/dotnet-512BD4?style=for-the-badge&logo=dotnet&logoColor=white"
+    alt="Website Badge" />
+<img
+    src="https://img.shields.io/badge/CSharp-239120?style=for-the-badge&logo=csharp&logoColor=white"
+    alt="Website Badge" />
+<img
+    src="https://img.shields.io/badge/Lambda-FF9900?style=for-the-badge&logo=aws-lambda&logoColor=white"
+    alt="Website Badge" />
+<img
+    src="https://img.shields.io/badge/Alexa-00CAFF?style=for-the-badge&logo=amazon-alexa&logoColor=white"
+    alt="Website Badge" />
 
-You may also have a test project depending on the options selected.
+Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding!
 
-The generated function handler is a simple method accepting a string argument that returns the uppercase equivalent of the input string. Replace the body of this method, and parameters, to suit your needs. 
+Ask weather questions to Alexa:
+- Alexa, ask Sky Bro for weather at Sanderson Field
+- Alexa, ask Sky Bro for sky conditions at Skydive Chelan
+
+---
 
 ## Here are some steps to follow from Visual Studio:
 
