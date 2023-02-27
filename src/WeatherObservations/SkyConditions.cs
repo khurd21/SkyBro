@@ -22,6 +22,8 @@ public class SkyConditions
 
     public int? CloudBaseFeetAGL { get; init; }
 
+    public int? CloudCoverPercent { get; init; }
+
     public override string ToString()
     {
         string result = $"<{nameof(SkyConditions)}>\n";

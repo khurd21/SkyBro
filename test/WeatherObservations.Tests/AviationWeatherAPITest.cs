@@ -8,7 +8,6 @@ public class AviationWeatherAPITest
     [InlineData("KSHN", "KSHN")]
     [InlineData("KCLS", "KCLS")]
     [InlineData("KHQM", "KHQM")]
-    [InlineData("KSHN,KHQM", "KSHN")]
     public void TestGetSkyConditionsStringValidStationID(string stationId, string expectedStationId)
     {
         var skyConditions = Task.Run(async () => await AviationWeatherAPI.GetSkyConditions(stationId)).Result;

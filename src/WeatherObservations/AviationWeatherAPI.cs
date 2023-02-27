@@ -4,13 +4,14 @@ namespace WeatherObservations;
 
 public static class AviationWeatherAPI
 {
-
-    static AviationWeatherAPI() {
+    static AviationWeatherAPI()
+    {
         AviationWeatherAPI.Client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows " +
         "NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
         "Chrome/86.0.4240.198 Edg/86.0.622.69");
     }
-    public async static Task<IList<WeatherData>> GetSkyConditions(IList<string> stationIds) {
+    public async static Task<IList<WeatherData>> GetSkyConditions(IList<string> stationIds)
+    {
         IList<WeatherData> skyConditions = new List<WeatherData>();
         IList<Task> skyConditionsTasks = new List<Task>();
 
@@ -27,7 +28,8 @@ public static class AviationWeatherAPI
         return skyConditions;
     }
 
-    public async static Task<WeatherData?> GetSkyConditions(string stationId) {
+    public async static Task<WeatherData?> GetSkyConditions(string stationId)
+    {
 
         var response = await AviationWeatherAPI.MakeWebRequest(new List<string>() { stationId });
         string responseContent = await response.Content.ReadAsStringAsync();
@@ -36,7 +38,8 @@ public static class AviationWeatherAPI
         return item == null ? null : AviationWeatherAPI.XmlToWeatherData(item);
     }
 
-    private async static Task<HttpResponseMessage> MakeWebRequest(IList<string> stationIds) {
+    private async static Task<HttpResponseMessage> MakeWebRequest(IList<string> stationIds)
+    {
         string requestUri = $"{WeatherObservationsGlobals.URL_FOR_WEATHER}{String.Join(',', stationIds)}";
         return await AviationWeatherAPI.Client.GetAsync(requestUri);
     }
