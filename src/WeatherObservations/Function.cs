@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Request.Type;
@@ -49,89 +50,54 @@ public class Function
 
     private SkillResponse HandleGetSkyConditionsIntent(IntentRequest request)
     {
-        string value = request.Intent.Slots["airport"].Value;
-        string id = string.Empty;
+        string stationId = string.Empty;
+        string state = string.Empty;
+        DateTime date = default;
         try
         {
-            id = request.Intent.Slots["airport"].Resolution.Authorities[0].Values[0].Value.Id;
+            string id = request.Intent.Slots["airport"].Resolution.Authorities[0].Values[0].Value.Id;
+            stationId = id.Split(':')[0];
+            state = id.Split(':')[1];
+
+            string dateString = request.Intent.Slots["date"].SlotValue.Value;
+            DateTime.TryParse(dateString, out date); 
         }
         catch (Exception)
         {
             // ignored
         }
 
-        // Add value to Task list to be run. If id is not empty, add it to the list to be run as well
-        var weatherData = new List<WeatherData>();
-        var tasks = new List<Task>();
-        tasks.Add(Task.Run(async () => {
-            var skyCondition = await AviationWeatherAPI.GetSkyConditions(value);
-            if (skyCondition != null)
-                weatherData.Add(skyCondition);
-        }));
-        if (!string.IsNullOrEmpty(id))
-            tasks.Add(Task.Run(async () => {
-                var skyCondition = await AviationWeatherAPI.GetSkyConditions(id);
-                if (skyCondition != null)
-                    weatherData.Add(skyCondition);
-            }));
-
-        // Wait for all tasks to complete
-        Task.WaitAll(tasks.ToArray());
-
-        if (weatherData.Count == 0)
-            return ResponseBuilder.Tell($"I'm sorry, I could not find any weather observations for {value}.");
-        if (weatherData.Count == 1)
-            return this.BuildSkyConditionsResponse(weatherData[0]);
-        if (weatherData.Count == 2)
+        if (string.IsNullOrEmpty(stationId) || string.IsNullOrEmpty(state))
         {
-            // If the station IDs are the same, return the response
-            if (weatherData[0].StationID == weatherData[1].StationID)
-                return this.BuildSkyConditionsResponse(weatherData[0]);
-
-            this.Logger.LogCritical($"WARNING: Two different station IDs were returned for the same airport. Value: {value}, ID: {id}, StationID1: {weatherData[0].StationID}, StationID2: {weatherData[1].StationID}");
-            return this.BuildSkyConditionsResponse(weatherData[0]);
+            return ResponseBuilder.Tell("I'm sorry, I could not find any weather observations for that airport.");
+        }
+        if (date == default || date == null)
+        {
+            date = DateTime.Now;
         }
 
-        return ResponseBuilder.Tell($"I'm sorry, I could not find any weather observations for {value}.");
+        var skyConditions = AviationWeatherExtendedAPI.GetSkyConditionsExtended(stationId, state).Result;
+        if (skyConditions == null || skyConditions.Count == 0)
+        {
+            return ResponseBuilder.Tell("I'm sorry, I could not find any weather observations for that airport.");
+        }
+
+        // Get the observations that occur on the same day as the date provided. Only return the WeatherData object
+        var observations = skyConditions
+            .Select(x => x.Value)
+            .Where(x => x.ObservationTime.GetValueOrDefault().Date == date.Date)
+            .ToList();
+
+        return this.BuildSkyConditionsResponse(observations);
     }
 
-    private SkillResponse BuildSkyConditionsResponse(WeatherData data)
+    private SkillResponse BuildSkyConditionsResponse(IList<WeatherData> data)
     {
-        string speech = $"Weather observations for {data.StationID}. ";
-        // speech += $"Observation time: {data.ObservationTime}. ";
-        if (data.FlightCategory != null)
-            speech += $"Flight category: {data.FlightCategory}. ";
-        speech += $"Wind: {data.WindDirectionDegrees} degrees at {data.WindSpeedKnots} knots";
-        if (data.IsGusting) {
-            speech += $" gusting to {data.WindGustKnots}";
-        }
-        speech += ". ";
-        if (data.IsLightning)
-        {
-            speech += "Warning. Lightning is present. ";
-        }
-
-        if (data.SkyConditions != null)
-            foreach (var skyCondition in data.SkyConditions) {
-                speech += $"Sky cover: {skyCondition.SkyCover}";
-                if (skyCondition.CloudBaseFeetAGL != null) {
-                    speech += $" with cloud base at {skyCondition.CloudBaseFeetAGL} feet";
-                }
-                speech += ". ";
-            }
-        
-        if (data.VisibilityStatuteMiles != null)
-            speech += $"Visibility: {data.VisibilityStatuteMiles} miles. ";
-        if (data.TemperatureCelsius != null)
-            speech += $"Temperature: {data.TemperatureCelsius} degrees Celsius. ";
-        if (data.DewPointCelsius != null)
-            speech += $"Dew point: {data.DewPointCelsius} degrees Celsius. ";
-        if (data.AltimeterInHg != null)
-            speech += $"Altimeter: {data.AltimeterInHg}. ";
-        if (data.SeaLevelPressureMb != null)
-            speech += $"Sea level pressure: {data.SeaLevelPressureMb}. ";
-        if (data.ElevationMeters != null)
-            speech += $"Elevation: {data.ElevationMeters} meters. ";
+        string speech = $"Weather observations for {data[0].StationID}. ";
+        // Get average temperature
+        var avgTemp = data.Average(x => x.TemperatureFahrenheit);
+        speech += $"Average temperature: {Math.Round(avgTemp.GetValueOrDefault())} degrees Fahrenheit. ";
+        speech += this.HandleSpeechForCloudBase(data);
 
         return ResponseBuilder.Tell(speech);
     }
@@ -150,5 +116,46 @@ public class Function
                 return this.HandleSessionEndRequest();
         }
 
+    }
+
+    private string HandleSpeechForCloudBase(IList<WeatherData> data)
+    {
+        string speech = string.Empty;
+        var orderedWeatherData = data
+            .OrderByDescending(weatherData => weatherData.SkyConditions?
+                .Max(skyConditions => skyConditions.CloudBaseFeetAGL));
+        var maxCloudBaseObj = orderedWeatherData.FirstOrDefault();    
+        var minCloudBaseObj = orderedWeatherData.LastOrDefault();
+
+        if (maxCloudBaseObj == null || minCloudBaseObj == null)
+        {
+            return string.Empty;
+        }
+
+        var maxCloudBase = maxCloudBaseObj.SkyConditions?
+            .OrderByDescending(skyConditions => skyConditions.CloudBaseFeetAGL)
+            .FirstOrDefault();
+        var minCloudBase = minCloudBaseObj.SkyConditions?
+            .OrderByDescending(skyConditions => skyConditions.CloudBaseFeetAGL)
+            .FirstOrDefault();
+
+        if (maxCloudBase?.CloudBaseFeetAGL == minCloudBase?.CloudBaseFeetAGL)
+        {
+            speech += $"Cloud base {maxCloudBase?.CloudCoverPercent} percent at {maxCloudBase?.CloudBaseFeetAGL} feet. ";
+        }
+        else if (maxCloudBase?.CloudBaseFeetAGL != minCloudBase?.CloudBaseFeetAGL)
+        {
+            string upOrDown = maxCloudBaseObj?.ObservationTime > minCloudBaseObj?.ObservationTime ? "ascending" : "descending";
+            var cloudBasesOrdered = new List<WeatherData?>() { maxCloudBaseObj, minCloudBaseObj }
+                .OrderByDescending(wd => wd?.ObservationTime)
+                .ToList();
+
+            speech += $"Cloud base {cloudBasesOrdered[0]?.SkyConditions?[0].CloudBaseFeetAGL} feet at " +
+            $"{cloudBasesOrdered[0]?.ObservationTime.GetValueOrDefault().Hour} {upOrDown} to " +
+            $"{cloudBasesOrdered[1]?.SkyConditions?[0].CloudBaseFeetAGL} feet at " +
+            $"{cloudBasesOrdered[1]?.ObservationTime.GetValueOrDefault().Hour}. ";
+        }
+
+        return speech;
     }
 }

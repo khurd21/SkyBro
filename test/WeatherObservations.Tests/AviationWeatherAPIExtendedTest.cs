@@ -5,12 +5,11 @@ namespace WeatherObservations.Tests;
 public class AviationWeatherExtendedAPITest
 {
     [Theory]
-    [InlineData("KSHN", "WA")]
-    public void TestGetSkyConditions(string stationId, string state)
+    [InlineData("KSHN", "WA", 22)]
+    public void TestGetSkyConditions(string stationId, string state, int count)
     {
-        Console.WriteLine("EXTENDED::");
         var response = Task.Run(async () => await AviationWeatherExtendedAPI.GetSkyConditionsExtended(stationId, state)).Result;
-        Assert.Equal(response.Count, 22);
+        Assert.Equal(response.Count, count);
         foreach (var weather in response) {
             Assert.NotNull(weather.Value.FlightCategory);
             Assert.NotNull(weather.Value.ObservationTime);

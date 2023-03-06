@@ -29,7 +29,13 @@ public class AviationWeatherAPITest
     [MemberData(nameof(GetSkyConditionsListOfStringsData))]
     public void TestGetSkyConditionsListOfStrings(IList<string> stationIds, IList<string> expectedStationIds)
     {
-
+        var skyConditions = Task.Run(async () => await AviationWeatherAPI.GetSkyConditions(stationIds)).Result;
+        Assert.NotNull(skyConditions);
+        Assert.Equal(expectedStationIds.Count, skyConditions.Count);
+        foreach (var expectedStationId in expectedStationIds)
+        {
+            Assert.Contains(expectedStationId, skyConditions.Select(s => s.StationID));
+        }
     }
 
     public static IEnumerable<object[]> GetSkyConditionsListOfStringsData()

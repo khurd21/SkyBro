@@ -12,6 +12,7 @@ public static class AviationWeatherAPI
     }
     public async static Task<IList<WeatherData>> GetSkyConditions(IList<string> stationIds)
     {
+        stationIds = stationIds.Distinct().ToList();
         IList<WeatherData> skyConditions = new List<WeatherData>();
         IList<Task> skyConditionsTasks = new List<Task>();
 

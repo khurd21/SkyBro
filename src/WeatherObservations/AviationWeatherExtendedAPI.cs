@@ -72,6 +72,7 @@ public static class AviationWeatherExtendedAPI
         {
             weatherData.Add(date, new()
             {
+                StationID = stationId,
                 ObservationTime = date,
                 WindDirectionDegrees = windDirectionDegrees[i],
                 WindSpeedMph = windSpeedMph[i],
@@ -89,10 +90,6 @@ public static class AviationWeatherExtendedAPI
                 FlightCategory = flightCategory[i],
             });
             date = date.AddHours(3);
-        }
-
-        foreach (var weather in weatherData) {
-            Console.WriteLine(weather);
         }
 
         return weatherData;

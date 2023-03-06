@@ -9,7 +9,9 @@ public static class WeatherObservationsGlobals
         "httpparam?dataSource=metars&requestType=retrieve&format=xml&hoursBeforeNow" +
         "=5&mostRecentForEachStation=true&stationString=";
 
-    public static string URL_FOR_US_AIRNET(string stationID, string state) => $"https://www.usairnet.com/cgi-bin/launch/code.cgi?sta={stationID}&state={state}";
+    public static string URL_FOR_US_AIRNET() => "https://www.usairnet.com";
+
+    public static string URL_FOR_US_AIRNET(string stationID, string state) => $"{URL_FOR_US_AIRNET()}/cgi-bin/launch/code.cgi?sta={stationID}&state={state}";
 
     public static string STATION_ID { get; } = "station_id";
 
