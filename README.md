@@ -13,11 +13,22 @@
     src="https://img.shields.io/badge/Alexa-00CAFF?style=for-the-badge&logo=amazon-alexa&logoColor=white"
     alt="Website Badge" />
 
-Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding!
+![SkyBro Header](./docs/images/SkyBro-Header.png)
+
+Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding! 
 
 Ask weather questions to Alexa:
-- Alexa, ask Sky Bro for weather at Sanderson Field
-- Alexa, ask Sky Bro for sky conditions at Skydive Chelan
+- *__Alexa, ask Sky Bro for weather at Sanderson Field__*
+- *__Alexa, ask Sky Bro for sky conditions at Skydive Chelan on Saturday__*
+
+SkyBro will give an overview of the weather conditions including:
+
+- Wind
+- Cloud Coverage
+- Flight Rules
+- Temperature
+- Dew Point
+- Adverse Conditions
 
 ---
 
