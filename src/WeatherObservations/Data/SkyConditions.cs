@@ -1,4 +1,4 @@
-namespace WeatherObservations;
+namespace WeatherObservations.Data;
 
 public class SkyConditions
 {
@@ -6,17 +6,17 @@ public class SkyConditions
     {
         get
         {
-            string skyCover = this._skyCover ?? string.Empty;
-            if (SkyConditions.SkyCoverMap.ContainsKey(skyCover))
+            string skyCover = _skyCover ?? string.Empty;
+            if (SkyCoverMap.ContainsKey(skyCover))
             {
-                return SkyConditions.SkyCoverMap[skyCover];
+                return SkyCoverMap[skyCover];
             }
             return "Unknown";
         }
 
         init
         {
-            this._skyCover = value;
+            _skyCover = value;
         }
     }
 
@@ -27,7 +27,7 @@ public class SkyConditions
     public override string ToString()
     {
         string result = $"<{nameof(SkyConditions)}>\n";
-        foreach (var prop in this.GetType().GetProperties())
+        foreach (var prop in GetType().GetProperties())
         {
             result += $"\t{prop.Name}: {prop.GetValue(this, null)}\n";
         }

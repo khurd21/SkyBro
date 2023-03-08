@@ -1,4 +1,4 @@
-namespace WeatherObservations;
+namespace WeatherObservations.Data;
 
 public class WeatherData
 {
@@ -16,11 +16,11 @@ public class WeatherData
     {
         get
         {
-            return this.TemperatureCelsius * 9 / 5 + 32;
+            return TemperatureCelsius * 9 / 5 + 32;
         }
         init
         {
-            this.TemperatureCelsius = (value - 32) * 5 / 9;
+            TemperatureCelsius = (value - 32) * 5 / 9;
         }
     }
 
@@ -32,11 +32,11 @@ public class WeatherData
     {
         get
         {
-            return this.DewPointCelsius * 9 / 5 + 32;
+            return DewPointCelsius * 9 / 5 + 32;
         }
         init
         {
-            this.DewPointCelsius = (value - 32) * 5 / 9;
+            DewPointCelsius = (value - 32) * 5 / 9;
         }
     }
 
@@ -46,11 +46,11 @@ public class WeatherData
     {
         get
         {
-            return (int?)(this.WindSpeedKnots * 1.15078);
+            return (int?)(WindSpeedKnots * 1.15078);
         }
         init
         {
-            this.WindSpeedKnots = (int?)(value / 1.15078);
+            WindSpeedKnots = (int?)(value / 1.15078);
         }
     }
 
@@ -58,11 +58,11 @@ public class WeatherData
     {
         get
         {
-            return (int?)(this.WindGustKnots * 1.15078);
+            return (int?)(WindGustKnots * 1.15078);
         }
         init
         {
-            this.WindGustKnots = (int?)(value / 1.15078);
+            WindGustKnots = (int?)(value / 1.15078);
         }
     }
 
@@ -86,13 +86,13 @@ public class WeatherData
 
     public IList<SkyConditions>? SkyConditions { get; init; }
 
-    public bool IsGusting => this.WindGustKnots - this.WindSpeedKnots > GUST_THRESHOLD;
+    public bool IsGusting => WindGustKnots - WindSpeedKnots > GUST_THRESHOLD;
 
-    public bool IsLightning => RawText?.Contains("LTG") ?? false ? true : this.LightningPercent > LIGHTNING_THRESHOLD;
+    public bool IsLightning => RawText?.Contains("LTG") ?? false ? true : LightningPercent > LIGHTNING_THRESHOLD;
 
     public WeatherData() { }
 
-    public WeatherData(in string rawText) => this.RawText = rawText;
+    public WeatherData(in string rawText) => RawText = rawText;
 
     public static int GUST_THRESHOLD { get; } = 5;
 
@@ -101,11 +101,11 @@ public class WeatherData
     public override string ToString()
     {
         string properties = $"<{nameof(WeatherData)}>\n";
-        foreach (var prop in this.GetType().GetProperties())
+        foreach (var prop in GetType().GetProperties())
         {
             properties += $"\t{prop.Name}: {prop.GetValue(this, null)}\n";
         }
-        foreach (var item in this.SkyConditions ?? new List<SkyConditions>())
+        foreach (var item in SkyConditions ?? new List<SkyConditions>())
         {
             properties += $"\t{item}\n";
         }

@@ -1,6 +1,7 @@
+using WeatherObservations.Api;
 using Xunit;
 
-namespace WeatherObservations.Tests;
+namespace WeatherObservations.Api.Tests;
 
 public class AviationWeatherAPITest
 {

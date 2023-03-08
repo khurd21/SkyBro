@@ -1,6 +1,4 @@
-using System.Net;
-
-namespace WeatherObservations;
+namespace WeatherObservations.Data;
 
 public static class WeatherObservationsGlobals
 {

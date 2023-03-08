@@ -1,12 +1,13 @@
-using System.Net.NetworkInformation;
 using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
 using Amazon.Lambda.Core;
+using WeatherObservations.Api;
+using WeatherObservations.Data;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
-[assembly: LambdaSerializerAttribute(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))] 
+[assembly: LambdaSerializerAttribute(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
 namespace WeatherObservations;
 
@@ -71,7 +72,7 @@ public class Function
         {
             return ResponseBuilder.Tell("I'm sorry, I could not find any weather observations for that airport.");
         }
-        if (date == default || date == null)
+        if (date == default)
         {
             date = DateTime.Now;
         }
