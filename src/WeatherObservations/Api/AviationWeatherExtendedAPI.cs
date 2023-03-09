@@ -33,6 +33,7 @@ public static class AviationWeatherExtendedAPI
         IList<int> windSpeedMph = new List<int>();
         IList<int> windGustMph = new List<int>();
         IList<int> cloudBaseFeet = new List<int>();
+        IList<int> additionalCloudBaseFeet = new List<int>();
         IList<int> chanceOfLightning = new List<int>();
         IList<int> chanceOfPrecipitation = new List<int>();
         IList<int> chanceOfSnow = new List<int>();
@@ -48,6 +49,7 @@ public static class AviationWeatherExtendedAPI
             () => windDirectionDegrees = GetWeatherData(response, "//tr[6]/td[@class='dbox']", parseToInt),
             () => windSpeedMph = GetWeatherData(response, "//tr[7]/td[@class='dbox']", parseToInt),
             () => windGustMph = GetWeatherData(response, "//tr[8]/td[@class='dbox']", parseToInt),
+            () => additionalCloudBaseFeet = GetWeatherData(response, "//tr[13]/td[@class='dbox']", parseToInt),
             () => cloudBaseFeet = GetWeatherData(response, "//tr[14]/td[@class='dbox']", parseToInt),
             () => chanceOfLightning = GetWeatherData(response, "//tr[22]/td[@class='dbox']", parseToInt),
             () => chanceOfPrecipitation = GetWeatherData(response, "//tr[23]/td[@class='dbox']", parseToInt),
@@ -71,6 +73,16 @@ public static class AviationWeatherExtendedAPI
 
         for (int i = 0; i < timeSlotTags.Count; ++i)
         {
+            List<SkyConditions> skyConditions = new();
+            if (cloudBaseFeet[i] != 0)
+            {
+                skyConditions.Add(new() { CloudBaseFeetAGL = cloudBaseFeet[i], CloudCoverPercent = cloudCover[i] });
+            }
+            if (additionalCloudBaseFeet[i] != 0)
+            {
+                skyConditions.Add(new() {CloudBaseFeetAGL = additionalCloudBaseFeet[i], CloudCoverPercent = cloudCover[i] });
+            }
+
             weatherData.Add(date, new()
             {
                 StationID = stationId,
@@ -78,10 +90,7 @@ public static class AviationWeatherExtendedAPI
                 WindDirectionDegrees = windDirectionDegrees[i],
                 WindSpeedMph = windSpeedMph[i],
                 WindGustMph = windGustMph[i],
-                SkyConditions = new List<SkyConditions>()
-                {
-                    new () { CloudBaseFeetAGL = cloudBaseFeet[i], CloudCoverPercent = cloudCover[i] },
-                },
+                SkyConditions = skyConditions,
                 LightningPercent = chanceOfLightning[i],
                 PrecipitationPercent = chanceOfPrecipitation[i],
                 PrecipitationForSnowPercent = chanceOfSnow[i],

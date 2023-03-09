@@ -1,4 +1,3 @@
-using WeatherObservations.Api;
 using Xunit;
 
 namespace WeatherObservations.Api.Tests;

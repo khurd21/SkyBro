@@ -59,7 +59,7 @@ public class FunctionTest
                         {
                             SlotValue = new()
                             {
-                                Value = DateTime.Now.ToString(),
+                                Value = DateTime.Now.AddDays(1).ToString(),
                             }
                         }
                     },
