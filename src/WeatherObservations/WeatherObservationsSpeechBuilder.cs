@@ -154,15 +154,15 @@ public class WeatherObservationsSpeechBuilder
     {
         var maxChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= 7 &&
-                        x.ObservationTime.GetValueOrDefault().Hour <= 22)
+            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME &&
+                        x.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME)
             .OrderByDescending(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
         var minChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= 7 &&
-                        x.ObservationTime.GetValueOrDefault().Hour <= 22)
+            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME &&
+                        x.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME)
             .OrderBy(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
@@ -203,8 +203,8 @@ public class WeatherObservationsSpeechBuilder
     public WeatherObservationsSpeechBuilder ReportCloudConditions()
     {
         var orderedWeatherData = this.Data
-            .Where(weatherData => weatherData.ObservationTime.GetValueOrDefault().Hour >= 7 &&
-                                  weatherData.ObservationTime.GetValueOrDefault().Hour <= 22)
+            .Where(weatherData => weatherData.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME &&
+                                  weatherData.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME)
             .OrderByDescending(weatherData => weatherData.SkyConditions?
                 .Max(skyConditions => skyConditions.CloudBaseFeetAGL));
         var maxCloudBaseObj = orderedWeatherData.FirstOrDefault();
