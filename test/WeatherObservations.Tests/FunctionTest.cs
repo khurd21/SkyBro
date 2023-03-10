@@ -21,6 +21,7 @@ public class FunctionTest
 
     [Theory]
     [InlineData("KSHN:WA")]
+    [InlineData("KPAE:WA")]
     public void TestFunctionHandler(string id)
     {
         var intentRequest = new IntentRequest()
@@ -59,7 +60,7 @@ public class FunctionTest
                         {
                             SlotValue = new()
                             {
-                                Value = DateTime.Now.AddDays(1).ToString(),
+                                Value = DateTime.Now.ToString(),
                             }
                         }
                     },
@@ -73,5 +74,6 @@ public class FunctionTest
         };
 
         var response = this.function.FunctionHandler(skillRequest, this.lambdaContext);
+        Assert.NotNull(response);
     }
 }

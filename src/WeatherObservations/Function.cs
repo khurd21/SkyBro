@@ -43,11 +43,15 @@ public class Function
         return ResponseBuilder.Ask(speech, rp);
     }
 
-    private SkillResponse HandleSessionEndRequest() => ResponseBuilder.Tell("Goodbye!");
+    private SkillResponse HandleSessionEndRequest() => ResponseBuilder.Tell("Blue skies!");
 
     private SkillResponse HandleSessionHelpRequest()
     {
-        const string speech = "You can ask me for sky conditions at an airport.";
+        const string speech = "You can ask me for sky conditions at an airport. " +
+                                "For example, you can say, 'Alexa, ask Sky Bro for sky conditions at Skydive Kapowsin.' " +
+                                "Or, you can say, 'Alexa, ask Sky Bro for sky conditions at Skydive Kapowsin for Saturday.' " +
+                                "Please note, I can only provide sky conditions for up to three days in advance. ";
+
         Reprompt rp = new("Ask me for sky conditions at Skydive Kapowsin.");
         return ResponseBuilder.Ask(speech, rp);
     }
@@ -71,15 +75,15 @@ public class Function
             // ignored
         }
 
+        if (date == default)
+        {
+            date = DateTime.Now;
+        }
         if (string.IsNullOrEmpty(stationId) || string.IsNullOrEmpty(state))
         {
             return ResponseBuilder.Tell(new WeatherObservationsSpeechBuilder()
                 .ReportNoObservationsForAirport()
                 .Speech);
-        }
-        if (date == default)
-        {
-            date = DateTime.Now;
         }
 
         var skyConditions = AviationWeatherExtendedAPI.GetSkyConditionsExtended(stationId, state).Result;
@@ -91,11 +95,18 @@ public class Function
                     .Speech);
         }
 
-        // Get the observations that occur on the same day as the date provided.
         var observations = skyConditions
             .Select(x => x.Value)
             .Where(x => x.ObservationTime.GetValueOrDefault().Date == date.Date)
             .ToList();
+
+        if (observations.Count == 0)
+        {
+            return ResponseBuilder.Tell(
+                new WeatherObservationsSpeechBuilder()
+                    .ReportNoObservationsForAirport(stationId, date)
+                    .Speech); 
+        }
 
         return this.BuildSkyConditionsResponse(observations);
     }
@@ -105,6 +116,8 @@ public class Function
         return ResponseBuilder.Tell(
             new WeatherObservationsSpeechBuilder(data: data)
                 .ReportIntroduction()
+                .ReportDate()
+                .ReportFlightRules()
                 .ReportCloudConditions()
                 .ReportWindConditions()
                 .ReportPrecipitation()

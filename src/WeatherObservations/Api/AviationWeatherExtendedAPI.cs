@@ -11,12 +11,23 @@ public static class AviationWeatherExtendedAPI
         Client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows " +
         "NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
         "Chrome/86.0.4240.198 Edg/86.0.622.69");
+        Client.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+        Client.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.5");
+        Client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
+        Client.DefaultRequestHeaders.Add("DNT", "1");
+        Client.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
+        Client.DefaultRequestHeaders.Add("Cache-Control", "max-age=0");
     }
 
     public async static Task<IDictionary<DateTime, WeatherData>> GetSkyConditionsExtended(string stationId, string state)
     {
         Func<string, int> parseToInt = (s) =>
         {
+            s = s.ToLower();
+            if (s.Contains("k"))
+            {
+                s = s.Replace("k", "000");
+            }
             return int.TryParse(s, out int i) ? i : 0;
         };
 

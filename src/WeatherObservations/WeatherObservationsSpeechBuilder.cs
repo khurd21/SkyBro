@@ -6,6 +6,10 @@ public class WeatherObservationsSpeechBuilder
 {
     private IList<WeatherData> Data { get; set; }
 
+    static private int MIN_TIME_FRAME { get; } = 7;
+
+    static private int MAX_TIME_FRAME { get; } = 20;
+
     public string Speech { get; private set; }
 
     public WeatherObservationsSpeechBuilder(IList<WeatherData> data)
@@ -20,13 +24,58 @@ public class WeatherObservationsSpeechBuilder
         this.Speech = string.Empty;
     }
 
-    public WeatherObservationsSpeechBuilder ReportNoObservationsForAirport(string airport = "")
+    public WeatherObservationsSpeechBuilder ReportNoObservationsForAirport(string airport = "", DateTime date = default)
     {
         if (airport == string.Empty)
         {
             airport = "that airport";
         }
-        this.Speech += $"I'm sorry, I could not find any weather observations for {airport}.";
+
+        this.Speech += $"I could not find any weather observations for {airport} ";
+        if (date != default)
+        {
+            this.Speech += $"on {date.ToString("dddd, MMMM d")}. ";
+        }
+        else
+        {
+            this.Speech += ". ";
+        }
+        return this;
+    }
+
+    public WeatherObservationsSpeechBuilder ReportFlightRules()
+    {
+        var weatherDataOnDay = this.Data
+            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME)
+            .Where(x => x.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME);
+
+        if (weatherDataOnDay.Count() == 0)
+        {
+            return this;
+        }
+
+        if (weatherDataOnDay.All(x => x.FlightCategory == weatherDataOnDay.First().FlightCategory))
+        {
+            this.Speech += $"Flight rules: {weatherDataOnDay.First().FlightCategory} all day. ";
+        }
+        else
+        {
+            var mostCommonFlightRules = weatherDataOnDay
+                .GroupBy(x => x.FlightCategory)
+                .OrderByDescending(x => x.Count())
+                .First()
+                .Key;
+            this.Speech += $"Flight rules: mostly {mostCommonFlightRules}. ";
+        }
+        return this;
+    }
+
+    public WeatherObservationsSpeechBuilder ReportDate()
+    {
+        if (this.Data.FirstOrDefault()?.ObservationTime != null)
+        {
+            this.Speech += $"Date: {this.Data.FirstOrDefault()?.ObservationTime?.ToString("dddd, MMMM d")}. ";
+        }
         return this;
     }
 
@@ -81,7 +130,7 @@ public class WeatherObservationsSpeechBuilder
         var second = isHigherWindSpeedLater ? minWindSpeed : maxWindSpeed;
 
         this.Speech += $"Wind speed: {first.WindDirectionDegrees} degrees at {first.WindSpeedMph} miles per hour, " +
-                        $"{improvingOrWorking} to {second.WindDirectionDegrees} degrees at {second.WindSpeedMph} miles per hour. ";
+                        $"{improvingOrWorking} to {second.WindDirectionDegrees} degrees at {second.WindSpeedMph} miles per hour";
 
         // Report gusts
         var maxWindGust = this.Data
@@ -91,7 +140,11 @@ public class WeatherObservationsSpeechBuilder
 
         if (maxWindGust?.WindGustMph > WeatherData.GUST_THRESHOLD)
         {
-            this.Speech += $"Gusts up to {maxWindGust.WindGustMph} miles per hour. ";
+            this.Speech += $", gusts up to {maxWindGust.WindGustMph}. ";
+        }
+        else
+        {
+            this.Speech += ". ";
         }
 
         return this;
@@ -124,9 +177,9 @@ public class WeatherObservationsSpeechBuilder
         }
 
         bool isHigherChanceOfRainLater = maxChanceOfRain.ObservationTime > minChanceOfRain.ObservationTime;
-        string improvingOrWorking = isHigherChanceOfRainLater ? "improving" : "working";
-        var first = isHigherChanceOfRainLater ? maxChanceOfRain : minChanceOfRain;
-        var second = isHigherChanceOfRainLater ? minChanceOfRain : maxChanceOfRain;
+        string improvingOrWorking = isHigherChanceOfRainLater ? "working" : "improving";
+        var first = isHigherChanceOfRainLater ? minChanceOfRain : maxChanceOfRain;
+        var second = isHigherChanceOfRainLater ? maxChanceOfRain : minChanceOfRain;
 
         // I want the time to be spoken in 12 hour format, e.g. 7:00 AM or 7:00 PM
         this.Speech += $"Chance of rain: {first.PrecipitationPercent} percent at {first.ObservationTime?.ToString("h tt")} " +
@@ -138,7 +191,7 @@ public class WeatherObservationsSpeechBuilder
             .OrderByDescending(x => x.PrecipitationForSnowPercent)
             .FirstOrDefault();
         
-        if (maxChanceOfSnow != null)
+        if (maxChanceOfSnow != null && maxChanceOfSnow.PrecipitationForSnowPercent > 0)
         {
             this.Speech += $"Chance of snow: {maxChanceOfSnow.PrecipitationForSnowPercent} percent " +
                             $"starting around {maxChanceOfSnow.ObservationTime?.ToString("h tt")}. ";
@@ -176,6 +229,12 @@ public class WeatherObservationsSpeechBuilder
                             $"{maxCloudBase?.CloudBaseFeetAGL} feet. ";
             return this;
         }
+        if (maxCloudBaseObj.ObservationTime == minCloudBaseObj.ObservationTime)
+        {
+            this.Speech += $"Cloud base: {maxCloudBase?.CloudCoverPercent} percent coverage at " +
+                            $"{maxCloudBase?.CloudBaseFeetAGL} feet. ";
+            return this;
+        }
 
         bool isMaxCloudBaseLater = maxCloudBaseObj?.ObservationTime > minCloudBaseObj?.ObservationTime;
         string upOrDown =  isMaxCloudBaseLater ? "ascending" : "descending";
@@ -185,12 +244,11 @@ public class WeatherObservationsSpeechBuilder
         var secondWeatherData = isMaxCloudBaseLater ? maxCloudBaseObj : minCloudBaseObj;
         var secondSkyCondition = isMaxCloudBaseLater ? maxCloudBase : minCloudBase;
 
-        this.Speech += $"Cloud base: {firstSkyCondition?.CloudBaseFeetAGL} feet starting at " +
-                        $"{firstWeatherData?.ObservationTime.GetValueOrDefault().Hour} with " +
+        this.Speech += $"Cloud base: {firstSkyCondition?.CloudBaseFeetAGL} feet at " +
+                        $"{firstWeatherData?.ObservationTime.GetValueOrDefault().ToShortTimeString()} with " +
                         $"{firstSkyCondition?.CloudCoverPercent} percent coverage, " +
                         $"{upOrDown} to {secondSkyCondition?.CloudBaseFeetAGL} feet " +
-                        $"at {secondWeatherData?.ObservationTime.GetValueOrDefault().Hour}. " +
-                        $"Cloud coverage: {firstSkyCondition?.CloudCoverPercent} percent coverage. ";
+                        $"at {secondWeatherData?.ObservationTime.GetValueOrDefault().ToShortTimeString()}. ";
 
         return this;
     }
