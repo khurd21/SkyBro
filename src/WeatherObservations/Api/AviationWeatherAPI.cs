@@ -1,5 +1,6 @@
 using System.Xml.Linq;
 using WeatherObservations.Data;
+using WeatherObservations.Data.DynamoDB;
 
 namespace WeatherObservations.Api;
 

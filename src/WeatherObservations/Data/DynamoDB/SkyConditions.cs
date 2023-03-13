@@ -1,4 +1,4 @@
-namespace WeatherObservations.Data;
+namespace WeatherObservations.Data.DynamoDB;
 
 public class SkyConditions
 {

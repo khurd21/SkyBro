@@ -1,4 +1,8 @@
-.vscode
-.DS_Store
+# Local development
 bin
 obj
+.vscode
+.DS_Store
+
+# DynamoDB
+weather-observations-dynamodb-data

@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  dynamodb:
+    image:  amazon/dynamodb-local
+    container_name: weather-observations-dynamodb
+    hostname: dynamodb
+    restart: always
+    volumes:
+      -  ./weather-observations-dynamodb-data:/home/dynamodblocal/data
+    ports:
+      - 8000:8000
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"

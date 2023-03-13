@@ -1,6 +1,7 @@
 using System.Globalization;
 using HtmlAgilityPack;
 using WeatherObservations.Data;
+using WeatherObservations.Data.DynamoDB;
 
 namespace WeatherObservations.Api;
 
