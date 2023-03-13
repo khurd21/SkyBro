@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
+=======
+>>>>>>> bc6b9f6 (Incorporated DynamoDB)
 using Amazon.DynamoDBv2.DataModel;
 
 namespace WeatherObservations.Data.DynamoDB;
@@ -7,6 +10,7 @@ namespace WeatherObservations.Data.DynamoDB;
 public class WeatherData
 {
     [DynamoDBHashKey]
+<<<<<<< HEAD
     [Required]
     public string? StationID { get; init; }
 
@@ -22,6 +26,12 @@ public class WeatherData
 
     [Required]
     public int UtcOffset { get; init; }
+=======
+    public string? StationID { get; init; }
+
+    [DynamoDBRangeKey]
+    public DateTime? ObservationTime { get; init; }
+>>>>>>> bc6b9f6 (Incorporated DynamoDB)
 
     public string? RawText { get; init; }
 
