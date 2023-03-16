@@ -1,5 +1,7 @@
 ## For use to setup a DynamoDB table for weather observations ##
 
+cd "$(dirname "$0")"
+
 # Require aws cli be installed
 
 if ! command -v aws >/dev/null 2>&1; then

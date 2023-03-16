@@ -7,6 +7,19 @@ public class DynamoDBConfigProvider : Provider<AmazonDynamoDBConfig>
 {
     protected override AmazonDynamoDBConfig CreateInstance(IContext context)
     {
-        throw new NotImplementedException();
+        if (System.Diagnostics.Debugger.IsAttached)
+        {
+            return new AmazonDynamoDBConfig
+            {
+                ServiceURL = "http://localhost:8000"
+            };
+        }
+        else
+        {
+            return new AmazonDynamoDBConfig()
+            {
+                RegionEndpoint = Amazon.RegionEndpoint.USEast2,
+            };
+        }
     }
 }
