@@ -36,6 +36,7 @@ public static class AviationWeatherExtendedAPI
     {
 
         var stations = await Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
+<<<<<<< HEAD
         int hoursToDelete = 1;
         if (stations != null && stations.Count > 0)
         {
@@ -49,6 +50,11 @@ public static class AviationWeatherExtendedAPI
             {
                 return stations.ToDictionary(w => w.ObservationTimeLocal);
             }
+=======
+        if (stations != null && stations.Count > 0)
+        {
+            return stations.ToDictionary(w => w.ObservationTime);
+>>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
         }
 
         Func<string, int> parseToInt = (s) =>
@@ -154,8 +160,14 @@ public static class AviationWeatherExtendedAPI
             dateLocalToStation = dateLocalToStation.AddHours(3);
         }
         
+<<<<<<< HEAD
         var saveTasks = weatherData.Values.Select(w => Context.SaveAsync(w));
         await Task.WhenAll(saveTasks);
+=======
+        var tasks = weatherData.Values.Select(w => Context.SaveAsync(w));
+        await Task.WhenAll(tasks);
+
+>>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
         return weatherData;
     }
 
