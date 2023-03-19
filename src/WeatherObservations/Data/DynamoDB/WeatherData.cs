@@ -1,4 +1,6 @@
+using System.ComponentModel.DataAnnotations;
 using Amazon.DynamoDBv2.DataModel;
+using WeatherObservations.Data.DynamoDB.Converters;
 
 namespace WeatherObservations.Data.DynamoDB;
 
@@ -6,10 +8,12 @@ namespace WeatherObservations.Data.DynamoDB;
 public class WeatherData
 {
     [DynamoDBHashKey]
+    [Required]
     public string? StationID { get; init; }
 
     [DynamoDBRangeKey]
-    public DateTime? ObservationTime { get; init; }
+    [Required]
+    public DateTime ObservationTime { get; init; }
 
     public string? RawText { get; init; }
 
@@ -94,7 +98,7 @@ public class WeatherData
 
     public int? LightningPercent { get; init; }
 
-    public IList<SkyConditions>? SkyConditions { get; init; }
+    public List<SkyConditions>? SkyConditions { get; init; }
 
     [DynamoDBIgnore]
     public bool IsGusting => WindGustKnots - WindSpeedKnots > GUST_THRESHOLD;

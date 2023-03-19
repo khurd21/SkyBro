@@ -13,7 +13,6 @@ namespace WeatherObservations;
 
 public class Function
 {
-
     private ILambdaLogger Logger { get; set; } = default!;
 
     public SkillResponse FunctionHandler(SkillRequest input, ILambdaContext context)
@@ -68,11 +67,12 @@ public class Function
             state = id.Split(':')[1];
 
             string dateString = request.Intent.Slots[Function.DateSlot].SlotValue.Value;
-            DateTime.TryParse(dateString, out date); 
+            date = DateTime.Parse(dateString);
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            // ignored
+            this.Logger.LogError("Error parsing slot values.");
+            this.Logger.LogError(e.Message);
         }
 
         if (date == default)
@@ -97,7 +97,7 @@ public class Function
 
         var observations = skyConditions
             .Select(x => x.Value)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Date == date.Date)
+            .Where(x => x.ObservationTime.Date == date.Date)
             .ToList();
 
         if (observations.Count == 0)

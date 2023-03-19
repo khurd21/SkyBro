@@ -10,16 +10,8 @@ public class Bindings : NinjectModule
     public override void Load()
     {
         Bind<AmazonDynamoDBConfig>().ToProvider<DynamoDBConfigProvider>();
-        Bind<IDynamoDBContext>().ToMethod(context => new DynamoDBContext(new AmazonDynamoDBClient()));
-        throw new NotImplementedException();
-    }
-
-    private AmazonDynamoDBClient CreateClient()
-    {
-        var config = new AmazonDynamoDBConfig
-        {
-            ServiceURL = "http://localhost:8000"
-        };
-        return new AmazonDynamoDBClient(config);
+        Bind<AmazonDynamoDBClient>().ToProvider<DynamoDBClientProvider>();
+        Bind<DynamoDBContextConfig>().ToProvider<DynamoDBContextConfigProvider>();
+        Bind<IDynamoDBContext>().ToProvider<DynamoDBContextProvider>();
     }
 }

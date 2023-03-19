@@ -3,7 +3,7 @@ using Ninject.Activation;
 
 namespace WeatherObservations.Dependencies.DynamoDB;
 
-public class DynamoDBConfigProvider : Provider<AmazonDynamoDBConfig>
+public sealed class DynamoDBConfigProvider : Provider<AmazonDynamoDBConfig>
 {
     protected override AmazonDynamoDBConfig CreateInstance(IContext context)
     {

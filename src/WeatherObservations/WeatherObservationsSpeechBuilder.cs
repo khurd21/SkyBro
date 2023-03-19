@@ -46,8 +46,8 @@ public class WeatherObservationsSpeechBuilder
     public WeatherObservationsSpeechBuilder ReportFlightRules()
     {
         var weatherDataOnDay = this.Data
-            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME);
+            .Where(x => x.ObservationTime.Hour >= MIN_TIME_FRAME)
+            .Where(x => x.ObservationTime.Hour <= MAX_TIME_FRAME);
 
         if (weatherDataOnDay.Count() == 0)
         {
@@ -74,7 +74,7 @@ public class WeatherObservationsSpeechBuilder
     {
         if (this.Data.FirstOrDefault()?.ObservationTime != null)
         {
-            this.Speech += $"Date: {this.Data.FirstOrDefault()?.ObservationTime?.ToString("dddd, MMMM d")}. ";
+            this.Speech += $"Date: {this.Data.FirstOrDefault()?.ObservationTime.ToString("dddd, MMMM d")}. ";
         }
         return this;
     }
@@ -154,15 +154,15 @@ public class WeatherObservationsSpeechBuilder
     {
         var maxChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME &&
-                        x.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME)
+            .Where(x => x.ObservationTime.Hour >= MIN_TIME_FRAME &&
+                        x.ObservationTime.Hour <= MAX_TIME_FRAME)
             .OrderByDescending(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
         var minChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME &&
-                        x.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME)
+            .Where(x => x.ObservationTime.Hour >= MIN_TIME_FRAME &&
+                        x.ObservationTime.Hour <= MAX_TIME_FRAME)
             .OrderBy(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
@@ -182,8 +182,8 @@ public class WeatherObservationsSpeechBuilder
         var second = isHigherChanceOfRainLater ? maxChanceOfRain : minChanceOfRain;
 
         // I want the time to be spoken in 12 hour format, e.g. 7:00 AM or 7:00 PM
-        this.Speech += $"Chance of rain: {first.PrecipitationPercent} percent at {first.ObservationTime?.ToString("h tt")} " +
-                        $"{improvingOrWorking} to {second.PrecipitationPercent} percent at {second.ObservationTime?.ToString("h tt")}. ";
+        this.Speech += $"Chance of rain: {first.PrecipitationPercent} percent at {first.ObservationTime.ToString("h tt")} " +
+                        $"{improvingOrWorking} to {second.PrecipitationPercent} percent at {second.ObservationTime.ToString("h tt")}. ";
         
         // If any of the observations have a chance of snow, report that as well
         var maxChanceOfSnow = this.Data
@@ -194,7 +194,7 @@ public class WeatherObservationsSpeechBuilder
         if (maxChanceOfSnow != null && maxChanceOfSnow.PrecipitationForSnowPercent > 0)
         {
             this.Speech += $"Chance of snow: {maxChanceOfSnow.PrecipitationForSnowPercent} percent " +
-                            $"starting around {maxChanceOfSnow.ObservationTime?.ToString("h tt")}. ";
+                            $"starting around {maxChanceOfSnow.ObservationTime.ToString("h tt")}. ";
         }
 
         return this;
@@ -203,8 +203,8 @@ public class WeatherObservationsSpeechBuilder
     public WeatherObservationsSpeechBuilder ReportCloudConditions()
     {
         var orderedWeatherData = this.Data
-            .Where(weatherData => weatherData.ObservationTime.GetValueOrDefault().Hour >= MIN_TIME_FRAME &&
-                                  weatherData.ObservationTime.GetValueOrDefault().Hour <= MAX_TIME_FRAME)
+            .Where(weatherData => weatherData.ObservationTime.Hour >= MIN_TIME_FRAME &&
+                                  weatherData.ObservationTime.Hour <= MAX_TIME_FRAME)
             .OrderByDescending(weatherData => weatherData.SkyConditions?
                 .Max(skyConditions => skyConditions.CloudBaseFeetAGL));
         var maxCloudBaseObj = orderedWeatherData.FirstOrDefault();
@@ -245,10 +245,10 @@ public class WeatherObservationsSpeechBuilder
         var secondSkyCondition = isMaxCloudBaseLater ? maxCloudBase : minCloudBase;
 
         this.Speech += $"Cloud base: {firstSkyCondition?.CloudBaseFeetAGL} feet at " +
-                        $"{firstWeatherData?.ObservationTime.GetValueOrDefault().ToShortTimeString()} with " +
+                        $"{firstWeatherData?.ObservationTime.ToShortTimeString()} with " +
                         $"{firstSkyCondition?.CloudCoverPercent} percent coverage, " +
                         $"{upOrDown} to {secondSkyCondition?.CloudBaseFeetAGL} feet " +
-                        $"at {secondWeatherData?.ObservationTime.GetValueOrDefault().ToShortTimeString()}. ";
+                        $"at {secondWeatherData?.ObservationTime.ToShortTimeString()}. ";
 
         return this;
     }
