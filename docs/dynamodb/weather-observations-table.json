@@ -1,0 +1,27 @@
+{
+    "TableName": "WeatherObservations",
+    "KeySchema": [
+        {
+            "AttributeName": "StationID",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "ObservationTimeUtc",
+            "KeyType": "RANGE"
+        }
+    ],
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "StationID",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ObservationTimeUtc",
+            "AttributeType": "S"
+        }
+    ],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1 
+    }
+}

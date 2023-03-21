@@ -12,7 +12,6 @@ public class AviationWeatherExtendedAPITest
         Assert.Equal(response.Count, count);
         foreach (var weather in response) {
             Assert.NotNull(weather.Value.FlightCategory);
-            Assert.NotNull(weather.Value.ObservationTime);
             Assert.NotNull(weather.Value.TemperatureCelsius);
             Assert.NotNull(weather.Value.DewPointCelsius);
             Assert.NotNull(weather.Value.WindDirectionDegrees);

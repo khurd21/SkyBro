@@ -4,7 +4,7 @@ using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
 using Amazon.Lambda.Core;
 using WeatherObservations.Api;
-using WeatherObservations.Data;
+using WeatherObservations.Data.DynamoDB;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializerAttribute(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -13,7 +13,6 @@ namespace WeatherObservations;
 
 public class Function
 {
-
     private ILambdaLogger Logger { get; set; } = default!;
 
     public SkillResponse FunctionHandler(SkillRequest input, ILambdaContext context)
@@ -68,17 +67,14 @@ public class Function
             state = id.Split(':')[1];
 
             string dateString = request.Intent.Slots[Function.DateSlot].SlotValue.Value;
-            DateTime.TryParse(dateString, out date); 
+            date = DateTime.Parse(dateString);
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            // ignored
+            this.Logger.LogError("Error parsing slot values.");
+            this.Logger.LogError(e.Message);
         }
 
-        if (date == default)
-        {
-            date = DateTime.Now;
-        }
         if (string.IsNullOrEmpty(stationId) || string.IsNullOrEmpty(state))
         {
             return ResponseBuilder.Tell(new WeatherObservationsSpeechBuilder()
@@ -95,9 +91,18 @@ public class Function
                     .Speech);
         }
 
+        if (date == default)
+        {
+            date = skyConditions
+                .Select(x => x.Value)
+                .OrderByDescending(x => x.ObservationTimeUtc)
+                .First()
+                .ObservationTimeLocal;
+        }
+
         var observations = skyConditions
             .Select(x => x.Value)
-            .Where(x => x.ObservationTime.GetValueOrDefault().Date == date.Date)
+            .Where(x => x.ObservationTimeLocal.Date == date.Date)
             .ToList();
 
         if (observations.Count == 0)

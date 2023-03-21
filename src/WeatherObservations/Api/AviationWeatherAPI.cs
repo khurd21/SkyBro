@@ -1,5 +1,6 @@
 using System.Xml.Linq;
 using WeatherObservations.Data;
+using WeatherObservations.Data.DynamoDB;
 
 namespace WeatherObservations.Api;
 
@@ -56,7 +57,7 @@ public static class AviationWeatherAPI
             StationID = element.Element(WeatherObservationsGlobals.STATION_ID)?.Value,
             FlightCategory = element.Element(WeatherObservationsGlobals.FLIGHT_CATEGORY)?.Value,
 
-            ObservationTime = DateTime.Parse(
+            ObservationTimeUtc = DateTime.Parse(
                 element.Element(WeatherObservationsGlobals.OBSERVATION_TIME)?.Value ?? string.Empty,
                 null,
                 System.Globalization.DateTimeStyles.RoundtripKind),

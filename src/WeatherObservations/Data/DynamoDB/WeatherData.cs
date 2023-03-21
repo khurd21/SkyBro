@@ -1,17 +1,36 @@
-namespace WeatherObservations.Data;
+using System.ComponentModel.DataAnnotations;
+using Amazon.DynamoDBv2.DataModel;
 
+namespace WeatherObservations.Data.DynamoDB;
+
+[DynamoDBTable("WeatherObservations")]
 public class WeatherData
 {
+    [DynamoDBHashKey]
+    [Required]
     public string? StationID { get; init; }
+
+    [DynamoDBRangeKey]
+    [Required]
+    public DateTime ObservationTimeUtc { get; init; }
+
+    [Required]
+    public DateTime DateRecordedToDatabaseUtc { get; init; }
+
+    [DynamoDBIgnore]
+    public DateTime ObservationTimeLocal => this.ObservationTimeUtc.AddHours(UtcOffset);
+
+    [Required]
+    public int UtcOffset { get; init; }
 
     public string? RawText { get; init; }
 
     public string? FlightCategory { get; init; }
 
-    public DateTime? ObservationTime { get; init; }
 
     public float? TemperatureCelsius { get; init; }
 
+    [DynamoDBIgnore]
     public float? TemperatureFahrenheit
     {
         get
@@ -28,6 +47,7 @@ public class WeatherData
 
     public float? DewPointCelsius { get; init; }
 
+    [DynamoDBIgnore]
     public float? DewPointFahrenheit
     {
         get
@@ -42,6 +62,7 @@ public class WeatherData
 
     public int? WindDirectionDegrees { get; init; }
 
+    [DynamoDBIgnore]
     public int? WindSpeedMph
     {
         get
@@ -54,6 +75,7 @@ public class WeatherData
         }
     }
 
+    [DynamoDBIgnore]
     public int? WindGustMph
     {
         get
@@ -84,18 +106,22 @@ public class WeatherData
 
     public int? LightningPercent { get; init; }
 
-    public IList<SkyConditions>? SkyConditions { get; init; }
+    public List<SkyConditions>? SkyConditions { get; init; }
 
+    [DynamoDBIgnore]
     public bool IsGusting => WindGustKnots - WindSpeedKnots > GUST_THRESHOLD;
 
+    [DynamoDBIgnore]
     public bool IsLightning => RawText?.Contains("LTG") ?? false ? true : LightningPercent > LIGHTNING_THRESHOLD;
 
     public WeatherData() { }
 
     public WeatherData(in string rawText) => RawText = rawText;
 
+    [DynamoDBIgnore]
     public static int GUST_THRESHOLD { get; } = 5;
 
+    [DynamoDBIgnore]
     public static int LIGHTNING_THRESHOLD { get; } = 10;
 
     public override string ToString()

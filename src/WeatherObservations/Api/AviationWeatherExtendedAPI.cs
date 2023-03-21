@@ -1,13 +1,26 @@
 using System.Globalization;
+using System.Reflection;
+using Amazon.DynamoDBv2.DataModel;
 using HtmlAgilityPack;
+using Ninject;
 using WeatherObservations.Data;
+using WeatherObservations.Data.DynamoDB;
 
 namespace WeatherObservations.Api;
 
 public static class AviationWeatherExtendedAPI
 {
+    private static IDynamoDBContext Context { get; set; }
+
+    private static HttpClient Client { get; } = new();
+
     static AviationWeatherExtendedAPI()
     {
+        var kernel = new StandardKernel();
+        kernel.Load(Assembly.GetExecutingAssembly());
+
+        Context = kernel.Get<IDynamoDBContext>();
+
         Client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows " +
         "NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
         "Chrome/86.0.4240.198 Edg/86.0.622.69");
@@ -21,6 +34,23 @@ public static class AviationWeatherExtendedAPI
 
     public async static Task<IDictionary<DateTime, WeatherData>> GetSkyConditionsExtended(string stationId, string state)
     {
+
+        var stations = await Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
+        int hoursToDelete = 1;
+        if (stations != null && stations.Count > 0)
+        {
+            if (DateTime.Compare(stations.First().DateRecordedToDatabaseUtc,
+                                    DateTime.UtcNow.AddHours(hoursToDelete)) > 0)
+            {
+                var deleteTasks = stations.Select(s => Context.DeleteAsync(s));
+                await Task.WhenAll(deleteTasks);
+            }
+            else
+            {
+                return stations.ToDictionary(w => w.ObservationTimeLocal);
+            }
+        }
+
         Func<string, int> parseToInt = (s) =>
         {
             s = s.ToLower();
@@ -38,6 +68,13 @@ public static class AviationWeatherExtendedAPI
 
 
         var response = await MakeWebRequest(stationId, state);
+        int utcOffset = int.Parse(response
+            .SelectSingleNode("//span[@class='norm2']").InnerText
+            .Split("UTC:")[1]
+            .Split("&nbsp;&nbsp;")[0]
+            .Trim());
+
+        response = response.SelectSingleNode("//table[@class='header']");
 
         IList<int> cloudCover = new List<int>();
         IList<int> windDirectionDegrees = new List<int>();
@@ -73,15 +110,17 @@ public static class AviationWeatherExtendedAPI
             () => flightCategory = GetWeatherData(response, "//tr[16]/td[@class='cbox']", s => s)
         );
 
-        DateTime date = DateTime.Now.Date;
-        IDictionary<DateTime, WeatherData> weatherData = new Dictionary<DateTime, WeatherData>();
 
         var timeSlotTags = response.SelectNodes("//tr[2]/td[@class='tbox']");
         timeSlotTags.RemoveAt(0);
 
         DateTime hourMin = DateTime.ParseExact(timeSlotTags[0].InnerText, "h:mm tt", CultureInfo.InvariantCulture);
-        date = date.AddHours(hourMin.Hour).AddMinutes(hourMin.Minute);
+        DateTime dateLocalToStation = DateTime.UtcNow
+            .AddHours(utcOffset).Date
+            .AddHours(hourMin.Hour)
+            .AddMinutes(hourMin.Minute);
 
+        IDictionary<DateTime, WeatherData> weatherData = new Dictionary<DateTime, WeatherData>();
         for (int i = 0; i < timeSlotTags.Count; ++i)
         {
             List<SkyConditions> skyConditions = new();
@@ -94,10 +133,12 @@ public static class AviationWeatherExtendedAPI
                 skyConditions.Add(new() {CloudBaseFeetAGL = additionalCloudBaseFeet[i], CloudCoverPercent = cloudCover[i] });
             }
 
-            weatherData.Add(date, new()
+            weatherData.Add(dateLocalToStation, new()
             {
                 StationID = stationId,
-                ObservationTime = date,
+                ObservationTimeUtc = dateLocalToStation.AddHours(-utcOffset),
+                UtcOffset = utcOffset,
+                DateRecordedToDatabaseUtc = DateTime.UtcNow,
                 WindDirectionDegrees = windDirectionDegrees[i],
                 WindSpeedMph = windSpeedMph[i],
                 WindGustMph = windGustMph[i],
@@ -110,9 +151,11 @@ public static class AviationWeatherExtendedAPI
                 TemperatureFahrenheit = temperatureFahrenheit[i],
                 FlightCategory = flightCategory[i],
             });
-            date = date.AddHours(3);
+            dateLocalToStation = dateLocalToStation.AddHours(3);
         }
-
+        
+        var saveTasks = weatherData.Values.Select(w => Context.SaveAsync(w));
+        await Task.WhenAll(saveTasks);
         return weatherData;
     }
 
@@ -121,7 +164,10 @@ public static class AviationWeatherExtendedAPI
         var response = await Client.GetAsync(WeatherObservationsGlobals.URL_FOR_US_AIRNET(stationId, state));
         HtmlDocument htmlDocument = new();
         htmlDocument.LoadHtml(await response.Content.ReadAsStringAsync());
-        return htmlDocument.DocumentNode.SelectSingleNode("//table[@class='header']");
+
+        // Select the body of the html document
+        return htmlDocument.DocumentNode.SelectSingleNode("//body");
+
     }
 
     private static IList<T> GetWeatherData<T>(in HtmlNode response, in string xpath, in Func<string, T> parse)
@@ -134,6 +180,4 @@ public static class AviationWeatherExtendedAPI
         }
         return weatherData;
     }
-
-    private static HttpClient Client { get; } = new();
 }

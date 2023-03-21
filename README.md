@@ -51,12 +51,13 @@ SkyBro relies on the following technologies:
 - [Dotnet 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) (or use a package manager)
 - [AWS Lambda](https://aws.amazon.com/lambda/)
 - [Alexa Skill Kit](https://developer.amazon.com/en-US/alexa/alexa-skills-kit)
-- [DynamoDB](https://aws.amazon.com/dynamodb/) (future)
+- [DynamoDB](https://aws.amazon.com/dynamodb/)
 
 My programming environment uses the following:
 
 - [VSCode](https://code.visualstudio.com)
 - [Dotnet CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
+- [AWS CLI](https://aws.amazon.com/cli/)
 
 
 # Setup Environment
