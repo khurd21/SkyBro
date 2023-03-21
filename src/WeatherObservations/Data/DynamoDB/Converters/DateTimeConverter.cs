@@ -7,7 +7,7 @@ public class DateTimeConverter : IPropertyConverter
 {
     public object FromEntry(DynamoDBEntry entry)
     {
-        return entry.AsDateTime();
+        return entry.AsDateTime().ToUniversalTime();
     }
 
     public DynamoDBEntry ToEntry(object value)

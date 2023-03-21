@@ -75,10 +75,6 @@ public class Function
             this.Logger.LogError(e.Message);
         }
 
-        if (date == default)
-        {
-            date = DateTime.Now;
-        }
         if (string.IsNullOrEmpty(stationId) || string.IsNullOrEmpty(state))
         {
             return ResponseBuilder.Tell(new WeatherObservationsSpeechBuilder()
@@ -95,9 +91,18 @@ public class Function
                     .Speech);
         }
 
+        if (date == default)
+        {
+            date = skyConditions
+                .Select(x => x.Value)
+                .OrderByDescending(x => x.ObservationTimeUtc)
+                .First()
+                .ObservationTimeLocal;
+        }
+
         var observations = skyConditions
             .Select(x => x.Value)
-            .Where(x => x.ObservationTime.Date == date.Date)
+            .Where(x => x.ObservationTimeLocal.Date == date.Date)
             .ToList();
 
         if (observations.Count == 0)

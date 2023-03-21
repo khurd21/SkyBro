@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using Amazon.DynamoDBv2.DataModel;
-using WeatherObservations.Data.DynamoDB.Converters;
 
 namespace WeatherObservations.Data.DynamoDB;
 
@@ -13,7 +12,16 @@ public class WeatherData
 
     [DynamoDBRangeKey]
     [Required]
-    public DateTime ObservationTime { get; init; }
+    public DateTime ObservationTimeUtc { get; init; }
+
+    [Required]
+    public DateTime DateRecordedToDatabaseUtc { get; init; }
+
+    [DynamoDBIgnore]
+    public DateTime ObservationTimeLocal => this.ObservationTimeUtc.AddHours(UtcOffset);
+
+    [Required]
+    public int UtcOffset { get; init; }
 
     public string? RawText { get; init; }
 

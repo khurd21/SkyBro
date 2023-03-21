@@ -1,0 +1,12 @@
+Bug fixes and completing DynamoDB implementation.
+
+Initial idea of utilizing TTL does not work. Must add ability to delete
+outdated information in the code itself.
+
+- Changed the DateTime objects to be not nullable.
+- Instead of providing DateTime.UtcNow if no date is provided, use the
+date of the first WeatherData information.
+- Differentiate UTC vs Local Time. All computations and storage should be UTC,
+but use Local time of the station when building the report.
+- Modified the name of the range key from `ObservationTime` to `ObservationTimeUtc`.
+Could have made a link, but since it is development still, modified the table.

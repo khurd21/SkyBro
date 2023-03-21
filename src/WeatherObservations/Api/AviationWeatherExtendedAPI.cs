@@ -36,9 +36,19 @@ public static class AviationWeatherExtendedAPI
     {
 
         var stations = await Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
+        int hoursToDelete = 1;
         if (stations != null && stations.Count > 0)
         {
-            return stations.ToDictionary(w => w.ObservationTime);
+            if (DateTime.Compare(stations.First().DateRecordedToDatabaseUtc,
+                                    DateTime.UtcNow.AddHours(hoursToDelete)) > 0)
+            {
+                var deleteTasks = stations.Select(s => Context.DeleteAsync(s));
+                await Task.WhenAll(deleteTasks);
+            }
+            else
+            {
+                return stations.ToDictionary(w => w.ObservationTimeLocal);
+            }
         }
 
         Func<string, int> parseToInt = (s) =>
@@ -58,6 +68,13 @@ public static class AviationWeatherExtendedAPI
 
 
         var response = await MakeWebRequest(stationId, state);
+        int utcOffset = int.Parse(response
+            .SelectSingleNode("//span[@class='norm2']").InnerText
+            .Split("UTC:")[1]
+            .Split("&nbsp;&nbsp;")[0]
+            .Trim());
+
+        response = response.SelectSingleNode("//table[@class='header']");
 
         IList<int> cloudCover = new List<int>();
         IList<int> windDirectionDegrees = new List<int>();
@@ -93,15 +110,17 @@ public static class AviationWeatherExtendedAPI
             () => flightCategory = GetWeatherData(response, "//tr[16]/td[@class='cbox']", s => s)
         );
 
-        DateTime date = DateTime.Now.Date;
-        IDictionary<DateTime, WeatherData> weatherData = new Dictionary<DateTime, WeatherData>();
 
         var timeSlotTags = response.SelectNodes("//tr[2]/td[@class='tbox']");
         timeSlotTags.RemoveAt(0);
 
         DateTime hourMin = DateTime.ParseExact(timeSlotTags[0].InnerText, "h:mm tt", CultureInfo.InvariantCulture);
-        date = date.AddHours(hourMin.Hour).AddMinutes(hourMin.Minute);
+        DateTime dateLocalToStation = DateTime.UtcNow
+            .AddHours(utcOffset).Date
+            .AddHours(hourMin.Hour)
+            .AddMinutes(hourMin.Minute);
 
+        IDictionary<DateTime, WeatherData> weatherData = new Dictionary<DateTime, WeatherData>();
         for (int i = 0; i < timeSlotTags.Count; ++i)
         {
             List<SkyConditions> skyConditions = new();
@@ -114,10 +133,12 @@ public static class AviationWeatherExtendedAPI
                 skyConditions.Add(new() {CloudBaseFeetAGL = additionalCloudBaseFeet[i], CloudCoverPercent = cloudCover[i] });
             }
 
-            weatherData.Add(date, new()
+            weatherData.Add(dateLocalToStation, new()
             {
                 StationID = stationId,
-                ObservationTime = date,
+                ObservationTimeUtc = dateLocalToStation.AddHours(-utcOffset),
+                UtcOffset = utcOffset,
+                DateRecordedToDatabaseUtc = DateTime.UtcNow,
                 WindDirectionDegrees = windDirectionDegrees[i],
                 WindSpeedMph = windSpeedMph[i],
                 WindGustMph = windGustMph[i],
@@ -130,12 +151,11 @@ public static class AviationWeatherExtendedAPI
                 TemperatureFahrenheit = temperatureFahrenheit[i],
                 FlightCategory = flightCategory[i],
             });
-            date = date.AddHours(3);
+            dateLocalToStation = dateLocalToStation.AddHours(3);
         }
         
-        var tasks = weatherData.Values.Select(w => Context.SaveAsync(w));
-        await Task.WhenAll(tasks);
-
+        var saveTasks = weatherData.Values.Select(w => Context.SaveAsync(w));
+        await Task.WhenAll(saveTasks);
         return weatherData;
     }
 
@@ -144,7 +164,10 @@ public static class AviationWeatherExtendedAPI
         var response = await Client.GetAsync(WeatherObservationsGlobals.URL_FOR_US_AIRNET(stationId, state));
         HtmlDocument htmlDocument = new();
         htmlDocument.LoadHtml(await response.Content.ReadAsStringAsync());
-        return htmlDocument.DocumentNode.SelectSingleNode("//table[@class='header']");
+
+        // Select the body of the html document
+        return htmlDocument.DocumentNode.SelectSingleNode("//body");
+
     }
 
     private static IList<T> GetWeatherData<T>(in HtmlNode response, in string xpath, in Func<string, T> parse)
