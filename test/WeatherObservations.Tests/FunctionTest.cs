@@ -58,7 +58,7 @@ public class FunctionTest
                         {
                             SlotValue = new()
                             {
-                                Value = DateTime.Now.Date.ToString(),
+                                Value = DateTime.Now.ToString(),
                             }
                         }
                     },

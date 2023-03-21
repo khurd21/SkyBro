@@ -154,25 +154,15 @@ public class WeatherObservationsSpeechBuilder
     {
         var maxChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-<<<<<<< HEAD
             .Where(x => x.ObservationTimeLocal.Hour >= MIN_TIME_FRAME &&
                         x.ObservationTimeLocal.Hour <= MAX_TIME_FRAME)
-=======
-            .Where(x => x.ObservationTime.Hour >= MIN_TIME_FRAME &&
-                        x.ObservationTime.Hour <= MAX_TIME_FRAME)
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
             .OrderByDescending(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
         var minChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-<<<<<<< HEAD
             .Where(x => x.ObservationTimeLocal.Hour >= MIN_TIME_FRAME &&
                         x.ObservationTimeLocal.Hour <= MAX_TIME_FRAME)
-=======
-            .Where(x => x.ObservationTime.Hour >= MIN_TIME_FRAME &&
-                        x.ObservationTime.Hour <= MAX_TIME_FRAME)
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
             .OrderBy(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
@@ -192,13 +182,8 @@ public class WeatherObservationsSpeechBuilder
         var second = isHigherChanceOfRainLater ? maxChanceOfRain : minChanceOfRain;
 
         // I want the time to be spoken in 12 hour format, e.g. 7:00 AM or 7:00 PM
-<<<<<<< HEAD
         this.Speech += $"Chance of rain: {first.PrecipitationPercent} percent at {first.ObservationTimeLocal.ToString("h tt")} " +
                         $"{improvingOrWorking} to {second.PrecipitationPercent} percent at {second.ObservationTimeLocal.ToString("h tt")}. ";
-=======
-        this.Speech += $"Chance of rain: {first.PrecipitationPercent} percent at {first.ObservationTime.ToString("h tt")} " +
-                        $"{improvingOrWorking} to {second.PrecipitationPercent} percent at {second.ObservationTime.ToString("h tt")}. ";
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
         
         // If any of the observations have a chance of snow, report that as well
         var maxChanceOfSnow = this.Data
@@ -209,11 +194,7 @@ public class WeatherObservationsSpeechBuilder
         if (maxChanceOfSnow != null && maxChanceOfSnow.PrecipitationForSnowPercent > 0)
         {
             this.Speech += $"Chance of snow: {maxChanceOfSnow.PrecipitationForSnowPercent} percent " +
-<<<<<<< HEAD
                             $"starting around {maxChanceOfSnow.ObservationTimeLocal.ToString("h tt")}. ";
-=======
-                            $"starting around {maxChanceOfSnow.ObservationTime.ToString("h tt")}. ";
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
         }
 
         return this;
@@ -222,13 +203,8 @@ public class WeatherObservationsSpeechBuilder
     public WeatherObservationsSpeechBuilder ReportCloudConditions()
     {
         var orderedWeatherData = this.Data
-<<<<<<< HEAD
             .Where(weatherData => weatherData.ObservationTimeLocal.Hour >= MIN_TIME_FRAME &&
                                   weatherData.ObservationTimeLocal.Hour <= MAX_TIME_FRAME)
-=======
-            .Where(weatherData => weatherData.ObservationTime.Hour >= MIN_TIME_FRAME &&
-                                  weatherData.ObservationTime.Hour <= MAX_TIME_FRAME)
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
             .OrderByDescending(weatherData => weatherData.SkyConditions?
                 .Max(skyConditions => skyConditions.CloudBaseFeetAGL));
         var maxCloudBaseObj = orderedWeatherData.FirstOrDefault();
@@ -269,18 +245,10 @@ public class WeatherObservationsSpeechBuilder
         var secondSkyCondition = isMaxCloudBaseLater ? maxCloudBase : minCloudBase;
 
         this.Speech += $"Cloud base: {firstSkyCondition?.CloudBaseFeetAGL} feet at " +
-<<<<<<< HEAD
                         $"{firstWeatherData?.ObservationTimeLocal.ToShortTimeString()} with " +
                         $"{firstSkyCondition?.CloudCoverPercent} percent coverage, " +
                         $"{upOrDown} to {secondSkyCondition?.CloudBaseFeetAGL} feet " +
                         $"at {secondWeatherData?.ObservationTimeLocal.ToShortTimeString()}. ";
-=======
-                        $"{firstWeatherData?.ObservationTime.ToShortTimeString()} with " +
-                        $"{firstSkyCondition?.CloudCoverPercent} percent coverage, " +
-                        $"{upOrDown} to {secondSkyCondition?.CloudBaseFeetAGL} feet " +
-                        $"at {secondWeatherData?.ObservationTime.ToShortTimeString()}. ";
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
-
         return this;
     }
 }

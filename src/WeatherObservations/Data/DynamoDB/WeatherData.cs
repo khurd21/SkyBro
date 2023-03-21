@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using Amazon.DynamoDBv2.DataModel;
-using WeatherObservations.Data.DynamoDB.Converters;
 
 namespace WeatherObservations.Data.DynamoDB;
 
