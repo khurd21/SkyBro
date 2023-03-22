@@ -36,11 +36,11 @@ public static class AviationWeatherExtendedAPI
     {
 
         var stations = await Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
-        int hoursToDelete = 1;
         if (stations != null && stations.Count > 0)
         {
-            if (DateTime.Compare(stations.First().DateRecordedToDatabaseUtc,
-                                    DateTime.UtcNow.AddHours(hoursToDelete)) > 0)
+            DateTime firstRecorded = stations.Min(s => s.DateRecordedToDatabaseUtc);
+            DateTime threshold = DateTime.UtcNow.AddHours(Configurations.DYNAMODB_HOURS_TO_KEEP_OBSERVATIONS);
+            if (DateTime.Compare(firstRecorded, threshold) > 0)
             {
                 var deleteTasks = stations.Select(s => Context.DeleteAsync(s));
                 await Task.WhenAll(deleteTasks);

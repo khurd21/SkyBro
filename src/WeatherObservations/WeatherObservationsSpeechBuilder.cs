@@ -1,14 +1,12 @@
+using WeatherObservations.Data;
 using WeatherObservations.Data.DynamoDB;
 
 namespace WeatherObservations;
 
 public class WeatherObservationsSpeechBuilder
 {
+    // TODO: Move Data to a base class of SpeechBuilder and have a filtered list of data as well
     private IList<WeatherData> Data { get; set; }
-
-    static private int MIN_TIME_FRAME { get; } = 7;
-
-    static private int MAX_TIME_FRAME { get; } = 20;
 
     public string Speech { get; private set; }
 
@@ -46,8 +44,8 @@ public class WeatherObservationsSpeechBuilder
     public WeatherObservationsSpeechBuilder ReportFlightRules()
     {
         var weatherDataOnDay = this.Data
-            .Where(x => x.ObservationTimeLocal.Hour >= MIN_TIME_FRAME)
-            .Where(x => x.ObservationTimeLocal.Hour <= MAX_TIME_FRAME);
+            .Where(x => x.ObservationTimeLocal.Hour >= Configurations.WEATHER_OBSERVATIONS_MINIMUM_TIME_FRAME)
+            .Where(x => x.ObservationTimeLocal.Hour <= Configurations.WEATHER_OBSERVATIONS_MAXIMUM_TIME_FRAME);
 
         if (weatherDataOnDay.Count() == 0)
         {
@@ -154,15 +152,15 @@ public class WeatherObservationsSpeechBuilder
     {
         var maxChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-            .Where(x => x.ObservationTimeLocal.Hour >= MIN_TIME_FRAME &&
-                        x.ObservationTimeLocal.Hour <= MAX_TIME_FRAME)
+            .Where(x => x.ObservationTimeLocal.Hour >= Configurations.WEATHER_OBSERVATIONS_MINIMUM_TIME_FRAME &&
+                        x.ObservationTimeLocal.Hour <= Configurations.WEATHER_OBSERVATIONS_MAXIMUM_TIME_FRAME)
             .OrderByDescending(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
         var minChanceOfRain = this.Data
             .Where(x => x.PrecipitationPercent != null)
-            .Where(x => x.ObservationTimeLocal.Hour >= MIN_TIME_FRAME &&
-                        x.ObservationTimeLocal.Hour <= MAX_TIME_FRAME)
+            .Where(x => x.ObservationTimeLocal.Hour >= Configurations.WEATHER_OBSERVATIONS_MINIMUM_TIME_FRAME &&
+                        x.ObservationTimeLocal.Hour <= Configurations.WEATHER_OBSERVATIONS_MAXIMUM_TIME_FRAME)
             .OrderBy(x => x.PrecipitationPercent)
             .FirstOrDefault();
 
@@ -203,8 +201,8 @@ public class WeatherObservationsSpeechBuilder
     public WeatherObservationsSpeechBuilder ReportCloudConditions()
     {
         var orderedWeatherData = this.Data
-            .Where(weatherData => weatherData.ObservationTimeLocal.Hour >= MIN_TIME_FRAME &&
-                                  weatherData.ObservationTimeLocal.Hour <= MAX_TIME_FRAME)
+            .Where(weatherData => weatherData.ObservationTimeLocal.Hour >= Configurations.WEATHER_OBSERVATIONS_MINIMUM_TIME_FRAME &&
+                                  weatherData.ObservationTimeLocal.Hour <= Configurations.WEATHER_OBSERVATIONS_MAXIMUM_TIME_FRAME)
             .OrderByDescending(weatherData => weatherData.SkyConditions?
                 .Max(skyConditions => skyConditions.CloudBaseFeetAGL));
         var maxCloudBaseObj = orderedWeatherData.FirstOrDefault();
@@ -249,7 +247,6 @@ public class WeatherObservationsSpeechBuilder
                         $"{firstSkyCondition?.CloudCoverPercent} percent coverage, " +
                         $"{upOrDown} to {secondSkyCondition?.CloudBaseFeetAGL} feet " +
                         $"at {secondWeatherData?.ObservationTimeLocal.ToShortTimeString()}. ";
-
         return this;
     }
 }
