@@ -1,5 +1,6 @@
 using Amazon.DynamoDBv2.DataModel;
 using Ninject.Activation;
+using WeatherObservations.Data;
 
 namespace WeatherObservations.Dependencies.DynamoDB;
 
@@ -9,10 +10,10 @@ public sealed class DynamoDBContextConfigProvider : Provider<DynamoDBContextConf
     {
         return new()
         {
-            ConsistentRead = true,
-            IgnoreNullValues = true,
-            SkipVersionCheck = true,
-            TableNamePrefix = null,
+            ConsistentRead = Configurations.DYNAMODB_CONSISTENT_READ,
+            IgnoreNullValues = Configurations.DYNAMODB_IGNORE_NULL_VALUES,
+            SkipVersionCheck = Configurations.DYNAMODB_SKIP_VERSION_CHECK,
+            TableNamePrefix = Configurations.DYNAMODB_TABLE_NAME_PREFIX,
         };
     }
 }

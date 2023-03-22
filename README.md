@@ -98,10 +98,5 @@ This simply helps rebuild, test, and debug the project faster.
 
 # How to Deploy to AWS Lambda
 
-Currently, deployment to AWS Lambda occurs in the command line. It would be cool to have
-deployment occur from this repository. For now, this is how to deploy changes:
-
-```bash
-    cd "src/WeatherObservations"
-    dotnet lambda deploy-function WeatherObservations
-```
+The deployment process is automated through GitHub Actions. Upon a successful merge to the `main` branch,
+a process will build the new Lambda function and deploy it to AWS!

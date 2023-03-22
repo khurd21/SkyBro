@@ -36,13 +36,11 @@ public static class AviationWeatherExtendedAPI
     {
 
         var stations = await Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        int hoursToDelete = 1;
         if (stations != null && stations.Count > 0)
         {
-            if (DateTime.Compare(stations.First().DateRecordedToDatabaseUtc,
-                                    DateTime.UtcNow.AddHours(hoursToDelete)) > 0)
+            DateTime firstRecorded = stations.Min(s => s.DateRecordedToDatabaseUtc);
+            DateTime threshold = DateTime.UtcNow.AddHours(Configurations.DYNAMODB_HOURS_TO_KEEP_OBSERVATIONS);
+            if (DateTime.Compare(firstRecorded, threshold) > 0)
             {
                 var deleteTasks = stations.Select(s => Context.DeleteAsync(s));
                 await Task.WhenAll(deleteTasks);
@@ -51,26 +49,6 @@ public static class AviationWeatherExtendedAPI
             {
                 return stations.ToDictionary(w => w.ObservationTimeLocal);
             }
-=======
-        if (stations != null && stations.Count > 0)
-        {
-            return stations.ToDictionary(w => w.ObservationTime);
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
-=======
-        int hoursToDelete = 1;
-        if (stations != null && stations.Count > 0)
-        {
-            if (DateTime.Compare(stations.First().DateRecordedToDatabaseUtc,
-                                    DateTime.UtcNow.AddHours(hoursToDelete)) > 0)
-            {
-                var deleteTasks = stations.Select(s => Context.DeleteAsync(s));
-                await Task.WhenAll(deleteTasks);
-            }
-            else
-            {
-                return stations.ToDictionary(w => w.ObservationTimeLocal);
-            }
->>>>>>> 01fe2e8 (Bug fixes and completing DynamoDB implementation.)
         }
 
         Func<string, int> parseToInt = (s) =>
@@ -176,19 +154,8 @@ public static class AviationWeatherExtendedAPI
             dateLocalToStation = dateLocalToStation.AddHours(3);
         }
         
-<<<<<<< HEAD
-<<<<<<< HEAD
         var saveTasks = weatherData.Values.Select(w => Context.SaveAsync(w));
         await Task.WhenAll(saveTasks);
-=======
-        var tasks = weatherData.Values.Select(w => Context.SaveAsync(w));
-        await Task.WhenAll(tasks);
-
->>>>>>> d997ba9 (Implements DynamoDB as a method of caching weather data)
-=======
-        var saveTasks = weatherData.Values.Select(w => Context.SaveAsync(w));
-        await Task.WhenAll(saveTasks);
->>>>>>> 01fe2e8 (Bug fixes and completing DynamoDB implementation.)
         return weatherData;
     }
 
