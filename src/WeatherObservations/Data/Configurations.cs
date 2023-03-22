@@ -21,6 +21,8 @@ public sealed class Configurations
 
     public static int WEATHER_OBSERVATIONS_MAXIMUM_TIME_FRAME { get; } = 20;
 
+    public static int WEATHER_OBSERVATIONS_LIGHT_AND_VARIABLE_WIND_THRESHOLD { get; } = 7;
+
     // System Configurations //
     public static bool IS_DEBUG { get; } = IsDebug();
 
