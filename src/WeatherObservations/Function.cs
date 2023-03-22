@@ -5,6 +5,7 @@ using Alexa.NET.Response;
 using Amazon.Lambda.Core;
 using WeatherObservations.Api;
 using WeatherObservations.Data.DynamoDB;
+using WeatherObservations.SpeechBuilder;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializerAttribute(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -37,7 +38,7 @@ public class Function
     private SkillResponse HandleLaunchRequest() {
         string speech = new WeatherObservationsSpeechBuilder()
             .ReportIntroduction()
-            .Speech;
+            .Build();
         Reprompt rp = new("Ask me for sky conditions at Skydive Kapowsin.");
         return ResponseBuilder.Ask(speech, rp);
     }
@@ -79,7 +80,7 @@ public class Function
         {
             return ResponseBuilder.Tell(new WeatherObservationsSpeechBuilder()
                 .ReportNoObservationsForAirport()
-                .Speech);
+                .Build());
         }
 
         var skyConditions = AviationWeatherExtendedAPI.GetSkyConditionsExtended(stationId, state).Result;
@@ -88,7 +89,7 @@ public class Function
             return ResponseBuilder.Tell(
                 new WeatherObservationsSpeechBuilder()
                     .ReportNoObservationsForAirport(stationId)
-                    .Speech);
+                    .Build());
         }
 
         if (date == default)
@@ -110,7 +111,7 @@ public class Function
             return ResponseBuilder.Tell(
                 new WeatherObservationsSpeechBuilder()
                     .ReportNoObservationsForAirport(stationId, date)
-                    .Speech); 
+                    .Build()); 
         }
 
         return this.BuildSkyConditionsResponse(observations);
@@ -127,7 +128,7 @@ public class Function
                 .ReportWindConditions()
                 .ReportPrecipitation()
                 .ReportAverageTemperature()
-                .Speech
+                .Build()
         );
     }
 
