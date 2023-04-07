@@ -31,23 +31,23 @@ public class AmazonIntentHandler : IAmazonIntentHandler
 
         switch (intentName) {
             case CancelIntent:
-                return await this.HandleCancelIntent(request);
+                return await this.HandleCancelIntentAsync(request);
             case HelpIntent:
-                return await this.HandleHelpIntent(request);
+                return await this.HandleHelpIntentAsync(request);
             case StopIntent:
-                return await this.HandleStopIntent(request);
+                return await this.HandleStopIntentAsync(request);
             default:
                 this.Logger.Log($"Unhandled intent: {intentNameOrigin}");
-                return await this.HandleHelpIntent(request);
+                return await this.HandleHelpIntentAsync(request);
         }
     }
 
-    public async Task<SkillResponse> HandleCancelIntent(IntentRequest request)
+    public async Task<SkillResponse> HandleCancelIntentAsync(IntentRequest request)
     {
-        return await this.HandleStopIntent(request);
+        return await this.HandleStopIntentAsync(request);
     }
 
-    public async Task<SkillResponse> HandleHelpIntent(IntentRequest request)
+    public async Task<SkillResponse> HandleHelpIntentAsync(IntentRequest request)
     {
         const string speech = "You can ask me for sky conditions at an airport. " +
                                 "For example, you can say, 'Alexa, ask Sky Bro for sky conditions at Skydive Kapowsin.' " +
@@ -58,7 +58,7 @@ public class AmazonIntentHandler : IAmazonIntentHandler
         return await Task.FromResult(ResponseBuilder.Ask(speech, rp));
     }
 
-    public async Task<SkillResponse> HandleStopIntent(IntentRequest request)
+    public async Task<SkillResponse> HandleStopIntentAsync(IntentRequest request)
     {
         return await Task.FromResult(ResponseBuilder.Tell("Blue skies!"));
     }

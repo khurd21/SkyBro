@@ -5,9 +5,9 @@ namespace WeatherObservations.IntentHandlers.Amazon;
 
 public interface IAmazonIntentHandler : IIntentHandler
 {
-    Task<SkillResponse> HandleCancelIntent(IntentRequest request);
+    Task<SkillResponse> HandleCancelIntentAsync(IntentRequest request);
 
-    Task<SkillResponse> HandleHelpIntent(IntentRequest request);
+    Task<SkillResponse> HandleHelpIntentAsync(IntentRequest request);
 
-    Task<SkillResponse> HandleStopIntent(IntentRequest request);
+    Task<SkillResponse> HandleStopIntentAsync(IntentRequest request);
 }
