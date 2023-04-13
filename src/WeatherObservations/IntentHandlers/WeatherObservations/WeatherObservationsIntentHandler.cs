@@ -68,7 +68,7 @@ public class WeatherObservationsIntentHandler : IWeatherObservationsIntentHandle
             date = skyConditions
                 .Select(x => x.Value)
                 .OrderByDescending(x => x.ObservationTimeUtc)
-                .First()
+                .Last()
                 .ObservationTimeLocal;
         }
 
