@@ -1,7 +1,6 @@
 using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
-using Amazon.Runtime;
 using Moq;
 using Ninject.Activation;
 using WeatherObservations.Dependencies.DynamoDB;
@@ -23,38 +22,31 @@ internal class TestableDynamoDBContextProvider : DynamoDBContextProvider
     }
 }
 
-public class AmazonDynamoDBClientWrapper : AmazonDynamoDBClient
-{
-    public virtual IClientConfig ConfigWrapper => base.Config;
-}
-
 public class DynamoDBContextProviderTests
 {
     private TestableDynamoDBContextProvider DynamoDBContextProvider { get; set; }
 
-    private Mock<AmazonDynamoDBClientWrapper> Client { get; set; }
+    private Mock<AmazonDynamoDBClient> Client { get; set; }
 
     private Mock<DynamoDBContextConfig> Config { get; set; }
 
     public DynamoDBContextProviderTests()
     {
-        this.Client = new();
+        AmazonDynamoDBConfig clientConfig = new()
+        {
+            RegionEndpoint = RegionEndpoint.USEast1,
+            ServiceURL = "http://localhost:8000"
+        };
+
+        this.Client = new(clientConfig);
         this.Config = new();
+
         this.DynamoDBContextProvider = new(this.Client.Object, this.Config.Object);
     }
 
     [Fact]
     public void TestCreateInstance()
     {
-        // Error: No RegionEndpoint or ServiceURL configured
-        this.Client.SetupGet(x => x.ConfigWrapper.RegionEndpoint)
-            .Returns(RegionEndpoint.USEast1)
-            .Verifiable();
-        
-        this.Client.SetupGet(x => x.ConfigWrapper.ServiceURL)
-            .Returns("http://localhost:8000")
-            .Verifiable();
-
         var context = this.DynamoDBContextProvider.CreateInstance(null!);
 
         Assert.NotNull(context);
