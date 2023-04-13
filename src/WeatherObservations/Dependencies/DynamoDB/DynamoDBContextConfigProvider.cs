@@ -4,7 +4,7 @@ using WeatherObservations.Data;
 
 namespace WeatherObservations.Dependencies.DynamoDB;
 
-public sealed class DynamoDBContextConfigProvider : Provider<DynamoDBContextConfig>
+public class DynamoDBContextConfigProvider : Provider<DynamoDBContextConfig>
 {
     protected override DynamoDBContextConfig CreateInstance(IContext context)
     {

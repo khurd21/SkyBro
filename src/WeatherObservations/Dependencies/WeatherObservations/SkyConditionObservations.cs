@@ -1,43 +1,34 @@
 using System.Globalization;
-using System.Reflection;
 using Amazon.DynamoDBv2.DataModel;
 using HtmlAgilityPack;
-using Ninject;
 using WeatherObservations.Data;
 using WeatherObservations.Data.DynamoDB;
+using WeatherObservations.Dependencies.Logger;
 
-namespace WeatherObservations.Api;
+namespace WeatherObservations.Dependencies.WeatherObservations;
 
-public static class AviationWeatherExtendedAPI
+public class SkyConditionObservations : ISkyConditionObservations
 {
-    private static IDynamoDBContext Context { get; set; }
+    private ILogger Logger { get; init; }
 
-    private static HttpClient Client { get; } = new();
+    private IDynamoDBContext Context { get; init; }
 
-    static AviationWeatherExtendedAPI()
+    private HttpClient Client { get; init; }
+
+    public SkyConditionObservations(ILogger logger, IDynamoDBContext dynamoDBContext, HttpClient client)
     {
-        var kernel = new StandardKernel();
-        kernel.Load(Assembly.GetExecutingAssembly());
-
-        Context = kernel.Get<IDynamoDBContext>();
-
-        Client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows " +
-        "NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
-        "Chrome/86.0.4240.198 Edg/86.0.622.69");
-        Client.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
-        Client.DefaultRequestHeaders.Add("Accept-Language", "en-US,en;q=0.5");
-        Client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, br");
-        Client.DefaultRequestHeaders.Add("DNT", "1");
-        Client.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
-        Client.DefaultRequestHeaders.Add("Cache-Control", "max-age=0");
+        this.Logger = logger;
+        this.Context = dynamoDBContext;
+        this.Client = client;
     }
 
-    public async static Task<IDictionary<DateTime, WeatherData>> GetSkyConditionsExtended(string stationId, string state)
+    public async Task<IDictionary<DateTime, WeatherData>> GetSkyConditionsAsync(string stationId, string state)
     {
-
-        var stations = await Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
+        this.Logger.Log($"Getting Sky Conditions for {stationId} in {state}.");
+        var stations = await this.Context.QueryAsync<WeatherData>(stationId).GetRemainingAsync();
         if (stations != null && stations.Count > 0)
         {
+            this.Logger.Log($"Found {stations.Count} records for {stationId} in {state}.");
             DateTime firstRecorded = stations
                 .Min(s => s.DateRecordedToDatabaseUtc)
                 .AddHours(Configurations.DYNAMODB_HOURS_TO_KEEP_OBSERVATIONS);
@@ -68,7 +59,7 @@ public static class AviationWeatherExtendedAPI
             return float.TryParse(s, out float f) ? f : 0;
         };
 
-
+        this.Logger.Log($"No records found for {stationId} in {state}. Making web request.");
         var response = await MakeWebRequest(stationId, state);
         int utcOffset = int.Parse(response
             .SelectSingleNode("//span[@class='norm2']").InnerText
@@ -103,7 +94,7 @@ public static class AviationWeatherExtendedAPI
             () => cloudBaseFeet = GetWeatherData(response, "//tr[14]/td[@class='dbox']", parseToInt),
             () => chanceOfLightning = GetWeatherData(response, "//tr[22]/td[@class='dbox']", parseToInt),
             () => chanceOfPrecipitation = GetWeatherData(response, "//tr[23]/td[@class='dbox']", parseToInt),
-            () => chanceOfSnow = GetWeatherData(response, "//tr[24]/td[@class='dbox']", parseToInt),
+            // () => chanceOfSnow = GetWeatherData(response, "//tr[24]/td[@class='dbox']", parseToInt),
             () => dewPoint = GetWeatherData(response, "//tr[26]/td[@class='dbox']", parseToInt),
 
             () => visibilityMiles = GetWeatherData(response, "//tr[15]/td[@class='dbox']", parseToFloat),
@@ -115,6 +106,10 @@ public static class AviationWeatherExtendedAPI
 
         var timeSlotTags = response.SelectNodes("//tr[2]/td[@class='tbox']");
         timeSlotTags.RemoveAt(0);
+
+        // Snow Data is not available on this page.
+        chanceOfSnow = Enumerable.Repeat(0, timeSlotTags.Count).ToList();
+
 
         DateTime hourMin = DateTime.ParseExact(timeSlotTags[0].InnerText, "h:mm tt", CultureInfo.InvariantCulture);
         DateTime dateLocalToStation = DateTime.UtcNow
@@ -161,18 +156,17 @@ public static class AviationWeatherExtendedAPI
         return weatherData;
     }
 
-    private async static Task<HtmlNode> MakeWebRequest(string stationId, string state)
+    private async Task<HtmlNode> MakeWebRequest(string stationId, string state)
     {
-        var response = await Client.GetAsync(WeatherObservationsGlobals.URL_FOR_US_AIRNET(stationId, state));
+        var response = await this.Client.GetAsync(WeatherObservationsGlobals.URL_FOR_US_AIRNET(stationId, state));
         HtmlDocument htmlDocument = new();
         htmlDocument.LoadHtml(await response.Content.ReadAsStringAsync());
 
         // Select the body of the html document
         return htmlDocument.DocumentNode.SelectSingleNode("//body");
-
     }
 
-    private static IList<T> GetWeatherData<T>(in HtmlNode response, in string xpath, in Func<string, T> parse)
+    private IList<T> GetWeatherData<T>(in HtmlNode response, in string xpath, in Func<string, T> parse)
     {
         var weatherDataTags = response.SelectNodes(xpath);
         IList<T> weatherData = new List<T>();
