@@ -26,7 +26,7 @@ public class WeatherObservationsIntentHandler : IWeatherObservationsIntentHandle
         this.SkyConditionObservations = observations;
     }
 
-    public async Task<SkillResponse> HandleIntent(IntentRequest request)
+    public async Task<SkillResponse> HandleIntentAsync(IntentRequest request)
     {
         this.Logger.Log($"Handling intent: {request.Intent.Name}.");
         string stationId = string.Empty;

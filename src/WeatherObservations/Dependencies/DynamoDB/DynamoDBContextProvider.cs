@@ -17,7 +17,7 @@ internal class DateTimeUtcConverter : IPropertyConverter
     }
 }
 
-public sealed class DynamoDBContextProvider : Provider<IDynamoDBContext>
+public class DynamoDBContextProvider : Provider<IDynamoDBContext>
 {
     private AmazonDynamoDBClient Client { get; init; }
 

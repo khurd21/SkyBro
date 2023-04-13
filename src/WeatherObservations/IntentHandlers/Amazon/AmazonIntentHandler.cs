@@ -22,7 +22,7 @@ public class AmazonIntentHandler : IAmazonIntentHandler
         this.Logger = logger;
     }
 
-    public async Task<SkillResponse> HandleIntent(IntentRequest request)
+    public async Task<SkillResponse> HandleIntentAsync(IntentRequest request)
     {
         this.Logger.Log($"Handling intent: {request.Intent.Name}.");
         // parse the intent name: "AMAZON.CancelIntent"
@@ -37,7 +37,7 @@ public class AmazonIntentHandler : IAmazonIntentHandler
             case StopIntent:
                 return await this.HandleStopIntentAsync(request);
             default:
-                this.Logger.Log($"Unhandled intent: {intentNameOrigin}");
+                this.Logger.Log($"Unhandled intent: {request.Intent.Name}");
                 return await this.HandleHelpIntentAsync(request);
         }
     }

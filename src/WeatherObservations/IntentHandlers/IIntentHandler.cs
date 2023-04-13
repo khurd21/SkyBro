@@ -7,5 +7,5 @@ public interface IIntentHandler
 {
     string IntentName { get; }
 
-    Task<SkillResponse> HandleIntent(IntentRequest request);
+    Task<SkillResponse> HandleIntentAsync(IntentRequest request);
 }

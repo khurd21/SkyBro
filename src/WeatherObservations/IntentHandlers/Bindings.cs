@@ -18,5 +18,7 @@ public class Bindings : NinjectModule
         Bind<IIntentHandler>()
             .To<WeatherObservationsIntentHandler>()
             .When(request => request.Target.Name == IntentFactory.WeatherObservationsIntent);
+        
+        Bind<IntentFactory>().ToSelf();
     }
 }

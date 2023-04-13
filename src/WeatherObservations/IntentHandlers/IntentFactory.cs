@@ -1,11 +1,10 @@
-using System.Reflection;
 using Ninject;
 using WeatherObservations.IntentHandlers.Amazon;
 using WeatherObservations.IntentHandlers.WeatherObservations;
 
 namespace WeatherObservations.IntentHandlers;
 
-public static class IntentFactory
+public class IntentFactory
 {
     public const string WeatherObservationsIntent = "WeatherObservationsIntent";
 
@@ -17,15 +16,20 @@ public static class IntentFactory
         { AmazonIntent, typeof(IAmazonIntentHandler) }
     };
 
-    public static IIntentHandler GetIntentHandler(string intentName)
+    private IKernel Kernel { get; init; }
+
+    public IntentFactory(IKernel kernel)
+    {
+        this.Kernel = kernel;
+    }
+
+    public IIntentHandler GetIntentHandler(string intentName)
     {
         if (!IntentHandlers.ContainsKey(intentName))
         {
             throw new KeyNotFoundException($"Intent {intentName} not found");
         }
 
-        var kernel = new StandardKernel();
-        kernel.Load(Assembly.GetExecutingAssembly());
-        return (IIntentHandler)kernel.Get(IntentHandlers[intentName]);
+        return (IIntentHandler)this.Kernel.Get(IntentHandlers[intentName]);
     }
 }

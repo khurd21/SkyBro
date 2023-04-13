@@ -21,6 +21,8 @@ public class Function
 
     private ISkyConditionObservations SkyConditionObservations { get; init; }
 
+    private IntentFactory IntentFactory { get; init; }
+
     public Function()
     {
         var kernel = new StandardKernel();
@@ -29,6 +31,7 @@ public class Function
         // Get Injections
         this.Logger = kernel.Get<ILogger>();
         this.SkyConditionObservations = kernel.Get<ISkyConditionObservations>();
+        this.IntentFactory = kernel.Get<IntentFactory>();
     }
 
     public SkillResponse FunctionHandler(SkillRequest input, ILambdaContext context)
@@ -48,8 +51,8 @@ public class Function
         else if (requestType == typeof(IntentRequest))
         {
             var request = (IntentRequest)input.Request;
-            IIntentHandler intentHandler = IntentFactory.GetIntentHandler(request.Intent.Name);
-            return intentHandler.HandleIntent(request).Result;
+            IIntentHandler intentHandler = this.IntentFactory.GetIntentHandler(request.Intent.Name);
+            return intentHandler.HandleIntentAsync(request).Result;
         }
 
         return this.HandleSessionEndRequest();
