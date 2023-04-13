@@ -16,6 +16,7 @@
 ![SkyBro Header](./docs/images/SkyBro-Header.png)
 
 ![Deployment to Lambda](https://github.com/khurd21/SkyBro/actions/workflows/deploy-to-lambda.yml/badge.svg)
+![Unit Tests](https://github.com/khurd21/SkyBro/actions/workflows/unit-tests.yml/badge.svg)
 
 Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding! 
 
