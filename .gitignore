@@ -6,3 +6,6 @@ obj
 
 # DynamoDB
 weather-observations-dynamodb-data
+
+# SAM CLI
+.aws-sam
