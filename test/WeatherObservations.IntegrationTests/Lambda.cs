@@ -12,7 +12,6 @@ public static class Lambda
         {
             ServiceURL = "http://127.0.0.1:3001",
             UseHttp = true,
-            // RegionEndpoint = Amazon.RegionEndpoint.USEast1,
         });
     }
 }
