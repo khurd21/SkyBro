@@ -24,7 +24,7 @@ public sealed class Configurations
     public static int WEATHER_OBSERVATIONS_LIGHT_AND_VARIABLE_WIND_THRESHOLD { get; } = 7;
 
     // System Configurations //
-    public static bool IS_DEBUG { get; } = IsDebug();
+    public static bool IS_DEBUG { get; } = IsDebug() | Environment.GetEnvironmentVariable("IS_DEBUG")?.ToLower() == "true";
 
     private static bool IsDebug()
     {

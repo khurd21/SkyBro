@@ -13,7 +13,10 @@ public class IntentFactory
     private static readonly Dictionary<string, Type> IntentHandlers = new()
     {
         { WeatherObservationsIntent, typeof(IWeatherObservationsIntentHandler) },
-        { AmazonIntent, typeof(IAmazonIntentHandler) }
+        { AmazonIntent, typeof(IAmazonIntentHandler) },
+        { "AMAZON.HelpIntent", typeof(IAmazonIntentHandler) },
+        { "AMAZON.CancelIntent", typeof(IAmazonIntentHandler) },
+        { "AMAZON.StopIntent", typeof(IAmazonIntentHandler) },
     };
 
     private IKernel Kernel { get; init; }

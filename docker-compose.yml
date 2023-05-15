@@ -11,3 +11,8 @@ services:
     ports:
       - 8000:8000
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
+
+networks:
+  weather-observations-network:
+    name: weather-observations-network
+    external: true

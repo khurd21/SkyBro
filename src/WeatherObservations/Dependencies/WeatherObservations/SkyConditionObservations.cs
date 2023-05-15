@@ -86,21 +86,21 @@ public class SkyConditionObservations : ISkyConditionObservations
         IList<string> flightCategory = new List<string>();
 
         Parallel.Invoke(
-            () => cloudCover = GetWeatherData(response, "//tr[12]/td[@class='dbox']", parseToInt),
-            () => windDirectionDegrees = GetWeatherData(response, "//tr[6]/td[@class='dbox']", parseToInt),
-            () => windSpeedMph = GetWeatherData(response, "//tr[7]/td[@class='dbox']", parseToInt),
-            () => windGustMph = GetWeatherData(response, "//tr[8]/td[@class='dbox']", parseToInt),
-            () => additionalCloudBaseFeet = GetWeatherData(response, "//tr[13]/td[@class='dbox']", parseToInt),
-            () => cloudBaseFeet = GetWeatherData(response, "//tr[14]/td[@class='dbox']", parseToInt),
-            () => chanceOfLightning = GetWeatherData(response, "//tr[22]/td[@class='dbox']", parseToInt),
-            () => chanceOfPrecipitation = GetWeatherData(response, "//tr[23]/td[@class='dbox']", parseToInt),
+            () => cloudCover = GetWeatherData(response, "//tr[11]/td[@class='dbox']", parseToInt),
+            () => windDirectionDegrees = GetWeatherData(response, "//tr[5]/td[@class='dbox']", parseToInt),
+            () => windSpeedMph = GetWeatherData(response, "//tr[6]/td[@class='dbox']", parseToInt),
+            () => windGustMph = GetWeatherData(response, "//tr[7]/td[@class='dbox']", parseToInt),
+            () => additionalCloudBaseFeet = GetWeatherData(response, "//tr[12]/td[@class='dbox']", parseToInt),
+            () => cloudBaseFeet = GetWeatherData(response, "//tr[13]/td[@class='dbox']", parseToInt),
+            () => chanceOfLightning = GetWeatherData(response, "//tr[21]/td[@class='dbox']", parseToInt),
+            () => chanceOfPrecipitation = GetWeatherData(response, "//tr[22]/td[@class='dbox']", parseToInt),
             // () => chanceOfSnow = GetWeatherData(response, "//tr[24]/td[@class='dbox']", parseToInt),
-            () => dewPoint = GetWeatherData(response, "//tr[26]/td[@class='dbox']", parseToInt),
+            () => dewPoint = GetWeatherData(response, "//tr[24]/td[@class='dbox']", parseToInt),
 
-            () => visibilityMiles = GetWeatherData(response, "//tr[15]/td[@class='dbox']", parseToFloat),
+            () => visibilityMiles = GetWeatherData(response, "//tr[14]/td[@class='dbox']", parseToFloat),
             () => temperatureFahrenheit = GetWeatherData(response, "//tr[4]/td[@class='dbox']", parseToFloat),
 
-            () => flightCategory = GetWeatherData(response, "//tr[16]/td[@class='cbox']", s => s)
+            () => flightCategory = GetWeatherData(response, "//tr[15]/td[@class='cbox']", s => s)
         );
 
 
@@ -121,6 +121,10 @@ public class SkyConditionObservations : ISkyConditionObservations
         for (int i = 0; i < timeSlotTags.Count; ++i)
         {
             List<SkyConditions> skyConditions = new();
+            if (cloudBaseFeet.Count > i || additionalCloudBaseFeet.Count > i)
+            {
+                break;
+            }
             if (cloudBaseFeet[i] != 0)
             {
                 skyConditions.Add(new() { CloudBaseFeetAGL = cloudBaseFeet[i], CloudCoverPercent = cloudCover[i] });
@@ -170,7 +174,7 @@ public class SkyConditionObservations : ISkyConditionObservations
     {
         var weatherDataTags = response.SelectNodes(xpath);
         IList<T> weatherData = new List<T>();
-        foreach (var weatherDataTag in weatherDataTags)
+        foreach (var weatherDataTag in weatherDataTags ?? Enumerable.Empty<HtmlNode>())
         {
             weatherData.Add(parse(weatherDataTag.InnerText));
         }

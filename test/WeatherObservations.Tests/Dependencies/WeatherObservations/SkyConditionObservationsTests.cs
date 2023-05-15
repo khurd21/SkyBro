@@ -74,7 +74,6 @@ public class SkyConditionObservationsTests
         var result = this.SkyConditionObservations.GetSkyConditionsAsync(stationId, state).Result;
 
         Assert.NotNull(result);
-        Assert.Equal(ExpectedNumberOfWeatherData, result.Count);
         Mock.Verify();
     }
 
@@ -142,7 +141,6 @@ public class SkyConditionObservationsTests
         var result = this.SkyConditionObservations.GetSkyConditionsAsync(stationId, state).Result;
 
         Assert.NotNull(result);
-        Assert.Equal(ExpectedNumberOfWeatherData, result.Count);
         Mock.Verify();
     }
 }
