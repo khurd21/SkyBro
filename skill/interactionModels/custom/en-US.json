@@ -1,0 +1,79 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "sky bro",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "Shut up",
+                        "Leave",
+                        "I am done",
+                        "Cancel",
+                        "Stop"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "What do I say",
+                        "What do I do",
+                        "I am confused",
+                        "Help me",
+                        "I don't know",
+                        "Help"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "I am done",
+                        "Shut up",
+                        "Leave",
+                        "Stop"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WeatherObservations",
+                    "slots": [
+                        {
+                            "name": "StationId",
+                            "type": "StationId"
+                        }
+                    ],
+                    "samples": [
+                        "Sky conditions for {StationId}",
+                        "Sky conditions at {StationId}",
+                        "Observations for {StationId}",
+                        "Weather at {StationId}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "StationId",
+                    "values": [
+                        {
+                            "id": "KSHN",
+                            "name": {
+                                "value": "KSHN",
+                                "synonyms": [
+                                    "Kapowsin",
+                                    "Shelton"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

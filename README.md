@@ -1,22 +1,14 @@
 # Sky Bro: Weather Observations
 
-<img
-    src="https://img.shields.io/badge/dotnet-512BD4?style=for-the-badge&logo=dotnet&logoColor=white"
-    alt="Website Badge" />
-<img
-    src="https://img.shields.io/badge/CSharp-239120?style=for-the-badge&logo=csharp&logoColor=white"
-    alt="Website Badge" />
-<img
-    src="https://img.shields.io/badge/Lambda-FF9900?style=for-the-badge&logo=aws-lambda&logoColor=white"
-    alt="Website Badge" />
-<img
-    src="https://img.shields.io/badge/Alexa-00CAFF?style=for-the-badge&logo=amazon-alexa&logoColor=white"
-    alt="Website Badge" />
+![Dotnet Badge](https://img.shields.io/badge/dotnet-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![CSharp Badge](https://img.shields.io/badge/csharp-239120?style=for-the-badge&logo=csharp&logocolor=white)
+![Lambda Badge](https://img.shields.io/badge/Lambda-FF9900?style=for-the-badge&logo=aws-lambda&logoColor=white)
+![Alexa Badge](https://img.shields.io/badge/Alexa-00CAFF?style=for-the-badge&logo=amazon-alexa&logoColor=white)
 
-![SkyBro Header](./docs/images/SkyBro-Header.png)
+![SkyBro Header](./resources/SkyBro-Header.png)
 
-![Deployment to Lambda](https://github.com/khurd21/SkyBro/actions/workflows/deploy-to-lambda.yml/badge.svg)
-![Unit Tests](https://github.com/khurd21/SkyBro/actions/workflows/unit-tests.yml/badge.svg)
+![Build and Unit Tests](https://github.com/khurd21/SkyBro/actions/workflows/build-and-test.yml/badge.svg)
+![Code Format](https://github.com/khurd21/SkyBro/actions/workflows/code-format.yml/badge.svg)
 
 Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding! 
 
@@ -49,7 +41,7 @@ deployment! If you want to be on the Beta list to use the Skill, feel free to co
 SkyBro relies on the following technologies:
 
 - [C#](https://learn.microsoft.com/en-us/dotnet/csharp/)
-- [Dotnet 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) (or use a package manager)
+- [Dotnet 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) (or use a package manager)
 - [AWS Lambda](https://aws.amazon.com/lambda/)
 - [Alexa Skill Kit](https://developer.amazon.com/en-US/alexa/alexa-skills-kit)
 - [DynamoDB](https://aws.amazon.com/dynamodb/)
@@ -65,19 +57,19 @@ My programming environment uses the following:
 
 ## Here are some steps to follow to get started from the command line:
 
-1. __If not already installed, install the Dotnet 6.0 CLI.__
+1. __If not already installed, install the Dotnet 8.0 CLI.__
 
 2. __Clone the repository and `cd` into it.__
 
 3. __Install `Amazon.Lambda.Tools` Global Tools if not already installed.__
 
 ```bash
-    dotnet tool install -g Amazon.Lambda.Tools
+dotnet tool install -g Amazon.Lambda.Tools
 ```
 
 If already installed check if new version is available.
 ```bash
-    dotnet tool update -g Amazon.Lambda.Tools
+dotnet tool update -g Amazon.Lambda.Tools
 ```
 
 4. __Run the following commands to build the project.__
@@ -94,7 +86,7 @@ This simply helps rebuild, test, and debug the project faster.
 5. __Execute unit tests__
 
 ```bash
-    dotnet test
+dotnet test
 ```
 
 # How to Deploy to AWS Lambda
