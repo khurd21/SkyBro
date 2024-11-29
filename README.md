@@ -9,7 +9,7 @@
 
 ![Build and Unit Tests](https://github.com/khurd21/SkyBro/actions/workflows/build-and-test.yml/badge.svg)
 ![Code Format](https://github.com/khurd21/SkyBro/actions/workflows/code-format.yml/badge.svg)
-[![codecov](https://coveralls.io/repos/github/khurd21/SkyBro/badge.svg?branch=main)](https://codecov.io/gh/<username>/<repository>)
+[![codecov.io](https://codecov.io/github/khurd21/SkyBro/coverage.svg?branch=main)](https://codecov.io/github/khurd21/SkyBro?branch=master)
 
 Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding! 
 
