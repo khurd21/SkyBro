@@ -1,3 +1,4 @@
+using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Response;
 
@@ -20,6 +21,6 @@ public class Function
     /// </returns>
     public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context)
     {
-        return new();
+        return ResponseBuilder.Tell("Hello, SkyBro!");
     }
 }
