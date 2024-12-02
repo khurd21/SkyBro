@@ -42,7 +42,7 @@
                     "samples": []
                 },
                 {
-                    "name": "WeatherObservations",
+                    "name": "WeatherObservationsIntent",
                     "slots": [
                         {
                             "name": "StationId",
@@ -62,10 +62,13 @@
                     "name": "StationId",
                     "values": [
                         {
-                            "id": "KSHN",
+                            "id": "KSHN;47.24216;-123.14186",
                             "name": {
-                                "value": "KSHN",
+                                "value": "Skydive Kapowsin",
                                 "synonyms": [
+                                    "KSHN",
+                                    "Port of Shelton",
+                                    "Sanderson Field",
                                     "Kapowsin",
                                     "Shelton"
                                 ]

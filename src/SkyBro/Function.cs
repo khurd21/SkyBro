@@ -1,11 +1,12 @@
-using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Response;
 
 using Amazon.Lambda.Core;
 
+using SkyBro.RequestHandler;
+
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
-[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
+[assembly: LambdaSerializerAttribute(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
 namespace SkyBro;
 
@@ -19,8 +20,5 @@ public class Function
     /// <returns>
     /// A <see cref="SkillResponse"/> containing the response to the Alexa request.
     /// </returns>
-    public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context)
-    {
-        return ResponseBuilder.Tell("Hello, SkyBro!");
-    }
+    public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context) => new SkillRequestDispatcher().Dispatch(request);
 }
