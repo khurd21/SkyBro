@@ -1,0 +1,12 @@
+{
+    "geometry": {
+      "coordinates": [
+        -73.779317,
+        40.639447
+      ],
+      "type": "Point"
+    },
+    "location": "New York, New York, United States",
+    "name": "John F Kennedy International Airport",
+    "type": "Airport"
+  }

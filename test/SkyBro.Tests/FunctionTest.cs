@@ -1,23 +1,48 @@
+using Alexa.NET;
+using Alexa.NET.Request;
 using Alexa.NET.Response;
 
 using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
 
+using Moq;
+
+using Ninject;
+
+using SkyBro.RequestHandler;
+
 using Xunit;
 
 namespace SkyBro.Tests;
 
-public class FunctionTest
+public class FunctionTest : IDisposable
 {
+    private Mock<ISkillRequestDispatcher> MockSkillRequestDispatcher { get; init; }
+
+    private StandardKernel TestKernel { get; init; }
+
+    public FunctionTest()
+    {
+        MockSkillRequestDispatcher = new();
+        TestKernel = new();
+        TestKernel.Bind<ISkillRequestDispatcher>().ToConstant(MockSkillRequestDispatcher.Object);
+        DependencyResolver.SetKernel(TestKernel);
+    }
+
+    public void Dispose() => DependencyResolver.ResetKernel();
+
     [Fact]
-    public void TestToUpperFunction()
+    public void TestFunction()
     {
         var function = new Function();
         var context = new TestLambdaContext();
-        var response = function.FunctionHandler(new(), context);
+        var skillRequest = new SkillRequest();
+        var expectedResponse = ResponseBuilder.Tell("Hello, Test!");
+        MockSkillRequestDispatcher.Setup(d => d.Dispatch(skillRequest)).Returns(expectedResponse);
 
-        var plainTextOutputSpeech = response.Response.OutputSpeech as PlainTextOutputSpeech;
-        Assert.NotNull(plainTextOutputSpeech);
-        Assert.Equal("I'm sorry, I can't handle that request.", plainTextOutputSpeech.Text);
+        var actualResponse = function.FunctionHandler(skillRequest, context);
+
+        MockSkillRequestDispatcher.Verify(d => d.Dispatch(skillRequest), Times.Once);
+        Assert.Equal(expected: expectedResponse, actual: actualResponse);
     }
 }
