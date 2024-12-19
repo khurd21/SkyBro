@@ -12,6 +12,13 @@ namespace SkyBro;
 
 public class Function
 {
+    private ISkillRequestDispatcher SkillRequestDispatcher { get; init; }
+
+    public Function()
+    {
+        SkillRequestDispatcher = DependencyResolver.Resolve<ISkillRequestDispatcher>();
+    }
+
     /// <summary>
     /// Handles an Alexa Skill request and generates an appropriate response.
     /// </summary>
@@ -20,5 +27,5 @@ public class Function
     /// <returns>
     /// A <see cref="SkillResponse"/> containing the response to the Alexa request.
     /// </returns>
-    public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context) => new SkillRequestDispatcher().Dispatch(request);
+    public SkillResponse FunctionHandler(SkillRequest request, ILambdaContext context) => SkillRequestDispatcher.Dispatch(request);
 }

@@ -20,4 +20,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\SkyBro\SkyBro.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Metar/Models/TestData/**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
