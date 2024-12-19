@@ -8,7 +8,7 @@ using Alexa.NET.Response;
 
 namespace SkyBro.RequestHandler;
 
-public class SkillRequestDispatcher
+public class SkillRequestDispatcher : ISkillRequestDispatcher
 {
 
     internal IEnumerable<ISkillRequestHandler> Handlers { get; init; }
