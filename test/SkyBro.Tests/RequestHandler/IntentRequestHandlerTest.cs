@@ -8,7 +8,7 @@ using SkyBro.RequestHandler;
 
 using Xunit;
 
-namespace SkyBro.Tests.Requestandler;
+namespace SkyBro.Tests.RequestHandler;
 
 public class IntentRequestHandlerTest
 {

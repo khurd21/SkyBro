@@ -1,0 +1,28 @@
+{
+    "LaunchRequest": {
+        "default": "Welcome to SkyBro! To start, ask me for the weather at a dropzone of your choice.",
+        "reprompt": "Ask me for the weather at a dropzone."
+    },
+    "SessionEndedRequest": {
+        "default": "Blue skies!",
+        "reasons": {
+            "USER_INITIATED": "Blue skies!",
+            "ERROR": "It seems I have come across an error attempting to reply. Please try again later.",
+            "EXCEEDED_MAX_REPROMPTS": "It looks like I didn't hear back from you. Goodbye for now."
+        }
+    },
+    "IntentRequest": {
+        "AMAZON.HelpIntent": {
+            "default": "Ask me for weather at a dropzone. For example, say 'What is the weather at Skydive Kapowsin?'.",
+            "reprompt": "Ask me for weather at a dropzone. For example, say 'What is the weather at Skydive Kapowsin?'."
+        },
+        "WeatherObservationsIntent": {
+             "default": "Weather observations for {location}: {temperature} {precipitation} {cloudCover} {windSpeed}",
+             "templates": {
+                "cloudCover": "{percent}% cloud cover at {alitude} {unit}.",
+                "tempearture": "{value} degrees {unit}.",
+                "windSpeed": "{value} {unit}."
+             }
+        }
+    }
+}

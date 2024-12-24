@@ -1,0 +1,78 @@
+{
+    "results": 1,
+    "data": [
+        {
+            "icao": "KSHN",
+            "barometer": {
+                "hg": 30.24,
+                "hpa": 1024.0,
+                "kpa": 102.4,
+                "mb": 1024.04
+            },
+            "clouds": [
+                {
+                    "code": "OVX",
+                    "text": "Vertical visibility"
+                }
+            ],
+            "conditions": [
+                {
+                    "code": "BR",
+                    "text": "Mist"
+                }
+            ],
+            "dewpoint": {
+                "celsius": -1,
+                "fahrenheit": 30
+            },
+            "elevation": {
+                "feet": 276.0,
+                "meters": 84.0
+            },
+            "flight_category": "LIFR",
+            "humidity": {
+                "percent": 87
+            },
+            "observed": "2024-12-01T05:19:00",
+            "position": {
+                "base": {
+                    "latitude": 47.24216,
+                    "longitude": -123.14186
+                },
+                "miles": 0.6,
+                "meters": 1058.7,
+                "bearing": {
+                    "from": 206,
+                    "to": 26
+                },
+                "orientation": {
+                    "from": "SSW",
+                    "to": "NNE"
+                }
+            },
+            "station": {
+                "geometry": {
+                    "coordinates": [
+                        -123.148003,
+                        47.233601
+                    ],
+                    "type": "Point"
+                },
+                "location": "Shelton, Washington, United States",
+                "name": "Sanderson Field",
+                "type": "Airport"
+            },
+            "temperature": {
+                "celsius": 1,
+                "fahrenheit": 34
+            },
+            "raw_text": "KSHN 010519Z AUTO 00000KT 3/4SM BR VV002 01/M01 A3024 RMK AO2 T00061006",
+            "visibility": {
+                "miles": "3/4",
+                "miles_float": 0.75,
+                "meters": "1,200",
+                "meters_float": 1200.0
+            }
+        }
+    ]
+}

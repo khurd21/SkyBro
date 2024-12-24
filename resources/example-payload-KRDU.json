@@ -1,0 +1,87 @@
+{
+    "results": 1,
+    "data": [
+        {
+            "icao": "KRDU",
+            "barometer": {
+                "hg": 30.12,
+                "hpa": 1020.0,
+                "kpa": 102.0,
+                "mb": 1019.98
+            },
+            "ceiling": {
+                "feet": 11000,
+                "meters": 3353
+            },
+            "clouds": [
+                {
+                    "base_feet_agl": 5000,
+                    "base_meters_agl": 1524,
+                    "code": "FEW",
+                    "text": "Few",
+                    "feet": 5000,
+                    "meters": 1524
+                },
+                {
+                    "base_feet_agl": 11000,
+                    "base_meters_agl": 3353,
+                    "code": "BKN",
+                    "text": "Broken",
+                    "feet": 11000,
+                    "meters": 3353
+                },
+                {
+                    "base_feet_agl": 20000,
+                    "base_meters_agl": 6096,
+                    "code": "BKN",
+                    "text": "Broken",
+                    "feet": 20000,
+                    "meters": 6096
+                }
+            ],
+            "dewpoint": {
+                "celsius": -5,
+                "fahrenheit": 23
+            },
+            "elevation": {
+                "feet": 397.0,
+                "meters": 121.0
+            },
+            "flight_category": "VFR",
+            "humidity": {
+                "percent": 32
+            },
+            "observed": "2024-12-01T18:51:00",
+            "station": {
+                "geometry": {
+                    "coordinates": [
+                        -78.78,
+                        35.9
+                    ],
+                    "type": "Point"
+                },
+                "location": "Raleigh, North Carolina, United States",
+                "name": "Raleigh-Durham International Airport",
+                "type": "Airport"
+            },
+            "temperature": {
+                "celsius": 11,
+                "fahrenheit": 52
+            },
+            "raw_text": "KRDU 011851Z 22010KT 10SM FEW050 BKN110 BKN200 11/M05 A3012 RMK AO2 SLP202 T01061050",
+            "visibility": {
+                "miles": "Greater than 10",
+                "miles_float": 10.0,
+                "meters": "16,100",
+                "meters_float": 16100.0
+            },
+            "wind": {
+                "degrees": 220,
+                "speed_kph": 19,
+                "speed_kts": 10,
+                "speed_mph": 12,
+                "speed_mps": 5
+            }
+        }
+    ]
+}
