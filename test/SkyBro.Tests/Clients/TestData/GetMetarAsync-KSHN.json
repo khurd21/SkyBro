@@ -1,0 +1,93 @@
+{
+    "results": 1,
+    "data": [
+        {
+            "icao": "KSHN",
+            "barometer": {
+                "hg": 29.7,
+                "hpa": 1006.0,
+                "kpa": 100.58,
+                "mb": 1005.76
+            },
+            "ceiling": {
+                "feet": 800,
+                "meters": 244
+            },
+            "clouds": [
+                {
+                    "base_feet_agl": 800,
+                    "base_meters_agl": 244,
+                    "code": "BKN",
+                    "text": "Broken",
+                    "feet": 800,
+                    "meters": 244
+                },
+                {
+                    "base_feet_agl": 1300,
+                    "base_meters_agl": 396,
+                    "code": "OVC",
+                    "text": "Overcast",
+                    "feet": 1300,
+                    "meters": 396
+                }
+            ],
+            "conditions": [
+                {
+                    "code": "RA",
+                    "text": "Light Rain"
+                },
+                {
+                    "code": "BR",
+                    "text": "Mist"
+                }
+            ],
+            "dewpoint": {
+                "celsius": 3,
+                "fahrenheit": 37
+            },
+            "elevation": {
+                "feet": 276.0,
+                "meters": 84.0
+            },
+            "flight_category": "IFR",
+            "humidity": {
+                "percent": 100
+            },
+            "observed": "2024-12-25T23:53:00",
+            "station": {
+                "geometry": {
+                    "coordinates": [
+                        -123.148003,
+                        47.233601
+                    ],
+                    "type": "Point"
+                },
+                "location": "Shelton, Washington, United States",
+                "name": "Sanderson Field",
+                "type": "Airport"
+            },
+            "temperature": {
+                "celsius": 3,
+                "fahrenheit": 37
+            },
+            "rain": {
+                "inches": 0.07,
+                "millimeters": 1.78
+            },
+            "raw_text": "KSHN 252353Z AUTO 01006KT 2SM -RA BR BKN008 OVC013 03/03 A2970 RMK AO2 CIG 007V011 SLP062 P0007 60072 T00330028 10061 20033 58027",
+            "visibility": {
+                "miles": "2",
+                "miles_float": 2.0,
+                "meters": "3,200",
+                "meters_float": 3200.0
+            },
+            "wind": {
+                "degrees": 10,
+                "speed_kph": 11,
+                "speed_kts": 6,
+                "speed_mph": 7,
+                "speed_mps": 3
+            }
+        }
+    ]
+}

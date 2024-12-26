@@ -15,7 +15,7 @@ using Xunit;
 
 namespace SkyBro.Tests;
 
-public class FunctionTest : IDisposable
+public class FunctionTest
 {
     private Mock<ISkillRequestDispatcher> MockSkillRequestDispatcher { get; init; }
 
@@ -26,10 +26,8 @@ public class FunctionTest : IDisposable
         MockSkillRequestDispatcher = new();
         TestKernel = new();
         TestKernel.Bind<ISkillRequestDispatcher>().ToConstant(MockSkillRequestDispatcher.Object);
-        DependencyResolver.SetKernel(TestKernel);
+        DependencyResolver.UseTestKernel(TestKernel);
     }
-
-    public void Dispose() => DependencyResolver.ResetKernel();
 
     [Fact]
     public void TestFunction()

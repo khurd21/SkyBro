@@ -5,13 +5,13 @@ namespace SkyBro.Metar;
 
 public interface IMetarEndpoint
 {
-    Task<APIResponse<IEnumerable<MetarResponse>>> GetMetarAsync(IEnumerable<string> icaoCodes);
+    Task<APIResponse<IEnumerable<MetarStationData>>> GetMetarAsync(IEnumerable<string> icaoCodes);
 
-    Task<APIResponse<MetarResponse>> GetNearestMetarAsync(string icaoCode);
+    Task<APIResponse<MetarStationData>> GetNearestMetarAsync(string icaoCode);
 
-    Task<APIResponse<IEnumerable<MetarResponse>>> GetMetarWithinRadius(string icaoCode, int radiusMiles);
+    Task<APIResponse<IEnumerable<MetarStationData>>> GetMetarWithinRadiusAsync(string icaoCode, int radiusMiles);
 
-    Task<APIResponse<MetarResponse>> GetNearestMetarAsync(GeolocationCoordinate coordinate);
+    Task<APIResponse<MetarStationData>> GetNearestMetarAsync(GeolocationCoordinate coordinate);
 
-    Task<APIResponse<IEnumerable<MetarResponse>>> GetNearestMetarAsync(GeolocationCoordinate coordinate, int radiusMiles);
+    Task<APIResponse<IEnumerable<MetarStationData>>> GetNearestMetarAsync(GeolocationCoordinate coordinate, int radiusMiles);
 }

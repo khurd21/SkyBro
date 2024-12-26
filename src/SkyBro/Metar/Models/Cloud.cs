@@ -8,13 +8,13 @@ public class Cloud
     /// Base feet above ground level AGL.
     /// </summary>
     [JsonPropertyName("base_feet_agl")]
-    public required decimal BaseFeetAGL { get; init; }
+    public decimal? BaseFeetAGL { get; init; }
 
     /// <summary>
     /// Base meters above ground level AGL.
     /// </summary>
     [JsonPropertyName("base_meters_agl")]
-    public required decimal BaseMetersAGL { get; init; }
+    public decimal? BaseMetersAGL { get; init; }
 
     /// <summary>
     /// Cloud abbreviation code
@@ -32,11 +32,11 @@ public class Cloud
     /// Feet above ground level AGL.
     /// </summary>
     [JsonPropertyName("feet")]
-    public required decimal Feet { get; init; }
+    public decimal? Feet { get; init; }
 
     /// <summary>
     /// Meters above ground level AGL.
     /// </summary>
     [JsonPropertyName("meters")]
-    public required decimal Meters { get; init; }
+    public decimal? Meters { get; init; }
 }

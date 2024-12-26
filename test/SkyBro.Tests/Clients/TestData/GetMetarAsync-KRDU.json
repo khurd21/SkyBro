@@ -1,0 +1,71 @@
+{
+    "results": 1,
+    "data": [
+        {
+            "icao": "KRDU",
+            "barometer": {
+                "hg": 30.33,
+                "hpa": 1027.0,
+                "kpa": 102.71,
+                "mb": 1027.09
+            },
+            "ceiling": {
+                "feet": 25000,
+                "meters": 7620
+            },
+            "clouds": [
+                {
+                    "base_feet_agl": 25000,
+                    "base_meters_agl": 7620,
+                    "code": "BKN",
+                    "text": "Broken",
+                    "feet": 25000,
+                    "meters": 7620
+                }
+            ],
+            "dewpoint": {
+                "celsius": 1,
+                "fahrenheit": 34
+            },
+            "elevation": {
+                "feet": 397.0,
+                "meters": 121.0
+            },
+            "flight_category": "VFR",
+            "humidity": {
+                "percent": 66
+            },
+            "observed": "2024-12-25T23:51:00",
+            "station": {
+                "geometry": {
+                    "coordinates": [
+                        -78.78,
+                        35.9
+                    ],
+                    "type": "Point"
+                },
+                "location": "Raleigh, North Carolina, United States",
+                "name": "Raleigh-Durham International Airport",
+                "type": "Airport"
+            },
+            "temperature": {
+                "celsius": 7,
+                "fahrenheit": 45
+            },
+            "raw_text": "KRDU 252351Z 05005KT 10SM BKN250 07/01 A3033 RMK AO2 SLP275 T00670011 10122 20061 53010",
+            "visibility": {
+                "miles": "Greater than 10",
+                "miles_float": 10.0,
+                "meters": "16,100",
+                "meters_float": 16100.0
+            },
+            "wind": {
+                "degrees": 50,
+                "speed_kph": 9,
+                "speed_kts": 5,
+                "speed_mph": 6,
+                "speed_mps": 3
+            }
+        }
+    ]
+}
