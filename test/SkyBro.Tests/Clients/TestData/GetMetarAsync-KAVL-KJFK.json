@@ -1,0 +1,137 @@
+{
+    "results": 2,
+    "data": [
+        {
+            "icao": "KAVL",
+            "barometer": {
+                "hg": 30.24,
+                "hpa": 1024.0,
+                "kpa": 102.4,
+                "mb": 1024.04
+            },
+            "clouds": [
+                {
+                    "code": "CLR",
+                    "text": "Clear skies"
+                }
+            ],
+            "dewpoint": {
+                "celsius": 2,
+                "fahrenheit": 36
+            },
+            "elevation": {
+                "feet": 2119.0,
+                "meters": 646.0
+            },
+            "flight_category": "VFR",
+            "humidity": {
+                "percent": 66
+            },
+            "observed": "2024-12-25T22:54:00",
+            "station": {
+                "geometry": {
+                    "coordinates": [
+                        -82.541801,
+                        35.436199
+                    ],
+                    "type": "Point"
+                },
+                "location": "Asheville, North Carolina, United States",
+                "name": "Asheville Regional Airport",
+                "type": "Airport"
+            },
+            "temperature": {
+                "celsius": 8,
+                "fahrenheit": 46
+            },
+            "raw_text": "KAVL 252254Z 17007KT 10SM CLR 08/02 A3024 RMK AO2 SLP245 T00830017",
+            "visibility": {
+                "miles": "Greater than 10",
+                "miles_float": 10.0,
+                "meters": "16,100",
+                "meters_float": 16100.0
+            },
+            "wind": {
+                "degrees": 170,
+                "speed_kph": 13,
+                "speed_kts": 7,
+                "speed_mph": 8,
+                "speed_mps": 4
+            }
+        },
+        {
+            "icao": "KJFK",
+            "barometer": {
+                "hg": 30.4,
+                "hpa": 1029.0,
+                "kpa": 102.95,
+                "mb": 1029.46
+            },
+            "ceiling": {
+                "feet": 25000,
+                "meters": 7620
+            },
+            "clouds": [
+                {
+                    "base_feet_agl": 3600,
+                    "base_meters_agl": 1097,
+                    "code": "FEW",
+                    "text": "Few",
+                    "feet": 3600,
+                    "meters": 1097
+                },
+                {
+                    "base_feet_agl": 25000,
+                    "base_meters_agl": 7620,
+                    "code": "BKN",
+                    "text": "Broken",
+                    "feet": 25000,
+                    "meters": 7620
+                }
+            ],
+            "dewpoint": {
+                "celsius": -7,
+                "fahrenheit": 19
+            },
+            "elevation": {
+                "feet": 10.0,
+                "meters": 3.0
+            },
+            "flight_category": "VFR",
+            "humidity": {
+                "percent": 56
+            },
+            "observed": "2024-12-25T22:51:00",
+            "station": {
+                "geometry": {
+                    "coordinates": [
+                        -73.779317,
+                        40.639447
+                    ],
+                    "type": "Point"
+                },
+                "location": "New York, New York, United States",
+                "name": "John F Kennedy International Airport",
+                "type": "Airport"
+            },
+            "temperature": {
+                "celsius": 1,
+                "fahrenheit": 34
+            },
+            "raw_text": "KJFK 252251Z 36006KT 10SM FEW036 BKN250 01/M07 A3040 RMK AO2 SLP293 T00061067",
+            "visibility": {
+                "miles": "Greater than 10",
+                "miles_float": 10.0,
+                "meters": "16,100",
+                "meters_float": 16100.0
+            },
+            "wind": {
+                "degrees": 360,
+                "speed_kph": 11,
+                "speed_kts": 6,
+                "speed_mph": 7,
+                "speed_mps": 3
+            }
+        }
+    ]
+}
