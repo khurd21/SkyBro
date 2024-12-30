@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace SkyBro.Metar.Models;
 
-class GeolocationCoordinateConverter : JsonConverter<GeolocationCoordinate>
+public class GeolocationCoordinateConverter : JsonConverter<GeolocationCoordinate>
 {
     public override GeolocationCoordinate? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {

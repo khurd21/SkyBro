@@ -6,6 +6,8 @@ using Amazon.Runtime.SharedInterfaces;
 using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
 
+using Ninject;
+
 using SkyBro.Authentication;
 using SkyBro.Metar;
 using SkyBro.Metar.Models;
@@ -21,6 +23,7 @@ public class CheckWXClient : IMetarEndpoint
 
     private static string BaseUrl { get; } = "https://api.checkwx.com";
 
+    [Inject]
     public CheckWXClient(HttpClient client, IAuthenticator authenticator)
     {
         Authenticator = authenticator;
