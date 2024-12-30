@@ -1,26 +1,16 @@
-using System.Runtime.CompilerServices;
-
 using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Response;
-
-[assembly: InternalsVisibleTo("SkyBro.Tests")]
 
 namespace SkyBro.RequestHandler;
 
 public class SkillRequestDispatcher : ISkillRequestDispatcher
 {
+    private IEnumerable<ISkillRequestHandler> Handlers { get; init; }
 
-    internal IEnumerable<ISkillRequestHandler> Handlers { get; init; }
-
-    public SkillRequestDispatcher()
+    public SkillRequestDispatcher(IEnumerable<ISkillRequestHandler> handlers)
     {
-        Handlers = new List<ISkillRequestHandler>()
-        {
-            new LaunchRequestHandler(),
-            new SessionEndedRequestHandler(),
-            new IntentRequestHandler(),
-        };
+        Handlers = handlers;
     }
 
     public SkillResponse Dispatch(SkillRequest request)
@@ -32,7 +22,6 @@ public class SkillRequestDispatcher : ISkillRequestDispatcher
                 return handler.Handle(request);
             }
         }
-
-        return ResponseBuilder.Tell("I'm sorry, I can't handle that request.");
+        return ResponseBuilder.Tell("I'm sorry, I'm not sure how to help with that.");
     }
 }

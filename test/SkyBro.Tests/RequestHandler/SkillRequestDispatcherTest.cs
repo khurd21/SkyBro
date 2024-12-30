@@ -20,13 +20,10 @@ public class SkillRequestDispatcherTest
     public SkillRequestDispatcherTest()
     {
         MockSkillRequest = new();
-        SkillRequestDispatcherUnderTest = new()
+        SkillRequestDispatcherUnderTest = new(new List<ISkillRequestHandler>
         {
-            Handlers = new List<ISkillRequestHandler>()
-            {
-                MockSkillRequest.Object,
-            },
-        };
+            MockSkillRequest.Object
+        });
     }
 
     [Fact]
@@ -46,7 +43,7 @@ public class SkillRequestDispatcherTest
         MockSkillRequest.Verify(h => h.Handle(request), Times.Never);
 
         Assert.NotNull(outputSpeech);
-        Assert.Equal("I'm sorry, I can't handle that request.", outputSpeech.Text);
+        Assert.Equal("I'm sorry, I'm not sure how to help with that.", outputSpeech.Text);
     }
 
     [Fact]

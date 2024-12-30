@@ -3,6 +3,8 @@ using Alexa.NET.Response;
 
 using Amazon.Lambda.Core;
 
+using Ninject;
+
 using SkyBro.RequestHandler;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -14,9 +16,17 @@ public class Function
 {
     private ISkillRequestDispatcher SkillRequestDispatcher { get; init; }
 
-    public Function()
+    private IKernel Kernel { get; init; }
+
+    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    public Function() : this(new StandardKernel(new ProductionModule()))
     {
-        SkillRequestDispatcher = DependencyResolver.Resolve<ISkillRequestDispatcher>();
+    }
+
+    public Function(IKernel kernel)
+    {
+        Kernel = kernel;
+        SkillRequestDispatcher = Kernel.Get<ISkillRequestDispatcher>();
     }
 
     /// <summary>

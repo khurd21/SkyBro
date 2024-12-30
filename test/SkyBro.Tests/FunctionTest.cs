@@ -26,13 +26,12 @@ public class FunctionTest
         MockSkillRequestDispatcher = new();
         TestKernel = new();
         TestKernel.Bind<ISkillRequestDispatcher>().ToConstant(MockSkillRequestDispatcher.Object);
-        DependencyResolver.UseTestKernel(TestKernel);
     }
 
     [Fact]
     public void TestFunction()
     {
-        var function = new Function();
+        var function = new Function(TestKernel);
         var context = new TestLambdaContext();
         var skillRequest = new SkillRequest();
         var expectedResponse = ResponseBuilder.Tell("Hello, Test!");
