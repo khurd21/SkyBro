@@ -62,7 +62,190 @@
                     "name": "StationId",
                     "values": [
                         {
-                            "id": "KSHN;47.24216;-123.14186",
+                            "id": ";37.5108611;-120.0395278",
+                            "name": {
+                                "value": "Skydive Yosemite",
+                                "synonyms": [
+                                    "Yosemite",
+                                    "Mariposa California",
+                                    "MPI",
+                                    "Mariposa Yosemite Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.0815833;-121.5968056",
+                            "name": {
+                                "value": "Silicon Valley Skydiving",
+                                "synonyms": [
+                                    "KE16",
+                                    "San Martin California",
+                                    "San Martin Airport",
+                                    "E16"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.729450;-121.33228",
+                            "name": {
+                                "value": "Skydive California",
+                                "synonyms": [
+                                    "Tracey California"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.5793889;-121.8569444",
+                            "name": {
+                                "value": "Sky Dance Skydiving",
+                                "synonyms": [
+                                    "Davis California",
+                                    "KDWA",
+                                    "Yolo County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.8284444;-121.6258333",
+                            "name": {
+                                "value": "Bay Area Skydiving",
+                                "synonyms": [
+                                    "Byron California",
+                                    "C83",
+                                    "Byron Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.1435758;-122.5570914",
+                            "name": {
+                                "value": "Skydive Golden Gate",
+                                "synonyms": [
+                                    "Maron County Airport",
+                                    "Gnoss Field Airport",
+                                    "Gnoss Field",
+                                    "KDVO",
+                                    "Skydive San Francisco",
+                                    "DVO",
+                                    "Novato"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.7762778;-122.9926111",
+                            "name": {
+                                "value": "NorCal Skydiving",
+                                "synonyms": [
+                                    "Cloverdale Municipal Airport",
+                                    "Skydive Northern California",
+                                    "Skydive NorCal",
+                                    "O6O",
+                                    "O60",
+                                    "Cloverdale Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.9307500;-123.0066667",
+                            "name": {
+                                "value": "Eugene Skydivers",
+                                "synonyms": [
+                                    "K77S",
+                                    "Hobby Field",
+                                    "77S",
+                                    "Creswell Oregon",
+                                    "Skydive Eugene"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";45.1462331;-122.6175886",
+                            "name": {
+                                "value": "Skydive Oregon",
+                                "synonyms": [
+                                    "OLO5",
+                                    "OL05",
+                                    "Skydive Oregon Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";45.21655;-122.59019",
+                            "name": {
+                                "value": "Pacific Northwest Skydiving Center",
+                                "synonyms": [
+                                    "Mulino State Airport",
+                                    "4S9",
+                                    "Skydive PNW",
+                                    "Pacific Northwest"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";47.16098;-118.28993",
+                            "name": {
+                                "value": "Skydive West Plains",
+                                "synonyms": [
+                                    "Skydive Ritzville",
+                                    "Ritzville",
+                                    "West Plains"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";46.21336;-119.79555",
+                            "name": {
+                                "value": "Rattlesnake Mountain Skydiving",
+                                "synonyms": [
+                                    "Skydive Rattlesnake",
+                                    "Rattlesnake Mountain",
+                                    "S40",
+                                    "Prosser",
+                                    "Prosser Airport",
+                                    "Rattlesnake",
+                                    "Rattlesnake Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";47.86601;-119.94270",
+                            "name": {
+                                "value": "Skydive Chelan",
+                                "synonyms": [
+                                    "Lake Chelan Airport",
+                                    "S10",
+                                    "Lake Chelan",
+                                    "Chelan"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";47.90486,-122.10274",
+                            "name": {
+                                "value": "Skydive Snohomish",
+                                "synonyms": [
+                                    "Harvey Field Airport",
+                                    "Harvey Field",
+                                    "S43",
+                                    "Seattle",
+                                    "Snohomish"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";46.47716;-122.80647",
+                            "name": {
+                                "value": "Skydive Toledo",
+                                "synonyms": [
+                                    "Ed Carlson Memorial Field",
+                                    "South Lewis County Airport",
+                                    "KTDO",
+                                    "Toledo"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";47.24216;-123.14186",
                             "name": {
                                 "value": "Skydive Kapowsin",
                                 "synonyms": [
