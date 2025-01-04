@@ -38,12 +38,20 @@ public class SkillRequestDispatcherTest
 
         var response = SkillRequestDispatcherUnderTest.Dispatch(request);
         var outputSpeech = response.Response.OutputSpeech as PlainTextOutputSpeech;
+        var repromptSpeech = response.Response.Reprompt.OutputSpeech as PlainTextOutputSpeech;
 
         MockSkillRequest.Verify(h => h.CanHandle(request), Times.Once);
         MockSkillRequest.Verify(h => h.Handle(request), Times.Never);
 
         Assert.NotNull(outputSpeech);
-        Assert.Equal("I'm sorry, I'm not sure how to help with that.", outputSpeech.Text);
+        Assert.NotNull(repromptSpeech);
+
+        Assert.Equal(
+            expected: "I'm sorry, I'm not sure how to help with that. " +
+            "Try asking me for weather at a specific dropzone.",
+            actual: outputSpeech.Text);
+        Assert.Equal(expected: "Ask for weather at a drop zone of your choice.",
+            actual: repromptSpeech.Text);
     }
 
     [Fact]

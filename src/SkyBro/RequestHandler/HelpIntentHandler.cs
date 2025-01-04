@@ -20,6 +20,10 @@ public class HelpIntentHandler : ISkillRequestHandler
 
     public SkillResponse Handle(SkillRequest request)
     {
-        return ResponseBuilder.Ask("Here to help! Ask me anything.", new Reprompt("Ask for weather at Skydive Kapowsin."));
+        return ResponseBuilder.Ask(
+            "Sky Bro provides weather observations for USPA affiliated drop zones across the United States. " +
+            "For example, ask me for weather at Skydive Kapowsin.",
+            new Reprompt("Ask for weather at a drop zone of your choice.")
+        );
     }
 }

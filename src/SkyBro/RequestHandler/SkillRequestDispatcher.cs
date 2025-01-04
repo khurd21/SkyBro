@@ -22,6 +22,10 @@ public class SkillRequestDispatcher : ISkillRequestDispatcher
                 return handler.Handle(request);
             }
         }
-        return ResponseBuilder.Tell("I'm sorry, I'm not sure how to help with that.");
+        return ResponseBuilder.Ask(
+            "I'm sorry, I'm not sure how to help with that. " +
+            "Try asking me for weather at a specific dropzone.",
+            new Reprompt("Ask for weather at a drop zone of your choice.")
+            );
     }
 }

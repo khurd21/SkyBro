@@ -1,8 +1,6 @@
 using Alexa.NET;
 using Alexa.NET.Request;
-using Alexa.NET.Response;
 
-using Amazon.Lambda.Core;
 using Amazon.Lambda.TestUtilities;
 
 using Moq;
