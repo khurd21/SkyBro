@@ -62,6 +62,916 @@
                     "name": "StationId",
                     "values": [
                         {
+                            "id": ";42.7032500;-87.9589722",
+                            "name": {
+                                "value": "Skydive Midwest",
+                                "synonyms": [
+                                    "Sturtevant Wisonsin",
+                                    "C89",
+                                    "Sylvania Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.7971667;-88.3726111",
+                            "name": {
+                                "value": "Skydive Milwaukee",
+                                "synonyms": [
+                                    "East Troy Wisonsin",
+                                    "East Troy",
+                                    "57C",
+                                    "East Troy Municipal",
+                                    "East Troy Airport",
+                                    "East Troy Municipal Airport",
+                                    "Sky Knights Club",
+                                    "Sky Knights Parachute Club",
+                                    "Sky Knights Sport Parachute Club"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.2577700;-89.0648322",
+                            "name": {
+                                "value": "Seven Hills Skydivers",
+                                "synonyms": [
+                                    "Marshall Wisconsin",
+                                    "York Center Wisconsin",
+                                    "York Center",
+                                    "Mathaire Airport",
+                                    "Mathaire Field Airport",
+                                    "WI97",
+                                    "Mathaire Field",
+                                    "Skydive Seven Hills of Madison",
+                                    "Seven Hills",
+                                    "Skydive Seven Hills",
+                                    "Seven Hills Skydivers of Madison"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.6410690;-88.2152026",
+                            "name": {
+                                "value": "Skydive Freefall Adventure",
+                                "synonyms": [
+                                    "92C",
+                                    "Carter Airport",
+                                    "Skydive Freefall Adventure LLC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.9332950;-91.2723742",
+                            "name": {
+                                "value": "Skydive Wissota",
+                                "synonyms": [
+                                    "Chippewa Falls Wisconsin",
+                                    "Chippewa Falls",
+                                    "4WI0",
+                                    "Wissota Airport",
+                                    "Lake Wissota Airport",
+                                    "Indianhead SPC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.9666322;-92.3876911",
+                            "name": {
+                                "value": "Skydive Twin Cities",
+                                "synonyms": [
+                                    "Baldwin Wisconsin",
+                                    "WI14",
+                                    "Baldwin Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";46.6896841;-92.0946420",
+                            "name": {
+                                "value": "Skydive Duluth",
+                                "synonyms": [
+                                    "Superior Wisconsin",
+                                    "SUW",
+                                    " KSUW",
+                                    "Richard Bong Airport",
+                                    "Richard Bong Municipal",
+                                    "Richard Bong Municipal Airport",
+                                    "Richard I Bong Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.0734722;-93.5529442",
+                            "name": {
+                                "value": "Skydive Northstar",
+                                "synonyms": [
+                                    "Maynard Richard Field",
+                                    "Maynard Field",
+                                    "Maynard Richard Stensrud Field",
+                                    "KACQ",
+                                    "Waseca Minnesota",
+                                    "ACQ",
+                                    "Waseca Municipal",
+                                    "Waseca Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.6167692;-96.2177364",
+                            "name": {
+                                "value": "Skydive Adventures",
+                                "synonyms": [
+                                    "Aanenson Field Airport",
+                                    "Quentin Aanenson Field Airport",
+                                    "Quentin Field Airport",
+                                    "KLYV",
+                                    "LYV",
+                                    "Luverne Minnesota",
+                                    "Aanenson Airport",
+                                    "Quentin Airport",
+                                    "Quentin Aanenson Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.7458317;-92.4093514",
+                            "name": {
+                                "value": "Skydive Iowa",
+                                "synonyms": [
+                                    "Brooklyn Iowa",
+                                    "09IA",
+                                    "Skydive Iowa Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.2990969;-93.1137428",
+                            "name": {
+                                "value": "Des Moines Skydivers",
+                                "synonyms": [
+                                    "KOXV",
+                                    "OXV",
+                                    "Knoxville Iowa",
+                                    "Knoxville Airport",
+                                    "Knoxville Municipal",
+                                    "Knoxville Municipal Airport",
+                                    "Des Moines",
+                                    "Skydive Des Moines"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.2334722;-91.1642778",
+                            "name": {
+                                "value": "Skydive STL",
+                                "synonyms": [
+                                    "UUV",
+                                    "KUUV",
+                                    "Sullivan Regional",
+                                    "Sullivan Regional Airport",
+                                    "Sullivan Missouri",
+                                    "Sullivan Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.5961069;-93.3476986",
+                            "name": {
+                                "value": "Flight Providers",
+                                "synonyms": [
+                                    "Bolivar Municipal",
+                                    "Bolivar Municipal Airport",
+                                    "Bolivar Missouri",
+                                    "M17",
+                                    "Bolivar Airport",
+                                    "Flight Providers LLC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.2298125;-93.9302083",
+                            "name": {
+                                "value": "Ozarks Skydive Center",
+                                "synonyms": [
+                                    "Kingsley Airfield",
+                                    "Miller Missouri",
+                                    "MO9",
+                                    "Kingsley Field",
+                                    "Skydive Ozarks",
+                                    "Ozarks"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.0050956;-94.1700633",
+                            "name": {
+                                "value": "Skydive Fayetteville",
+                                "synonyms": [
+                                    "Drake Field Airport",
+                                    "KFYV",
+                                    "Fayetteville Arkansas",
+                                    "FYV",
+                                    "Drake Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.4706781;-93.4271572",
+                            "name": {
+                                "value": "Paradise Valley Skydiving",
+                                "synonyms": [
+                                    "H35",
+                                    "Clarksville Airport",
+                                    "Clarksville Municipal Airport",
+                                    "Clarksville Arkansas",
+                                    "Clarksville Municipal",
+                                    "Paradise Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";30.3463333;-89.8208056",
+                            "name": {
+                                "value": "Cloud Chasers",
+                                "synonyms": [
+                                    "ASD",
+                                    "KASD",
+                                    "Slidell Louisiana",
+                                    "Slidell Airport",
+                                    "Slidell Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";29.3569417;-95.4594028",
+                            "name": {
+                                "value": "Skydive Spaceland Houston",
+                                "synonyms": [
+                                    "Rosharon Texas",
+                                    "TE88",
+                                    "BB Airpark",
+                                    "Houston Texas",
+                                    "Spaceland Houston",
+                                    "Skydive Houston"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";29.3423889;-98.8512222",
+                            "name": {
+                                "value": "Skydive Castroville",
+                                "synonyms": [
+                                    "Castroville Municipal",
+                                    "CVB",
+                                    "KCVB",
+                                    "Castroville Texas",
+                                    "Castroville Airport",
+                                    "Castroville Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";29.7682803;-97.7752789",
+                            "name": {
+                                "value": "Skydive Spaceland San Marcos",
+                                "synonyms": [
+                                    "XS90",
+                                    "Fentress Air Park",
+                                    "Spaceland San Marcos",
+                                    "Skydive San Marcos",
+                                    "San Marcos"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";30.4125000;-96.9666667",
+                            "name": {
+                                "value": "Texas Skydiving",
+                                "synonyms": [
+                                    "TE75",
+                                    "Lexington Texas",
+                                    "Lexington Airfield"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";31.0858333;-97.6865000",
+                            "name": {
+                                "value": "Skylark Skydive",
+                                "synonyms": [
+                                    "Skylark Field",
+                                    "ILE",
+                                    "KILE",
+                                    "Killeen Texas",
+                                    "Skylark Airport",
+                                    "Skylark Field Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.3296944;-96.6638889",
+                            "name": {
+                                "value": "I Skydive America Dallas",
+                                "synonyms": [
+                                    "Ennis Texas",
+                                    "F41",
+                                    "Ennis Airport",
+                                    "Ennis Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.5288333;-94.9717500",
+                            "name": {
+                                "value": "Skydive East Texas",
+                                "synonyms": [
+                                    "Gladwater Airport",
+                                    "07F",
+                                    "Gladewater",
+                                    "Gladewater Texas",
+                                    "Gladewater Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.4519194;-96.3772889",
+                            "name": {
+                                "value": "Skydive Spaceland Dallas",
+                                "synonyms": [
+                                    "Trenton Texas",
+                                    "48TX",
+                                    "Whitewright Texas",
+                                    "Tri County Aerodrome",
+                                    "Try County Aerodrome",
+                                    "Tri-County Aerodrome",
+                                    "Spaceland Dallas"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.6577500;-95.3616389",
+                            "name": {
+                                "value": "Skydive Cherokee",
+                                "synonyms": [
+                                    "MKO",
+                                    "KMKO",
+                                    "Muskogee Davis Airport",
+                                    "Muskogee Regional Airport",
+                                    "Muskogee Davis Regional Airport",
+                                    "Muskogee Oklahoma",
+                                    "Davis Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.9500278;-96.7734167",
+                            "name": {
+                                "value": "Oklahoma Skydiving Center",
+                                "synonyms": [
+                                    "KCUH",
+                                    "Cushing Okahoma",
+                                    "CUH",
+                                    "Cushing Regional Airport",
+                                    "Oklahoma Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.3551442;-96.0107256",
+                            "name": {
+                                "value": "Skydive Airtight",
+                                "synonyms": [
+                                    "2F6",
+                                    "Skiatook Oklahoma",
+                                    "Skiatook Airport",
+                                    "Skiatook Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.9040556;-97.2358611",
+                            "name": {
+                                "value": "Kansas State University Parachute Club",
+                                "synonyms": [
+                                    "K78",
+                                    "Abilene Kansas",
+                                    "Abilene Airport",
+                                    "Abilene Municipal Airport",
+                                    "Kansas Parachute Club"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.9483694;-95.9173542",
+                            "name": {
+                                "value": "Jump Omaha",
+                                "synonyms": [
+                                    "Skydive Omaha",
+                                    "PMV",
+                                    "KPMV",
+                                    "Douglas V Duey Field",
+                                    "Plattsmouith Nebraska",
+                                    "Plattsmouth Airport",
+                                    "Plattsmouth Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.8686525;-96.1087944",
+                            "name": {
+                                "value": "Lincoln Sport Parachute Club",
+                                "synonyms": [
+                                    "NE69",
+                                    "Weeping Water Nebraska",
+                                    "Browns Airport",
+                                    "Brown's Airport",
+                                    "Lincoln Parachute Club",
+                                    "Lincoln Parachute Club"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";46.9003806;-96.9185222",
+                            "name": {
+                                "value": "Skydive Fargo",
+                                "synonyms": [
+                                    "West Fargo Municipal Airport",
+                                    "West Fargo North Dakota",
+                                    "D54",
+                                    "West Fargo Airport",
+                                    "Skydive Fargo Inc"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.3354444;-103.8041667",
+                            "name": {
+                                "value": "Orange Skies Free Fall Center",
+                                "synonyms": [
+                                    "FMM",
+                                    "KFMM",
+                                    "Fort Morgan Colorado",
+                                    "Fort Morgan Airport",
+                                    "Fort Morgan Municipal Airport",
+                                    "Orange Skies Center",
+                                    "Orange Skies"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.1643889;-105.1636389",
+                            "name": {
+                                "value": "Mile High Skydiving Center",
+                                "synonyms": [
+                                    "Mile High Skydiving Center",
+                                    "Mile High",
+                                    "Mile High Skydiving",
+                                    "Longmont Colorado",
+                                    "KLMO",
+                                    "LMO",
+                                    "Vance Brand Airport",
+                                    "Mile-Hi Skydiving Center, Inc."
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.4285602;-105.1068544",
+                            "name": {
+                                "value": "Skydive Colorado Springs",
+                                "synonyms": [
+                                    "Colorado Springs",
+                                    "Canon City Colorado",
+                                    "1V6",
+                                    "Penrose Colorado",
+                                    "Fremont Airport",
+                                    "Fremont County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.6458616;-106.8363401",
+                            "name": {
+                                "value": "Viva Skydive",
+                                "synonyms": [
+                                    "Skydive Viva",
+                                    "BRG",
+                                    "KBRG",
+                                    "Belen New Mexico",
+                                    "Belen Airport",
+                                    "Belen Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.4095556;-111.2183889",
+                            "name": {
+                                "value": "Skydive Marana",
+                                "synonyms": [
+                                    "AVQ",
+                                    "KAVQ",
+                                    "Marana Airport",
+                                    "Marana Regional Airport",
+                                    "Marana Arizona"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.9360239;-111.4264728",
+                            "name": {
+                                "value": "Complete Parachute Solutions Tactical Training Facility",
+                                "synonyms": [
+                                    "Coolidge Arizona",
+                                    "P08",
+                                    "Coolidge Airport",
+                                    "Coolidge Municipal Airport",
+                                    "Coolidge Arizona Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.8067219;-111.5866264",
+                            "name": {
+                                "value": "Skydive Arizona",
+                                "synonyms": [
+                                    "Eloy Arizona",
+                                    "E60",
+                                    "Eloy Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.9548981;-111.7668200",
+                            "name": {
+                                "value": "Phoenix Skydive Center",
+                                "synonyms": [
+                                    "Phoenix Center",
+                                    "Casa Grande Arizona",
+                                    "CGZ",
+                                    "KCGZ",
+                                    "Casa Grande Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.0541667;-112.1736111",
+                            "name": {
+                                "value": "Skydive Phoenix",
+                                "synonyms": [
+                                    "Maricopa Arizona",
+                                    "AZ43",
+                                    "Hidden Valley Airport",
+                                    "Phoenix Arizona"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.4225339;-112.6862339",
+                            "name": {
+                                "value": "Skydive Buckeye",
+                                "synonyms": [
+                                    "KBXK",
+                                    "BXK",
+                                    "Buckeye Municipal Airport",
+                                    "Buckeye Municipal",
+                                    "Buckeye Arizona"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.7576308;-109.7534625",
+                            "name": {
+                                "value": "Skydive Moab",
+                                "synonyms": [
+                                    "Canyon Lands Regional Airport",
+                                    "Canyonlands Regional Airport",
+                                    "KCNY",
+                                    "CNY",
+                                    "Moah Utah",
+                                    "Moab Airport",
+                                    "Canyon Lands Field Airport",
+                                    "Canyonlands Field Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.7365833;-111.8700556",
+                            "name": {
+                                "value": "Skydive the Wasatch",
+                                "synonyms": [
+                                    "U14",
+                                    "Skydive Wasatch",
+                                    "Nephi Utah",
+                                    "Nephi Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.6125533;-112.3507775",
+                            "name": {
+                                "value": "Skydive Utah",
+                                "synonyms": [
+                                    "Erda Utah",
+                                    "KTVY",
+                                    "Tooele Valley Airport",
+                                    "Bolinder Field",
+                                    "Bolinder Field Tooele Valley Airport",
+                                    "TVY"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.1950704;-112.0121947",
+                            "name": {
+                                "value": "Ogden Skydiving Center",
+                                "synonyms": [
+                                    "Ogden Utah",
+                                    "KOGD",
+                                    "OGD",
+                                    "Hinckley Airport",
+                                    "Ogden Airport",
+                                    "Ogden Hinckley Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";45.8781111;-111.5694444",
+                            "name": {
+                                "value": "Bozeman",
+                                "synonyms": [
+                                    "Three Forks Airport",
+                                    "Bozeman Montana",
+                                    "Three Forks Montana",
+                                    "9S5",
+                                    "Pogreba Field",
+                                    "DZONE Skydiving Bozeman"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";48.4080200;-114.2995761",
+                            "name": {
+                                "value": "Skydive Whitefish",
+                                "synonyms": [
+                                    "58S",
+                                    "Whitefish Montana",
+                                    "Whitefish Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";48.0946744;-114.8515278",
+                            "name": {
+                                "value": "Meadow Peak Skydiving",
+                                "synonyms": [
+                                    "Carson Field Airport",
+                                    "MT53",
+                                    "Marion Montana",
+                                    "Carson Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.7682644;-115.3296220",
+                            "name": {
+                                "value": "GoJump Las Vegas",
+                                "synonyms": [
+                                    "0L7",
+                                    "Jean Nevada",
+                                    "Jean Airport",
+                                    "Jean Sport Aviation Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.9473081;-114.8610842",
+                            "name": {
+                                "value": "Skydive Las Vegas",
+                                "synonyms": [
+                                    "Boulder City Nevada",
+                                    "Las Vegas Nevada",
+                                    "Boulder City Airport",
+                                    "BVU",
+                                    "KBVU",
+                                    "Boulder City Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.5681089;-114.4433297",
+                            "name": {
+                                "value": "Fyrosity",
+                                "synonyms": [
+                                    "Overton Nevada",
+                                    "U08",
+                                    "Perkins Field Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.8331389;-114.0558889",
+                            "name": {
+                                "value": "Skydive Mesquite",
+                                "synonyms": [
+                                    "Mesquite Airport",
+                                    "Mesquite Nevada",
+                                    "67L",
+                                    "Mesquite Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.0005000;-119.7511111",
+                            "name": {
+                                "value": "Skydive Lake Tahoe",
+                                "synonyms": [
+                                    "Tahoe Airport",
+                                    "MEV",
+                                    "KMEV",
+                                    "Reno Nevada",
+                                    "Lake Tahoe Nevada",
+                                    "Lake Tahoe",
+                                    "Minden Nevada",
+                                    "Minden-Tahoe Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.6418489;-116.6357642",
+                            "name": {
+                                "value": "Skydive Skydown",
+                                "synonyms": [
+                                    "Caldwell Airport",
+                                    "EUL",
+                                    "KEUL",
+                                    "Caldwell Idaho",
+                                    "Caldwell Executive Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.7787725;-116.9384861",
+                            "name": {
+                                "value": "Boise",
+                                "synonyms": [
+                                    "50S",
+                                    "Parma Idaho",
+                                    "Parma Municipal Airport",
+                                    "Boise Idaho",
+                                    "DZONE Skydiving Boise"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.5722778;-116.9801667",
+                            "name": {
+                                "value": "Pacific Coast Skydiving",
+                                "synonyms": [
+                                    "KSDM",
+                                    "SDM",
+                                    "San Diego California",
+                                    "Brown Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.6333722;-116.8903111",
+                            "name": {
+                                "value": "Skydive San Diego",
+                                "synonyms": [
+                                    "0CL3",
+                                    "John Nichol's Field",
+                                    "Jamul California"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.6191667;-114.7168889",
+                            "name": {
+                                "value": "Military Freefall Solutions",
+                                "synonyms": [
+                                    "Blythe California",
+                                    "BLH",
+                                    "Blythe Airport",
+                                    "Military Freefall Solutions, Inc."
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.2179764;-117.3515075",
+                            "name": {
+                                "value": "GoJump Oceanside",
+                                "synonyms": [
+                                    "OKB",
+                                    "KOKB",
+                                    "Oceanside California",
+                                    "Oceanside Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.6329778;-117.3015722",
+                            "name": {
+                                "value": "Skydive Elsinore",
+                                "synonyms": [
+                                    "CA89",
+                                    "Lake Elsinore California",
+                                    "Elsinore California",
+                                    "Elsinore",
+                                    "Lake Elsinore",
+                                    "Skylark Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.7646389;-117.2190000",
+                            "name": {
+                                "value": "Skydive Perris",
+                                "synonyms": [
+                                    "Perris Valley",
+                                    "Perris California",
+                                    "L65",
+                                    "Perris Valley Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.2137583;-119.0943542",
+                            "name": {
+                                "value": "Los Angeles",
+                                "synonyms": [
+                                    "CMA",
+                                    "KCMA",
+                                    "Camarillo California",
+                                    "Camarillo Airport",
+                                    "iSkydive America - Los Angeles",
+                                    "Skydive Los Angeles"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.6656194;-120.4675028",
+                            "name": {
+                                "value": "Skydive Santa Barbara",
+                                "synonyms": [
+                                    "LPC",
+                                    "KLPC",
+                                    "Lompoc California",
+                                    "Lompoc Airport",
+                                    "Santa Barbara California",
+                                    "Santa Barbara",
+                                    "Skydive Santa Barbara, LLC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.0977;-119.07304",
+                            "name": {
+                                "value": "Skydive San Joaquin Valley",
+                                "synonyms": [
+                                    "Bakersfield California",
+                                    "DB Cooper Field",
+                                    "San Joaquin Valley"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.0295833;-119.0627222",
+                            "name": {
+                                "value": "Porterville Training Facility",
+                                "synonyms": [
+                                    "PTV",
+                                    "Porterville California",
+                                    "Porterville Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.5886944;-118.0493889",
+                            "name": {
+                                "value": "Skydive Mount Whitney",
+                                "synonyms": [
+                                    "O26",
+                                    "Lone Pine California",
+                                    "Death Valley Airport",
+                                    "Lone Pine",
+                                    "Lone Pine-Death Valley Airport",
+                                    "Skydive Mt. Whitney"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.9886003;-120.1124497",
+                            "name": {
+                                "value": "Skydive Madera",
+                                "synonyms": [
+                                    "MAE",
+                                    "KMAE",
+                                    "Madera California",
+                                    "Madera Airport",
+                                    "Madera Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
                             "id": ";37.5108611;-120.0395278",
                             "name": {
                                 "value": "Skydive Yosemite",
