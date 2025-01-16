@@ -11,16 +11,17 @@
 ![Code Format](https://github.com/khurd21/SkyBro/actions/workflows/code-format.yml/badge.svg)
 [![codecov.io](https://codecov.io/github/khurd21/SkyBro/coverage.svg?branch=main)](https://codecov.io/github/khurd21/SkyBro?branch=master)
 
-Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers that want to know what the sky conditions are at their favorite dropzone before traveling for a gnarly day of sky shredding! 
+Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers, providing vital weather details that aid in determining if the sky conditions are adequate for jumping. It uses the nearest METAR station data to provide the most recent sky conditions in the area.
 
 # How to Use SkyBro
 
 When the skill is enabled on your Alexa account, ask weather questions such as:
 - *__Alexa, ask Sky Bro for weather at Sanderson Field__*
-- *__Alexa, ask Sky Bro for sky conditions at Skydive Chelan on Saturday__*
+- *__Alexa, ask Sky Bro for sky conditions at Skydive Chelan__*
 - *__Alexa, open Sky Bro__*
-    - *__Sky conditions for Skydive Kapowsin tomorrow__*
-    - *__What is the weather at Bowerman Field for tomorrow?__*
+    - *__Sky conditions for Skydive Kapowsin__*
+    - *__What is the weather at KSHN?__*
+    - *__Sky conditions at XP.__*
 
 SkyBro will give an overview of the weather conditions including:
 
@@ -45,14 +46,12 @@ SkyBro relies on the following technologies:
 - [Dotnet 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) (or use a package manager)
 - [AWS Lambda](https://aws.amazon.com/lambda/)
 - [Alexa Skill Kit](https://developer.amazon.com/en-US/alexa/alexa-skills-kit)
-- [DynamoDB](https://aws.amazon.com/dynamodb/)
 
 My programming environment uses the following:
 
 - [VSCode](https://code.visualstudio.com)
 - [Dotnet CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/)
 - [AWS CLI](https://aws.amazon.com/cli/)
-
 
 # Setup Environment
 

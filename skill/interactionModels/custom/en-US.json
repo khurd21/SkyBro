@@ -50,6 +50,9 @@
                         }
                     ],
                     "samples": [
+                        "Weather for {StationId}",
+                        "Sky conditions in {StationId}",
+                        "Weather in {StationId}",
                         "Sky conditions for {StationId}",
                         "Sky conditions at {StationId}",
                         "Observations for {StationId}",
@@ -61,6 +64,1311 @@
                 {
                     "name": "StationId",
                     "values": [
+                        {
+                            "id": ";24.6487544;-81.5798083",
+                            "name": {
+                                "value": "Skydive Key West",
+                                "synonyms": [
+                                    "Summer Land Key Florida",
+                                    "Summerland Key Florida",
+                                    "7FA1",
+                                    "Key West Florida",
+                                    "Loaf Shores Airport",
+                                    "Sugar Loaf Airport",
+                                    "Sugar Loaf Shores Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";25.4992269;-80.5542467",
+                            "name": {
+                                "value": "iSkydive America Miami",
+                                "synonyms": [
+                                    "Homestead Florida",
+                                    "X51",
+                                    "Miami Homestead Airport",
+                                    "Miami Homestead General Airport",
+                                    "Miami Homestead General Aviation Airport",
+                                    "Skydive Miami",
+                                    "Skydive America Miami",
+                                    "Eye Skydive America Miami",
+                                    "I Skydive America Miami"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";25.6475637;-80.4332246",
+                            "name": {
+                                "value": "Miami Skydiving Center",
+                                "synonyms": [
+                                    "TMB",
+                                    "KTMB",
+                                    "Miami Airport",
+                                    "Miami Executive",
+                                    "Miami Executive Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";26.7351708;-81.0510600",
+                            "name": {
+                                "value": "Skydive Spaceland Clewiston",
+                                "synonyms": [
+                                    "Clewiston Florida",
+                                    "2IS",
+                                    "Air Glades Airport",
+                                    "Airglades Airport",
+                                    "Skydive Clewiston",
+                                    "Spaceland Clewiston"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";26.9686111;-81.9163056",
+                            "name": {
+                                "value": "Skydive SW Florida Club",
+                                "synonyms": [
+                                    "Punta Gorda Florida",
+                                    "F13",
+                                    "Shell Creek Air Park",
+                                    "Shell Creek Airpark",
+                                    "Shell Creek Airport",
+                                    "Skydive Southwest Florida",
+                                    "Skydive Southwest Florida Club",
+                                    "Skydive South West Florida",
+                                    "Skydive SW Florida",
+                                    "Skydive SW"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";27.8132500;-80.4955833",
+                            "name": {
+                                "value": "Skydive Sebastian",
+                                "synonyms": [
+                                    "X26",
+                                    "Sebastian Florida",
+                                    "Sebastian Airport",
+                                    "Sebastian Municipal",
+                                    "Sebastian Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";27.8932108;-81.6214589",
+                            "name": {
+                                "value": "Jump Florida Skydiving",
+                                "synonyms": [
+                                    "Lake Wales Florida",
+                                    "X07",
+                                    "Lake Wales Airport",
+                                    "Lake Wales Municipal",
+                                    "Lake Wales Municipal Airport",
+                                    "Jump Florida"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";28.2266694;-82.1556453",
+                            "name": {
+                                "value": "Skydive City Zephyrhills",
+                                "synonyms": [
+                                    "Zephyrhills Florida",
+                                    "KZPH",
+                                    "ZPH",
+                                    "Zephyrhills Airport",
+                                    "Zephyrhills Municipal",
+                                    "Zephyrhills Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";28.6225044;-80.8353750",
+                            "name": {
+                                "value": "Skydive Space Center",
+                                "synonyms": [
+                                    "Arthur Dunn Air Park",
+                                    "Titusville Florida",
+                                    "X21",
+                                    "Arthur Dunn Airpark"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";28.8110989;-82.0653633",
+                            "name": {
+                                "value": "Florida Skydive",
+                                "synonyms": [
+                                    "Coleman Florida",
+                                    "2FA6",
+                                    "Central Florida Airpark"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";29.0670278;-81.2837500",
+                            "name": {
+                                "value": "Skydive DeLand",
+                                "synonyms": [
+                                    "Sidney Taylor Field",
+                                    "Sidney H Taylor Field",
+                                    "DED",
+                                    "KDED",
+                                    "Deland Florida",
+                                    "DeLand Airport",
+                                    "DeLand Municipal",
+                                    "DeLand Municipal Airport",
+                                    "Skydive DeLand Inc"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";29.0617672;-82.3766194",
+                            "name": {
+                                "value": "Central Florida Skydiving",
+                                "synonyms": [
+                                    "X35",
+                                    "Marion County Airport",
+                                    "Dunnellon Florida",
+                                    "Ex 35 Dunnellon",
+                                    "X35 Dunnellon"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";30.8438856;-85.6017494",
+                            "name": {
+                                "value": "Skydive Panama City",
+                                "synonyms": [
+                                    "1J0",
+                                    "Bonifay Florida",
+                                    "BCR",
+                                    "KBCR",
+                                    "Try County Airport",
+                                    "Tri-County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";30.6118333;-81.4611944",
+                            "name": {
+                                "value": "Skydive Amelia Island",
+                                "synonyms": [
+                                    "KFHB",
+                                    "Fernandina Beach Florida",
+                                    "FHB",
+                                    "Fernandina Beach Municipal",
+                                    "Fernandina Beach Airport",
+                                    "Fernandina Beach Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.6455228;-81.5966117",
+                            "name": {
+                                "value": "Jump Georgia Skydiving",
+                                "synonyms": [
+                                    "Skydive Jump Georgia",
+                                    "Jump Georgia",
+                                    "KJYL",
+                                    "Sylvania Georgia",
+                                    "JYL",
+                                    "Plantation Airpark"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";32.9550026;-84.2640862",
+                            "name": {
+                                "value": " Skydive Atlanta",
+                                "synonyms": [
+                                    "KOPN",
+                                    "Atlanta Georgia",
+                                    "Thomaston Georgia",
+                                    "OPN",
+                                    "Upson County Airport",
+                                    "Thomaston County Airport",
+                                    "Thomaston Upson County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.7825278;-83.6928056",
+                            "name": {
+                                "value": " Skydive Monroe",
+                                "synonyms": [
+                                    "Monroe Georgia",
+                                    "Nunnally Memorial Airport",
+                                    "Cy Nunnally Memorial Airport",
+                                    "D73",
+                                    "Walton County Airport",
+                                    "Monroe Walton County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.0185292;-85.1447589",
+                            "name": {
+                                "value": "Skydive The Farm",
+                                "synonyms": [
+                                    "Polk County Airport",
+                                    "Cedartown Georgia",
+                                    "4A4",
+                                    "Cornelius Moore Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.4945867;-82.7093814",
+                            "name": {
+                                "value": "Flying Tigers SPC",
+                                "synonyms": [
+                                    "AND",
+                                    "KAND",
+                                    "Anderson South Carolina",
+                                    "Anderson Airport",
+                                    "Anderson Regional",
+                                    "Anderson Regional Airport",
+                                    "Flying Tigers"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.6869528;-81.6411667",
+                            "name": {
+                                "value": "Upstate Skydiving",
+                                "synonyms": [
+                                    "35A",
+                                    "Troy Shelton Field",
+                                    "Union South Carolina",
+                                    "Union County Airport",
+                                    "Upstate Skydiving LLC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.7893333;-81.1957778",
+                            "name": {
+                                "value": "Skydive Carolina",
+                                "synonyms": [
+                                    "DCM",
+                                    "KDCM",
+                                    "Chester Catawba Airport",
+                                    "Chester Regional",
+                                    "Chester Catawba Regional",
+                                    "Chester Catawba Regional Airport",
+                                    "Chester South Carolina",
+                                    "Chester Airport",
+                                    "Chester Municipal",
+                                    "Chester Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.0198597;-79.1910039",
+                            "name": {
+                                "value": "Skydive Paraclete XP",
+                                "synonyms": [
+                                    "P K Airpark",
+                                    "Raeford North Carolina",
+                                    "5W4",
+                                    "PK Airpark",
+                                    "XP",
+                                    "Paraclete",
+                                    "Skydive Paraclete",
+                                    "Skydive XP"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.5743003;-81.1173011",
+                            "name": {
+                                "value": "Skydive Central North Carolina",
+                                "synonyms": [
+                                    "N92",
+                                    "Maiden North Carolina",
+                                    "Laneys Airport",
+                                    "Skydive Central North Carolina LLC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.6458833;-80.5202917",
+                            "name": {
+                                "value": "Piedmont Skydiving",
+                                "synonyms": [
+                                    "RUQ",
+                                    "KRUQ",
+                                    "Salisbury North Carolina",
+                                    "Mid Carolina Airport",
+                                    "Mid Carolina Regional",
+                                    "Mid Carolina Regional Airport",
+                                    "Mid-Carolina Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";33.9308156;-78.0733636",
+                            "name": {
+                                "value": "Skydive Coastal Carolinas",
+                                "synonyms": [
+                                    "Howie Franklin Airport",
+                                    "Howie Franklin Field",
+                                    "Howie Franklin Field Airport",
+                                    "Oak Island North Carolina",
+                                    "SUT",
+                                    "KSUT",
+                                    "Southport North Carolina",
+                                    "Cape Fear",
+                                    "Cape Fear Jetport",
+                                    "Cape Fear Regional",
+                                    "Cape Fear Regional Jetport",
+                                    "Skydive Coastal Carolina"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.7337586;-76.6603547",
+                            "name": {
+                                "value": "Crystal Coast Skydiving",
+                                "synonyms": [
+                                    "MRH",
+                                    "KMRH",
+                                    "Michael J Smith",
+                                    "Michael J Smith Airport",
+                                    "Michael J Smith Field Airport",
+                                    "Beaufort North Carolina",
+                                    "Michael J Smith Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.9189828;-75.6955358",
+                            "name": {
+                                "value": "Skydive OBX",
+                                "synonyms": [
+                                    "MQI",
+                                    "KMQI",
+                                    "Manteo North Carolina",
+                                    "Dare County Airport",
+                                    "Dare County Regional",
+                                    "Dare County Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.0851503;-78.3713856",
+                            "name": {
+                                "value": "Skydive Raleigh",
+                                "synonyms": [
+                                    "Raleigh",
+                                    "00NC",
+                                    "Louisburg North Carolina",
+                                    "Franklinton North Carolina",
+                                    "North Raleigh Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.6828884;-76.5996232",
+                            "name": {
+                                "value": "Skydive Suffolk",
+                                "synonyms": [
+                                    "Suffolk Executive",
+                                    "Suffolk Executive Airport",
+                                    "KSFQ",
+                                    "Suffolk Virginia",
+                                    "SFQ",
+                                    "Suffolk Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.9604028;-78.1851111",
+                            "name": {
+                                "value": "No Limits Skydiving Victoria",
+                                "synonyms": [
+                                    "Kenbridge Virginia",
+                                    "Victoria Virginia",
+                                    "W31",
+                                    "Lunenburg County Airport",
+                                    "No Limits Victoria"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.5213611;-76.7627500",
+                            "name": {
+                                "value": "No Limits Skydiving West Point",
+                                "synonyms": [
+                                    "No Limits West Point",
+                                    "Skydive West Point",
+                                    "West Point Virginia",
+                                    "KFYJ",
+                                    "Mattaponi Virginia",
+                                    "FYJ",
+                                    "Middle Penninsula Airport",
+                                    "Middle Penninsula Regional",
+                                    "Middle Penninsula Regional Airport",
+                                    "No Limits Skydive West Point",
+                                    "No Limits Skydive",
+                                    "Skydive West Point",
+                                    "Skydiving West Point",
+                                    "No Limits Skydiving West Point"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.2472028;-78.0456211",
+                            "name": {
+                                "value": "Skydive Orange",
+                                "synonyms": [
+                                    "Orange Virginia",
+                                    "OMH",
+                                    "KOMH",
+                                    "Orange County Airport",
+                                    "Skydive Orange Inc"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.1460278;-80.1677500",
+                            "name": {
+                                "value": "Skydive Pennsylvania",
+                                "synonyms": [
+                                    "Mercer Pennsylvania",
+                                    "29D",
+                                    "Grove City Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.6559847;-78.7084958",
+                            "name": {
+                                "value": "Skydive Shenandoah",
+                                "synonyms": [
+                                    "New Market Virginia",
+                                    "8W2",
+                                    "New Market Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.5862853;-77.7106308",
+                            "name": {
+                                "value": "iSkydive America Washington DC",
+                                "synonyms": [
+                                    "Skydive America DC",
+                                    "iSkydive America DC",
+                                    "I Skydive America DC",
+                                    "Midland Virginia",
+                                    "HWY",
+                                    "KHWY",
+                                    "Warrenton Virginia",
+                                    "Fauquier County Airport",
+                                    "Warrenton County Airport",
+                                    "Warrenton Fauquier Airport",
+                                    "Warrenton Fauquier County Airport",
+                                    "Skydive Washington DC",
+                                    "Skydive America Washington DC",
+                                    "Eye Skydive America Washington DC",
+                                    "I Skydive America Washington DC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.9175122;-78.2533733",
+                            "name": {
+                                "value": "Skydive Front Royal",
+                                "synonyms": [
+                                    "FRR",
+                                    "KFRR",
+                                    "Front Royal Virginia",
+                                    "Front Royal Airport",
+                                    "Front Royal Warren Airport",
+                                    "Front Royal Warren County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.3104792;-75.1240253",
+                            "name": {
+                                "value": "Skydive Ocean City",
+                                "synonyms": [
+                                    "Ocean City Maryland",
+                                    "KOXB",
+                                    "Berlin Maryland",
+                                    "OXB",
+                                    "Ocean City Airport ",
+                                    "Ocean City Municipal Airport",
+                                    "Ocean City Municipal"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";38.9701133;-75.8663244",
+                            "name": {
+                                "value": "Skydive Chesapeake",
+                                "synonyms": [
+                                    "RJD",
+                                    "KRJD",
+                                    "Ridgely Maryland",
+                                    "Gooden Airpark"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.6654542;-74.3080444",
+                            "name": {
+                                "value": "Skydive East Coast",
+                                "synonyms": [
+                                    "West Creek New Jersey",
+                                    "31E",
+                                    "Eagles Nest Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.7054758;-75.0330031",
+                            "name": {
+                                "value": "Skydive Cross Keys",
+                                "synonyms": [
+                                    "Williamstown New Jersey",
+                                    "17N",
+                                    "Cross Keys Airport",
+                                    "Cross Keys"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.0922067;-76.5743553",
+                            "name": {
+                                "value": "Maytown Sport Parachute Club",
+                                "synonyms": [
+                                    "Marietta Pennsylvania",
+                                    "Mount Joy Pennsylvania",
+                                    "N71",
+                                    "Donegal Airport",
+                                    "Donegal Springs Airport",
+                                    "Maytown Parachute Club"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.3891944;-75.2904722",
+                            "name": {
+                                "value": "Skydive Philadelphia",
+                                "synonyms": [
+                                    "Perkasie Pennsylvania",
+                                    "KCKZ",
+                                    "CKZ",
+                                    "Pennridge Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.9867725;-75.9947031",
+                            "name": {
+                                "value": "Above the Poconos Skydivers",
+                                "synonyms": [
+                                    "Hazle Township Pennsylvania",
+                                    "HZL",
+                                    "KHZL",
+                                    "Hazleton Airport",
+                                    "Hazleton Regional",
+                                    "Hazleton Regional Airport",
+                                    "Poconos Skydivers",
+                                    "Pennsylvania Skydive Center",
+                                    "Pennsylvania Skydive Center, Inc",
+                                    "PA Skydive Center"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.9333770;-75.3505521",
+                            "name": {
+                                "value": "Pegasus Skydive Center",
+                                "synonyms": [
+                                    "Saylorsburg Pennsylvania",
+                                    "Stroudsburg Pennsylvania",
+                                    "50PA",
+                                    "Pegasus Air Park"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.5893547;-75.7560806",
+                            "name": {
+                                "value": "Skydive NEPA",
+                                "synonyms": [
+                                    "Factoryville Pennsylvania",
+                                    "Seamans Field",
+                                    "Seamans Field Airport",
+                                    "Seamans Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.2002139;-74.6230353",
+                            "name": {
+                                "value": "Skydive Sussex",
+                                "synonyms": [
+                                    "Sussex New Jersey",
+                                    "FWN",
+                                    "KFWN",
+                                    "Sussex Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.1283889;-74.3465278",
+                            "name": {
+                                "value": "iSkydive America New York City",
+                                "synonyms": [
+                                    "West Milford New Jersey",
+                                    "4N1",
+                                    "Greenwood Lake Airport",
+                                    "I Skydive America New York",
+                                    "Eye Skydive America New York City",
+                                    "I Skydive America New York City"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.8219542;-72.8669072",
+                            "name": {
+                                "value": "Long Island Skydiving Center",
+                                "synonyms": [
+                                    "KHWV",
+                                    "Shirley New York",
+                                    "HWV",
+                                    "Brook Haven Airport",
+                                    "Brookhaven Airport",
+                                    "Long Island Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.9254167;-72.4571111",
+                            "name": {
+                                "value": "UConn Skydiving Club",
+                                "synonyms": [
+                                    "7B9",
+                                    "UConn Skydiving",
+                                    "You Con Skydiving",
+                                    "Storrs Connecticut",
+                                    "You Con Skydiving Club",
+                                    "Ellington Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.8197500;-71.9009722",
+                            "name": {
+                                "value": "Skydive Danielson",
+                                "synonyms": [
+                                    "Danielson Connecticut",
+                                    "KLZD",
+                                    "LZD",
+                                    "Danielson Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.5324398;-71.2815439",
+                            "name": {
+                                "value": "Skydive Newport",
+                                "synonyms": [
+                                    "UUU",
+                                    "Middletown Rhode Island",
+                                    "Newport Airport",
+                                    "Newport State Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.9207500;-71.4914167",
+                            "name": {
+                                "value": "Boston Skydive Center",
+                                "synonyms": [
+                                    "Pawtucket Rhode Island",
+                                    "Smithfield Rhode Island",
+                                    "SFZ",
+                                    "KSFZ",
+                                    "North Central State Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.5699975;-72.2884978",
+                            "name": {
+                                "value": "Jumptown",
+                                "synonyms": [
+                                    "KORE",
+                                    "ORE",
+                                    "Orange Massachusetts",
+                                    "Orange Airport",
+                                    "Orange Municipal",
+                                    "Orange Municipal Airport",
+                                    "MSPC, Inc.",
+                                    "MSPC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.6961944;-71.5500556",
+                            "name": {
+                                "value": "Pepperell Skydiving Center",
+                                "synonyms": [
+                                    "Pepperell Skydiving",
+                                    "Pepperell Massachusetts",
+                                    "26MA",
+                                    "Pepperell Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.6667600;-74.1495897",
+                            "name": {
+                                "value": "Skydive The Ranch",
+                                "synonyms": [
+                                    "5NY5",
+                                    "Gardiner New York",
+                                    "Gardiner Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.5665556;-75.5241111",
+                            "name": {
+                                "value": "Just Jump Skydiving",
+                                "synonyms": [
+                                    "OIC",
+                                    "KOIC",
+                                    "Norwich New York",
+                                    "Warren Eaton Airport",
+                                    "Lt. Warren Eaton Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.6547928;-76.7963428",
+                            "name": {
+                                "value": "Skydive Seneca Lake",
+                                "synonyms": [
+                                    "Skydive Seneca",
+                                    "D82",
+                                    "Ovid New York",
+                                    "Ovid Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.7413486;-78.0521481",
+                            "name": {
+                                "value": "Rochester Skydivers",
+                                "synonyms": [
+                                    "Perry New York",
+                                    "01G",
+                                    "Perry Warsaw Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.2593056;-78.9656111",
+                            "name": {
+                                "value": "Skydive The Falls",
+                                "synonyms": [
+                                    "63NY\t",
+                                    "Windsor Airport",
+                                    "Youngstown New York",
+                                    "Shear Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.1735308;-78.2746325",
+                            "name": {
+                                "value": "WNY Skydiving",
+                                "synonyms": [
+                                    "Albion New York",
+                                    "9G6",
+                                    "Pine Hill Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.0806174;-76.5382111",
+                            "name": {
+                                "value": "Skydive Central New York",
+                                "synonyms": [
+                                    "Weedsport New York",
+                                    "B16",
+                                    "Whitfords Airport",
+                                    "Central New York Skydivers",
+                                    "Skydive Central New York LLC"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.1834072;-73.6331722",
+                            "name": {
+                                "value": "Skydive Saratoga",
+                                "synonyms": [
+                                    "K30",
+                                    "Heber Airpark",
+                                    "Heber Air Park",
+                                    "Gansevoort New York",
+                                    "Heber Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.0686667;-73.3734444",
+                            "name": {
+                                "value": "Vermont Skydiving Adventures",
+                                "synonyms": [
+                                    "VT11",
+                                    "Addison Vermont",
+                                    "Pirin Acres",
+                                    "Ass Pirin Acres",
+                                    "Vermont Skydiving",
+                                    "Vermont Skydiving Adventures Inc"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.9402778;-73.0974722",
+                            "name": {
+                                "value": "Malone Parachute Club",
+                                "synonyms": [
+                                    "KFSO",
+                                    "Highgate Vermont",
+                                    "Franklin County State Airport",
+                                    "FSO",
+                                    "Swanton Vermont",
+                                    "Franklin County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.3750814;-70.9292286",
+                            "name": {
+                                "value": "Skydive New England",
+                                "synonyms": [
+                                    "West Lebanon Maine",
+                                    "Lebanon Maine",
+                                    "ME64",
+                                    "New England Airport",
+                                    "Skydive New England Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.4641111;-70.4723889",
+                            "name": {
+                                "value": " Skydive Coastal Maine",
+                                "synonyms": [
+                                    "B19",
+                                    "Biddeford Maine",
+                                    "Biddeford Airport",
+                                    "Biddeford Municipal",
+                                    "Biddeford Municipal Airport",
+                                    "Skydive Coastal"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.5332500;-69.6755278",
+                            "name": {
+                                "value": "Vacationland Jumps",
+                                "synonyms": [
+                                    "WVL",
+                                    "KWVL",
+                                    "Waterville Maine",
+                                    "Waterville Airport",
+                                    "Waterville Regional",
+                                    "Waterville Regional Airport",
+                                    "Vacation Land",
+                                    "Vacation Land Jumps"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "West Virginia Skydivers",
+                                "synonyms": [
+                                    "Huntington West Virginia",
+                                    "I41",
+                                    "Robert Newlon Airport",
+                                    "Robert Newlon Field",
+                                    "Robert Newlon Field Airport",
+                                    "Skydive West Virginia",
+                                    "West Virginia Skydivers Inc"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.9006164;-80.5553478",
+                            "name": {
+                                "value": "Alliance Sport Parachute Club",
+                                "synonyms": [
+                                    "Petersburg Ohio",
+                                    "OH29",
+                                    "Petersburg Airport",
+                                    "Skydive Ricks Parachute Club",
+                                    "Skydive Rick",
+                                    "Skydive Ricks",
+                                    "Alliance Sport Club",
+                                    "Alliance Parachute Club"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.9699708;-81.0986670",
+                            "name": {
+                                "value": "Canton Air Sports",
+                                "synonyms": [
+                                    "2D1",
+                                    "Lee Field",
+                                    "Lee Field Airport",
+                                    "Alliance Ohio",
+                                    "Lee Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.3511658;-81.0995414",
+                            "name": {
+                                "value": "Cleveland Skydiving Center",
+                                "synonyms": [
+                                    "Skydive Cleveland",
+                                    "Garrettsville Ohio",
+                                    "7D8",
+                                    "Gates Airport",
+                                    "Cleveland Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.9029722;-82.2556389",
+                            "name": {
+                                "value": "Aerohio Skydiving Center",
+                                "synonyms": [
+                                    "3G4",
+                                    "Ashland Ohio",
+                                    "Ashland Airport",
+                                    "Ashland County Airport",
+                                    "Air Ohio Skydiving Center"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.5053378;-84.1218792",
+                            "name": {
+                                "value": "Skydive Cincinnati",
+                                "synonyms": [
+                                    "Waynesville Ohio",
+                                    "40I",
+                                    "Red Stewart Air Field",
+                                    "Red Stewart Field",
+                                    "Red Stewart Airfield"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.5317500;-84.3964444",
+                            "name": {
+                                "value": "Start Skydiving",
+                                "synonyms": [
+                                    "Middletown Ohio",
+                                    "Hook Field",
+                                    "KMWO",
+                                    "MWO",
+                                    "Middletown Airport",
+                                    "Middletown Regional",
+                                    "Middletown Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.6860000;-85.9250278",
+                            "name": {
+                                "value": "Skydive Kentucky",
+                                "synonyms": [
+                                    "Addington Airport",
+                                    "Addington Field Airport",
+                                    "KEKX",
+                                    "Elizabethtown Kentucky",
+                                    "EKX",
+                                    "Addington Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.4506319;-87.3069900",
+                            "name": {
+                                "value": "Blue Skies Skydiving Club",
+                                "synonyms": [
+                                    "HUF",
+                                    "KHUF",
+                                    "Terre Haute Airport",
+                                    "Terre Haute Regional",
+                                    "Terre Haute Regional Airport",
+                                    "Blue Skies Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";40.2734308;-86.5621703",
+                            "name": {
+                                "value": "Skydive Indianapolis",
+                                "synonyms": [
+                                    "Frankfort Indiana",
+                                    "Frankfort Airport",
+                                    "Frankfort Municipal",
+                                    "Frankfort Clinton Regional Airport",
+                                    "Frankfort Clinton Regional",
+                                    "Frankfort Clinton County Regional",
+                                    "Frankfort Clinton County Regional Airport",
+                                    "KFKR",
+                                    "FKR",
+                                    "Frankfort Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";42.1710038;-84.2593087",
+                            "name": {
+                                "value": "Skydive Tecumseh",
+                                "synonyms": [
+                                    "Napoleon Michigan",
+                                    "Jackson Michigan",
+                                    "3NP",
+                                    "Napoleon Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Midwest Freefall Sport Parachute Club"
+                            }
+                        },
+                        {
+                            "id": ";42.7180582;-84.0606803",
+                            "name": {
+                                "value": "Skydive Detroit",
+                                "synonyms": [
+                                    "65G",
+                                    "Maple Grove",
+                                    "Maple Grove Airport",
+                                    "iSkydive Detroit",
+                                    "I Skydive Detroit",
+                                    "Skydive America Detroit",
+                                    "I Skydive America Detroit",
+                                    "iSkydive America Detroit"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";43.0340556;-86.1981667",
+                            "name": {
+                                "value": "Skydive Grand Haven",
+                                "synonyms": [
+                                    "Grand Haven Michigan",
+                                    "3GM",
+                                    "Haven Memorial Airpark",
+                                    "Grand Haven Memorial",
+                                    "Grand Haven Airpark",
+                                    "Grand Haven Memorial Airpark"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";44.7415786;-85.5818700",
+                            "name": {
+                                "value": "Skydive TC",
+                                "synonyms": [
+                                    "TVC",
+                                    "KTVC",
+                                    "Traverse City Michigan",
+                                    "Cherry Airport",
+                                    "Cherry Capital Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";45.3048611;-85.2753056",
+                            "name": {
+                                "value": "Skydive Charlevoix",
+                                "synonyms": [
+                                    "CVX",
+                                    "KCVX",
+                                    "Charlevoix Michigan",
+                                    "Charlevoix Airport",
+                                    "Charlevoix Municipal",
+                                    "Charlevoix Municipal Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";34.2687025;-86.8580353",
+                            "name": {
+                                "value": "Skydive Alabama",
+                                "synonyms": [
+                                    "KCMD",
+                                    "CMD",
+                                    "Folsom Field",
+                                    "Cullman Airport",
+                                    "Cullman Regional",
+                                    "Cullman Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.1957222;-82.8113611",
+                            "name": {
+                                "value": "Jump Tennessee",
+                                "synonyms": [
+                                    "KGCY",
+                                    "GCY",
+                                    "Greeneville Tennessee",
+                                    "Greeneville Airport ",
+                                    "Greeneville Municipal",
+                                    "Greeneville Municipal Airport",
+                                    "Jump TN"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.0150011;-83.5474850",
+                            "name": {
+                                "value": "Skydive East Tennessee",
+                                "synonyms": [
+                                    "Dandridge Tennessee",
+                                    "86TN",
+                                    "New Market Tennessee",
+                                    "Dumplin Airport",
+                                    "Dumplin Field",
+                                    "Dumplin Field Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.0606667;-85.5853056",
+                            "name": {
+                                "value": "Chattanooga Skydiving Company",
+                                "synonyms": [
+                                    "KAPT",
+                                    "APT",
+                                    "Jasper Tennessee",
+                                    "Brown Field Airport",
+                                    "Mariot Airport",
+                                    "Brown Field",
+                                    "Marion County Field",
+                                    "Marion County Airport",
+                                    "Skydive Chattanooga",
+                                    "Chattanooga Skydiving"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.3801253;-86.2467783",
+                            "name": {
+                                "value": "Skydive Tennessee",
+                                "synonyms": [
+                                    "KTHA",
+                                    "THA",
+                                    "Tullahoma Tennessee",
+                                    "Tullahoma Airport",
+                                    "Tullahoma Regional",
+                                    "Tullahoma Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";35.2216500;-89.1901778",
+                            "name": {
+                                "value": "West Tennessee Skydiving",
+                                "synonyms": [
+                                    "Hickory Valley Tennessee",
+                                    "Wings Field Airport",
+                                    "Whiteville Tennessee",
+                                    "Skydive West Tennessee",
+                                    "2TN2",
+                                    "Wings Field"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";36.1166111;-87.7381667",
+                            "name": {
+                                "value": "Music City Skydiving",
+                                "synonyms": [
+                                    "Waverly Tennessee",
+                                    "0M5",
+                                    "Humphreys Airport",
+                                    "Humphreys County Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";37.0641389;-89.2195278",
+                            "name": {
+                                "value": "SEMO Skydiving",
+                                "synonyms": [
+                                    "KCIR",
+                                    "CIR",
+                                    "Cairo Missouri",
+                                    "Cairo Airport",
+                                    "Cairo Regional",
+                                    "Cairo Regional Airport"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";39.5325855;-89.3307069",
+                            "name": {
+                                "value": "Mid America Sport Parachute Club",
+                                "synonyms": [
+                                    "Taylorville Illinois",
+                                    "KTAZ",
+                                    "TAZ",
+                                    "Taylorville Airport",
+                                    "Taylorville Municipal",
+                                    "Taylorville Municipal Airport",
+                                    "Mid America Sport Club",
+                                    "Mid America Parachute Club"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.3997778;-88.7939167",
+                            "name": {
+                                "value": "Skydive Chicago",
+                                "synonyms": [
+                                    "Ottawa Illinois",
+                                    "8N2\t",
+                                    "Skydive Chicago Airport",
+                                    "Skydive Chicago Inc"
+                                ]
+                            }
+                        },
+                        {
+                            "id": ";41.8926389;-89.0796111",
+                            "name": {
+                                "value": "Chicagoland Skydiving Center",
+                                "synonyms": [
+                                    "Rochelle Municipal",
+                                    "Rochelle Municipal Airport",
+                                    "Chicagoland",
+                                    "Rochelle Illinois",
+                                    "KRPJ",
+                                    "RPJ",
+                                    "Koritz Field"
+                                ]
+                            }
+                        },
                         {
                             "id": ";42.7032500;-87.9589722",
                             "name": {
@@ -1147,6 +2455,7 @@
                             "name": {
                                 "value": "Skydive Toledo",
                                 "synonyms": [
+                                    "TDO",
                                     "Ed Carlson Memorial Field",
                                     "South Lewis County Airport",
                                     "KTDO",
@@ -1159,6 +2468,7 @@
                             "name": {
                                 "value": "Skydive Kapowsin",
                                 "synonyms": [
+                                    "SHN",
                                     "KSHN",
                                     "Port of Shelton",
                                     "Sanderson Field",
