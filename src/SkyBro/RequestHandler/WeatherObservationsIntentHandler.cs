@@ -117,8 +117,9 @@ public class WeatherObservationsIntentHandler : ISkillRequestHandler
                 responseText.Append($"{cloud.Text}");
                 if (cloud.Feet != null)
                 {
-                    responseText.Append($" at {cloud.Feet} feet. ");
+                    responseText.Append($" at {cloud.Feet} feet");
                 }
+                responseText.Append(". ");
             }
         }
 

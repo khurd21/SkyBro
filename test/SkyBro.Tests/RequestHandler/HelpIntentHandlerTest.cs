@@ -98,9 +98,11 @@ public class HelpIntentHandlerTest
         var outputSpeech = response.Response.OutputSpeech as PlainTextOutputSpeech;
         Assert.NotNull(outputSpeech);
         Assert.Equal(
-            "Sky Bro provides weather observations for USPA affiliated drop zones across the United States. " +
-            "For example, ask me for weather at Skydive Kapowsin.",
-            outputSpeech.Text);
+                expected: @"<speak>
+                Sky Bro provides weather observations for <say-as interpret-as=""characters"">USPA</say-as> affiliated drop zones across the United States.
+                For example, ask me for weather at Skydive Kapowsin.
+            </speak>",
+            actual: outputSpeech.Text);
         var reprompt = response.Response.Reprompt.OutputSpeech as PlainTextOutputSpeech;
         Assert.NotNull(reprompt);
         Assert.Equal("Ask for weather at a drop zone of your choice.", reprompt.Text);
