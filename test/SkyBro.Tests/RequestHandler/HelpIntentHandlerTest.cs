@@ -95,14 +95,14 @@ public class HelpIntentHandlerTest
         var response = HandlerUnderTest.Handle(skillRequest);
 
         // Assert
-        var outputSpeech = response.Response.OutputSpeech as PlainTextOutputSpeech;
+        var outputSpeech = response.Response.OutputSpeech as SsmlOutputSpeech;
         Assert.NotNull(outputSpeech);
         Assert.Equal(
                 expected: @"<speak>
                 Sky Bro provides weather observations for <say-as interpret-as=""characters"">USPA</say-as> affiliated drop zones across the United States.
                 For example, ask me for weather at Skydive Kapowsin.
             </speak>",
-            actual: outputSpeech.Text);
+            actual: outputSpeech.Ssml);
         var reprompt = response.Response.Reprompt.OutputSpeech as PlainTextOutputSpeech;
         Assert.NotNull(reprompt);
         Assert.Equal("Ask for weather at a drop zone of your choice.", reprompt.Text);

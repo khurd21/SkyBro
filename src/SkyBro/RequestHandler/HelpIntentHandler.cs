@@ -20,11 +20,11 @@ public class HelpIntentHandler : ISkillRequestHandler
 
     public SkillResponse Handle(SkillRequest request)
     {
-        return ResponseBuilder.Ask(
+        return ResponseBuilder.Ask(new SsmlOutputSpeech(
             @"<speak>
                 Sky Bro provides weather observations for <say-as interpret-as=""characters"">USPA</say-as> affiliated drop zones across the United States.
                 For example, ask me for weather at Skydive Kapowsin.
-            </speak>",
+            </speak>"),
             new Reprompt("Ask for weather at a drop zone of your choice.")
         );
     }
