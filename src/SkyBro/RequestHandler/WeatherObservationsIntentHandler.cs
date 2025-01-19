@@ -91,7 +91,7 @@ public class WeatherObservationsIntentHandler : ISkillRequestHandler
 
         if (!string.IsNullOrEmpty(stationData.FlightCategory))
         {
-            responseText.Append($"Flight category: {string.Join(".", stationData.FlightCategory.ToCharArray())}. ");
+            responseText.Append($"Flight category: {string.Join(".", stationData.FlightCategory.ToCharArray())}.. ");
         }
 
         if (stationData.Visibility != null)
