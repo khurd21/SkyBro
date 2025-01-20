@@ -16,10 +16,10 @@ Sky Bro is a weather observations Skill for Alexa. It is targeted for skydivers,
 # How to Use SkyBro
 
 When the skill is enabled on your Alexa account, ask weather questions such as:
-- *__Alexa, ask Sky Bro for weather at Sanderson Field__*
-- *__Alexa, ask Sky Bro for sky conditions at Skydive Chelan__*
-- *__Alexa, open Sky Bro__*
-    - *__Sky conditions for Skydive Kapowsin__*
+- *__Alexa, ask Sky Conditions for weather at Sanderson Field__*
+- *__Alexa, ask Sky Conditions for sky conditions at Skydive Chelan__*
+- *__Alexa, open Sky Conditions__*
+    - *__Sky conditions for Skydive Conditions__*
     - *__What is the weather at KSHN?__*
     - *__Sky conditions at XP.__*
 
@@ -34,9 +34,7 @@ SkyBro will give an overview of the weather conditions including:
 
 # Want to Use SkyBro?
 
-SkyBro is currently in the Beta stage of development. It is a working Alexa Skill but still needs to be thoroughly tested before
-deployment! If you want to be on the Beta list to use the Skill, feel free to contact me. Contact information can be found on my
-[GitHub profile](https://github.com/khurd21).
+SkyBro is currently deployed on the Alexa Skills store. You may install it there.
 
 # Tools Used
 

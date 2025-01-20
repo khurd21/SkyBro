@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "sky bro",
+            "invocationName": "sky conditions",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -2438,7 +2438,7 @@
                             }
                         },
                         {
-                            "id": ";47.90486,-122.10274",
+                            "id": ";47.90486;-122.10274",
                             "name": {
                                 "value": "Skydive Snohomish",
                                 "synonyms": [
@@ -2468,6 +2468,10 @@
                             "name": {
                                 "value": "Skydive Kapowsin",
                                 "synonyms": [
+                                    "Kapowski",
+                                    "Skydive Kapowski",
+                                    "Kapow",
+                                    "Skydive Kapow",
                                     "SHN",
                                     "KSHN",
                                     "Port of Shelton",
