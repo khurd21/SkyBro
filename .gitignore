@@ -416,3 +416,5 @@ secrets.json
 
 # VSCode
 .vscode
+
+.DS_Store
