@@ -68,10 +68,10 @@
             },
             "raw_text": "KSHN 010519Z AUTO 00000KT 3/4SM BR VV002 01/M01 A3024 RMK AO2 T00061006",
             "visibility": {
-                "miles": "3/4",
-                "miles_float": 0.75,
-                "meters": "1,200",
-                "meters_float": 1200.0
+                "miles_text": "3/4",
+                "miles": 0.75,
+                "meters_text": "1,200",
+                "meters": 1200.0
             }
         }
     ]

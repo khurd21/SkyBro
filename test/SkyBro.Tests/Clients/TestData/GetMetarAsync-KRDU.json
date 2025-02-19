@@ -54,10 +54,10 @@
             },
             "raw_text": "KRDU 252351Z 05005KT 10SM BKN250 07/01 A3033 RMK AO2 SLP275 T00670011 10122 20061 53010",
             "visibility": {
-                "miles": "Greater than 10",
-                "miles_float": 10.0,
-                "meters": "16,100",
-                "meters_float": 16100.0
+                "miles_text": "Greater than 10",
+                "miles": 10.0,
+                "meters_text": "16,100",
+                "meters": 16100.0
             },
             "wind": {
                 "degrees": 50,

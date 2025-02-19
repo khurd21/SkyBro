@@ -7,24 +7,24 @@ public class Visibility
     /// <summary>
     /// Visibility in miles (String to support values like "1/2 mile").
     /// </summary>
-    [JsonPropertyName("miles")]
+    [JsonPropertyName("miles_text")]
     public required string Miles { get; init; }
 
     /// <summary>
     /// Visibility in miles.
     /// </summary>
-    [JsonPropertyName("miles_float")]
+    [JsonPropertyName("miles")]
     public required float MilesFloat { get; init; }
 
     /// <summary>
     /// Visibility in meters (String to support values like "> 9000").
     /// </summary>
-    [JsonPropertyName("meters")]
+    [JsonPropertyName("meters_text")]
     public required string Meters { get; init; }
 
     /// <summary>
     /// Visibility in meters.
     /// </summary>
-    [JsonPropertyName("meters_float")]
+    [JsonPropertyName("meters")]
     public required float MetersFloat { get; init; }
 }
