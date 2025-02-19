@@ -46,10 +46,10 @@
             },
             "raw_text": "KAVL 252254Z 17007KT 10SM CLR 08/02 A3024 RMK AO2 SLP245 T00830017",
             "visibility": {
-                "miles": "Greater than 10",
-                "miles_float": 10.0,
-                "meters": "16,100",
-                "meters_float": 16100.0
+                "miles_text": "Greater than 10",
+                "miles": 10.0,
+                "meters_text": "16,100",
+                "meters": 16100.0
             },
             "wind": {
                 "degrees": 170,
@@ -120,10 +120,10 @@
             },
             "raw_text": "KJFK 252251Z 36006KT 10SM FEW036 BKN250 01/M07 A3040 RMK AO2 SLP293 T00061067",
             "visibility": {
-                "miles": "Greater than 10",
-                "miles_float": 10.0,
-                "meters": "16,100",
-                "meters_float": 16100.0
+                "miles_text": "Greater than 10",
+                "miles": 10.0,
+                "meters_text": "16,100",
+                "meters": 16100.0
             },
             "wind": {
                 "degrees": 360,

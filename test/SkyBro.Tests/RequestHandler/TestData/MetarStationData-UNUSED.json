@@ -81,10 +81,10 @@
     },
     "raw_text": "KRDU 011851Z 22010KT 10SM FEW050 BKN110 BKN200 11/M05 A3012 RMK AO2 SLP202 T01061050",
     "visibility": {
-        "miles": "Greater than 10",
-        "miles_float": 10.0,
-        "meters": "16,100",
-        "meters_float": 16100.0
+        "miles_text": "Greater than 10",
+        "miles": 10.0,
+        "meters_text": "16,100",
+        "meters": 16100.0
     },
     "wind": {
         "degrees": 220,

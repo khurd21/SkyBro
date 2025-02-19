@@ -76,10 +76,10 @@
             },
             "raw_text": "KSHN 252353Z AUTO 01006KT 2SM -RA BR BKN008 OVC013 03/03 A2970 RMK AO2 CIG 007V011 SLP062 P0007 60072 T00330028 10061 20033 58027",
             "visibility": {
-                "miles": "2",
-                "miles_float": 2.0,
-                "meters": "3,200",
-                "meters_float": 3200.0
+                "miles_text": "2",
+                "miles": 2.0,
+                "meters_text": "3,200",
+                "meters": 3200.0
             },
             "wind": {
                 "degrees": 10,
